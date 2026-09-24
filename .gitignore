@@ -1,0 +1,49 @@
+# internal planning (not part of delivery)
+_internal_project_docs/
+
+# dependencies
+/node_modules/
+/.pnp/
+.pnp.*
+
+# testing and build output
+/coverage/
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+/.next/
+/.next-e2e/
+/.next-e2e-root/
+/.next-e2e-base/
+/.next-production/
+/out/
+/build/
+/release/
+
+# local and environment files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.pem
+.env*
+!.env.example
+!.env.production.example
+
+# logs and caches
+*.log
+/.cache/
+/.eslintcache
+/.stylelintcache
+/.turbo/
+
+# editor metadata and temporary files
+/.idea/
+*.swp
+*.swo
+*~
+
+# tooling-generated files
+/.vercel/
+*.tsbuildinfo
+next-env.d.ts

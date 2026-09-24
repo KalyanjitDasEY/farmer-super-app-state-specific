@@ -24,9 +24,10 @@ npm run dev
 
 Open `http://localhost:3001`. URLs do not contain locale segments; the selected Hindi or English language is stored in a cookie.
 
-The authenticated farmer dashboard includes dedicated Weather, Advisories,
-Krishi Input Marketplace, NutriCheck, Crop Doctor, Leaf Colour Check, and Pest
-& Disease service modules. Each module includes its related detail flows and
+The authenticated farmer dashboard includes dedicated Mandi Bhav, Weather,
+Advisories, Krishi Input Marketplace, NutriCheck, Crop Doctor, Leaf Colour
+Check, Pest & Disease, Pashu Bazaar, My Farms, Farm Machinery, and Agri
+Startups service modules. Each module includes its related detail flows and
 remains available under the configured base path.
 
 ## Testing and validation

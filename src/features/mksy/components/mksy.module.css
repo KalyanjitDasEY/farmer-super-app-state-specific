@@ -1,0 +1,1248 @@
+.page {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  color: #10152c;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.breadcrumbs {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  color: #48506b;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs strong {
+  overflow: hidden;
+  color: var(--color-green-800);
+  text-overflow: ellipsis;
+}
+
+.backLink,
+.outlineButton,
+.secondaryButton,
+.primaryButton {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-green-700);
+  border-radius: 0.5rem;
+  color: var(--color-green-900);
+  background: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.schemeHeading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.schemeHeading h1 {
+  margin: 0;
+  color: #10152c;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+}
+
+.schemeHeading p {
+  margin: 0.3rem 0 0;
+  color: #38405e;
+  font-size: 0.92rem;
+}
+
+.schemeLogo {
+  display: grid;
+  width: 6rem;
+  min-width: 6rem;
+  height: 6rem;
+  place-items: center;
+  color: var(--color-green-800);
+  background: radial-gradient(circle, #fff 40%, #edf8ed 41%);
+  border-radius: 50%;
+}
+
+.schemeLogo strong {
+  margin-bottom: -1rem;
+  color: var(--color-green-800);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.schemeLogo span {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.schemeLogo span svg:last-child {
+  position: absolute;
+  top: 0.35rem;
+  color: #65a30d;
+}
+
+.claimProgress {
+  display: grid;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+}
+
+.claimProgress li {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+  color: #4d536e;
+  font-size: 0.72rem;
+  text-align: center;
+  place-items: center;
+}
+
+.claimProgress li::after {
+  position: absolute;
+  z-index: 0;
+  top: 1.05rem;
+  left: 57%;
+  width: 86%;
+  height: 2px;
+  background: #c9ccd6;
+  content: "";
+}
+
+.claimProgress li:last-child::after {
+  display: none;
+}
+
+.claimProgress li > span {
+  z-index: 1;
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: #858895;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.claimProgress strong {
+  margin-top: 0.2rem;
+}
+
+.claimProgress small {
+  font-size: 0.68rem;
+}
+
+.claimProgress .activeStep,
+.claimProgress .completeStep {
+  color: var(--color-green-900);
+}
+
+.claimProgress .activeStep > span,
+.claimProgress .completeStep > span {
+  background: var(--color-green-800);
+}
+
+.claimProgress .completeStep::after {
+  background: var(--color-green-700);
+}
+
+.notice {
+  display: flex;
+  min-height: 2.8rem;
+  padding: 0.7rem 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #d6e5d5;
+  border-radius: 0.55rem;
+  color: #155e2c;
+  background: #f3f9f2;
+  font-size: 0.79rem;
+}
+
+.notice svg {
+  flex: 0 0 auto;
+}
+
+.notice.blue {
+  border-color: #cee0f8;
+  color: #1459c3;
+  background: #f2f7ff;
+}
+
+.notice.amber {
+  border-color: #f5d8a6;
+  color: #9a4a0b;
+  background: #fff8eb;
+}
+
+.claimLayout {
+  display: grid;
+  min-width: 0;
+  align-items: start;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+}
+
+.claimCard,
+.sideCard,
+.contentCard,
+.overviewCard,
+.statusCard {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid #dfe3dc;
+  border-radius: 0.65rem;
+  background: white;
+}
+
+.claimCard > h2 {
+  margin: 0;
+  color: var(--color-green-900);
+  font-size: 1.3rem;
+}
+
+.stepLabel {
+  margin: 0 0 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.cardIntro {
+  margin: 0.3rem 0 1rem;
+  color: #424a65;
+  font-size: 0.8rem;
+}
+
+.sidebar {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.sideCard h2 {
+  display: flex;
+  margin: 0 0 0.9rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #151a33;
+  font-size: 0.9rem;
+}
+
+.sideCard p,
+.bulletList {
+  color: #333b56;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.summaryList {
+  display: grid;
+  margin: 0 0 1rem;
+  gap: 0.8rem;
+}
+
+.summaryList div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.summaryList dt {
+  color: #586078;
+  font-size: 0.68rem;
+}
+
+.summaryList dd {
+  margin: 0;
+  color: #11162e;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.sideCard .outlineButton {
+  width: 100%;
+}
+
+.sideProgress {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.sideProgress li {
+  display: flex;
+  padding: 0.45rem;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 0.45rem;
+}
+
+.sideProgress li > span {
+  display: grid;
+  width: 1.45rem;
+  height: 1.45rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #d4d7de;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+
+.sideProgress li:has(svg) > span {
+  border-color: var(--color-green-800);
+  color: white;
+  background: var(--color-green-800);
+}
+
+.sideProgress .sideActive {
+  color: var(--color-green-900);
+  background: #f1f7ef;
+}
+
+.sideProgress .sideActive > span {
+  color: white;
+  background: var(--color-green-800);
+}
+
+.sideProgress strong,
+.sideProgress small {
+  display: block;
+  font-size: 0.72rem;
+}
+
+.sideProgress small {
+  margin-top: 0.1rem;
+  color: #61677b;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.helpCard {
+  background: #fbfcff;
+}
+
+.formSection {
+  margin-top: 1.15rem;
+}
+
+.formSection h3 {
+  margin: 0 0 0.65rem;
+  color: var(--color-green-800);
+  font-size: 0.92rem;
+}
+
+.formSection > p {
+  color: #39415b;
+  font-size: 0.75rem;
+}
+
+.formGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.formGrid label {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  color: #1e243a;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.formGrid label > span b {
+  color: #dc2626;
+}
+
+.formGrid input,
+.formGrid select,
+.formGrid textarea,
+.otpPanel input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.7rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #cfd4dc;
+  border-radius: 0.4rem;
+  outline: none;
+  color: #151a33;
+  background: white;
+  font: inherit;
+}
+
+.formGrid input:focus,
+.formGrid select:focus,
+.formGrid textarea:focus {
+  border-color: var(--color-green-700);
+  box-shadow: 0 0 0 3px rgb(22 117 45 / 10%);
+}
+
+.formGrid textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+}
+
+.wideField {
+  grid-column: 1 / -1;
+}
+
+.inlineField {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr auto;
+}
+
+.inlineField button,
+.documentTable button {
+  display: inline-flex;
+  padding: 0.55rem 0.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--color-green-700);
+  border-radius: 0.4rem;
+  color: var(--color-green-900);
+  background: white;
+  cursor: pointer;
+}
+
+.successLine {
+  display: flex;
+  min-height: 2.3rem;
+  margin: 0.55rem 0 0;
+  padding: 0.45rem 0.7rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.35rem;
+  color: var(--color-green-900);
+  background: #f0f7ee;
+  font-size: 0.72rem;
+}
+
+.selectionTable,
+.documentTable {
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  border: 1px solid #dfe3df;
+  border-radius: 0.5rem;
+}
+
+.tableHead,
+.selectionTable > button {
+  display: grid;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.6rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  border-bottom: 1px solid #e2e5e1;
+  color: #1d233a;
+  background: white;
+  grid-template-columns: 1.35fr 1.4fr 0.85fr 0.65fr;
+  text-align: left;
+}
+
+.tableHead {
+  min-height: 2.4rem;
+  background: #f5f7f4;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.selectionTable > button {
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.selectionTable > button:last-child {
+  border-bottom: 0;
+}
+
+.selectionTable > button em {
+  display: inline-flex;
+  min-height: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9ded8;
+  border-radius: 1rem;
+  color: var(--color-green-900);
+  font-style: normal;
+}
+
+.selectionTable .selectedRow {
+  background: #f3f9f1;
+}
+
+.selectionTable .selectedRow em {
+  border-color: transparent;
+  background: #dfeeda;
+  font-weight: 800;
+}
+
+.mapGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.mapPicker {
+  display: grid;
+  min-height: 8.5rem;
+  place-items: center;
+  align-content: center;
+  border: 1px dashed #b7c9b6;
+  border-radius: 0.5rem;
+  color: var(--color-green-900);
+  background:
+    radial-gradient(circle at 20% 25%, rgb(45 138 68 / 8%), transparent 25%),
+    #f7faf5;
+  text-align: center;
+}
+
+.mapPicker span {
+  font-size: 0.72rem;
+}
+
+.documentHead,
+.documentTable > div {
+  display: grid;
+  min-height: 3.3rem;
+  padding: 0.6rem;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid #e2e5e1;
+  grid-template-columns: 1.45fr 0.8fr 1.1fr 0.75fr 0.65fr;
+  font-size: 0.68rem;
+}
+
+.documentHead {
+  min-height: 2.4rem;
+  background: #f5f7f4;
+  font-weight: 800;
+}
+
+.documentTable > div:last-child {
+  border-bottom: 0;
+}
+
+.documentTable small {
+  display: block;
+  margin-top: 0.15rem;
+  color: #586078;
+}
+
+.documentTable em {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-green-800);
+  font-style: normal;
+}
+
+.uploadZone {
+  display: flex;
+  width: 100%;
+  min-height: 4.6rem;
+  padding: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border: 1px dashed #b8bdcb;
+  border-radius: 0.5rem;
+  color: #303851;
+  background: #fbfcff;
+  cursor: pointer;
+}
+
+.uploadZone strong,
+.uploadZone small {
+  display: block;
+}
+
+.uploadZone small {
+  margin-top: 0.2rem;
+  color: #646b80;
+}
+
+.modeButtons {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modeButtons button {
+  min-height: 2.7rem;
+  border: 1px solid #ccd2d9;
+  border-radius: 0.4rem;
+  background: white;
+}
+
+.modeButtons .selectedMode {
+  border-color: var(--color-green-700);
+  color: var(--color-green-900);
+  background: #f1f8ef;
+  font-weight: 800;
+}
+
+.otpPanel {
+  margin-top: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid #dde2dd;
+  border-radius: 0.5rem;
+  background: #fbfcfa;
+  font-size: 0.72rem;
+}
+
+.otpPanel p {
+  margin: 0.25rem 0 0.6rem;
+}
+
+.otpPanel > div {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.otpPanel input {
+  width: 2.8rem;
+  text-align: center;
+}
+
+.otpPanel > span {
+  display: flex;
+  margin-top: 0.55rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-green-800);
+  font-weight: 800;
+}
+
+.declaration {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: #252c45;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.declaration input {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  accent-color: var(--color-green-800);
+}
+
+.claimActions {
+  display: grid;
+  margin-top: 1rem;
+  gap: 0.75rem;
+  grid-template-columns: auto auto minmax(13rem, 1fr);
+}
+
+.secondaryButton {
+  border-color: #9aa3b5;
+  color: #202740;
+}
+
+.primaryButton {
+  border-color: var(--color-green-800);
+  color: white;
+  background: linear-gradient(90deg, #087224, #078d35);
+}
+
+.disabledActions .primaryButton {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.overviewHero {
+  display: grid;
+  min-height: 13rem;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  background: #edf6ea;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.overviewCopy {
+  display: grid;
+  padding: 1.4rem;
+  align-content: center;
+  gap: 0.7rem;
+}
+
+.overviewCopy h1 {
+  margin: 0;
+  color: #11162d;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+.overviewCopy p {
+  margin: 0;
+  color: #313954;
+  line-height: 1.6;
+}
+
+.schemeBadge {
+  width: max-content;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.35rem;
+  color: var(--color-green-900);
+  background: #e3f1df;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.heroImage {
+  position: relative;
+  min-height: 13rem;
+}
+
+.heroImage img {
+  object-fit: cover;
+}
+
+.factGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.factGrid article {
+  display: flex;
+  min-height: 7rem;
+  padding: 0.9rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid #dce3da;
+  border-radius: 0.65rem;
+  background: white;
+}
+
+.factGrid article > span {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #aed0ae;
+  border-radius: 50%;
+  color: var(--color-green-800);
+}
+
+.factGrid small,
+.factGrid strong {
+  display: block;
+}
+
+.factGrid small {
+  color: #525a70;
+  font-size: 0.66rem;
+}
+
+.factGrid strong {
+  margin: 0.25rem 0;
+  color: #11162d;
+  font-size: 0.82rem;
+}
+
+.factGrid p {
+  margin: 0;
+  color: #303751;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.purposeCard {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #dce6d9;
+  border-radius: 0.65rem;
+  background: linear-gradient(90deg, #f2f8ef, #fff);
+}
+
+.purposeCard > span {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-green-800);
+  background: #e3f2dd;
+}
+
+.purposeCard h2,
+.purposeCard p {
+  margin: 0;
+}
+
+.purposeCard h2 {
+  font-size: 1rem;
+}
+
+.purposeCard p {
+  margin-top: 0.3rem;
+  color: #333b54;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.overviewGrid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.overviewCard h2,
+.contentCard h2,
+.statusCard h2 {
+  display: flex;
+  margin: 0 0 0.7rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: #182038;
+  font-size: 0.9rem;
+}
+
+.checkList,
+.documentList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+.checkList li,
+.documentList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #2f3751;
+  font-size: 0.73rem;
+  line-height: 1.4;
+}
+
+.checkList svg,
+.documentList svg {
+  flex: 0 0 auto;
+  color: var(--color-green-700);
+}
+
+.amountTable {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #dfe3df;
+  border-radius: 0.45rem;
+  border-spacing: 0;
+  font-size: 0.68rem;
+}
+
+.amountTable th,
+.amountTable td {
+  padding: 0.55rem;
+  border-right: 1px solid #e1e4e0;
+  border-bottom: 1px solid #e1e4e0;
+  text-align: left;
+}
+
+.amountTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.amountTable th:last-child,
+.amountTable td:last-child {
+  border-right: 0;
+  font-weight: 800;
+}
+
+.overviewLower {
+  display: grid;
+  align-items: start;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.notesStack {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.importantCard {
+  border-color: #f1d5a1;
+  background: #fffaf0;
+}
+
+.overviewActions {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.overviewActions a {
+  min-height: 3.5rem;
+}
+
+.statusSummary {
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+  border: 1px solid #dce2da;
+  border-radius: 0.65rem;
+  background: white;
+  grid-template-columns: 1.2fr 0.75fr 0.9fr 0.75fr;
+}
+
+.statusSummary div {
+  padding-right: 1rem;
+  border-right: 1px solid #e2e4df;
+}
+
+.statusSummary div:last-child {
+  border-right: 0;
+}
+
+.statusSummary small,
+.statusSummary strong,
+.statusSummary span {
+  display: block;
+}
+
+.statusSummary small {
+  color: #596177;
+  font-size: 0.68rem;
+}
+
+.statusSummary strong {
+  margin: 0.3rem 0 0.65rem;
+  color: #151a33;
+  font-size: 0.85rem;
+}
+
+.statusSummary div:first-child strong {
+  color: var(--color-green-800);
+  font-size: 1rem;
+}
+
+.currentStatus {
+  display: flex;
+  min-height: 5.5rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #d7e4d4;
+  border-radius: 0.65rem;
+  background: #f5faf3;
+}
+
+.currentStatus h2,
+.currentStatus p {
+  margin: 0;
+}
+
+.currentStatus h2 {
+  color: var(--color-green-900);
+  font-size: 1rem;
+}
+
+.currentStatus p,
+.currentStatus span {
+  color: #464d65;
+  font-size: 0.72rem;
+}
+
+.approvalProgress {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+}
+
+.approvalProgress li {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  text-align: center;
+  place-items: center;
+}
+
+.approvalProgress li::after {
+  position: absolute;
+  top: 1.5rem;
+  left: 58%;
+  width: 84%;
+  height: 2px;
+  background: #bcc1cc;
+  content: "";
+}
+
+.approvalProgress li:first-child::after {
+  background: var(--color-green-700);
+}
+
+.approvalProgress li:last-child::after {
+  display: none;
+}
+
+.approvalProgress span {
+  z-index: 1;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid #bfc6d1;
+  border-radius: 50%;
+  color: #48516c;
+  background: white;
+}
+
+.approvalProgress li:first-child span {
+  border-color: var(--color-green-700);
+  color: var(--color-green-800);
+}
+
+.approvalProgress strong,
+.approvalProgress small {
+  font-size: 0.68rem;
+}
+
+.approvalProgress li:first-child strong,
+.approvalProgress li:first-child small {
+  color: var(--color-green-800);
+}
+
+.statusLayout {
+  display: grid;
+  align-items: start;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+}
+
+.statusMain {
+  display: grid;
+  gap: 1rem;
+}
+
+.verificationGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.detailFacts {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.detailFacts small,
+.detailFacts strong {
+  display: block;
+}
+
+.detailFacts small {
+  color: #646b80;
+  font-size: 0.65rem;
+}
+
+.detailFacts strong {
+  margin-top: 0.2rem;
+  font-size: 0.74rem;
+}
+
+.timeline {
+  width: 100%;
+  border: 1px solid #dde2dc;
+  border-radius: 0.45rem;
+  border-spacing: 0;
+  font-size: 0.64rem;
+}
+
+.timeline th,
+.timeline td {
+  padding: 0.55rem;
+  border-right: 1px solid #e3e5e1;
+  border-bottom: 1px solid #e3e5e1;
+  text-align: left;
+}
+
+.timeline th {
+  background: #f5f7f4;
+}
+
+.timeline tr:last-child td {
+  border-bottom: 0;
+}
+
+.quickActions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.quickActions a {
+  display: flex;
+  min-height: 2.8rem;
+  padding: 0.55rem 0.7rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #afb7c6;
+  border-radius: 0.45rem;
+  color: #202740;
+  font-size: 0.72rem;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .claimLayout,
+  .statusLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .factGrid,
+  .overviewGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .topRow {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+
+  .breadcrumbs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .schemeHeading {
+    align-items: flex-start;
+  }
+
+  .schemeLogo {
+    width: 4.5rem;
+    min-width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .claimProgress {
+    overflow-x: auto;
+    padding-inline: 0;
+    grid-template-columns: repeat(5, minmax(6.5rem, 1fr));
+  }
+
+  .claimProgress li::after {
+    left: 63%;
+    width: 74%;
+  }
+
+  .sidebar,
+  .factGrid,
+  .overviewGrid,
+  .overviewLower,
+  .overviewActions,
+  .formGrid,
+  .mapGrid,
+  .verificationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .overviewHero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroImage {
+    min-height: 11rem;
+    grid-row: 1;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+
+  .selectionTable,
+  .documentTable {
+    overflow-x: auto;
+  }
+
+  .tableHead,
+  .selectionTable > button {
+    min-width: 43rem;
+  }
+
+  .documentHead,
+  .documentTable > div {
+    min-width: 46rem;
+  }
+
+  .claimActions {
+    grid-template-columns: 1fr;
+  }
+
+  .statusSummary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statusSummary div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .approvalProgress {
+    overflow-x: auto;
+    grid-template-columns: repeat(5, minmax(7.5rem, 1fr));
+  }
+
+  .currentStatus {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .timeline {
+    min-width: 42rem;
+  }
+
+  .statusCard:has(.timeline) {
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,1778 @@
+.moduleHeader {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) minmax(18rem, 1.4fr) minmax(
+      11rem,
+      1fr
+    );
+  min-height: 5.7rem;
+  margin: -1.4rem 0 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #e1e7df;
+  background: white;
+}
+
+.headerBrand,
+.moduleActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerBrand > a:first-child,
+.headerBrand > button,
+.moduleActions > button {
+  display: grid;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-green-900);
+  background: transparent;
+  cursor: pointer;
+}
+
+.headerBrand > a {
+  text-decoration: none;
+}
+
+.serviceBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-green-900);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.moduleTitle {
+  text-align: center;
+}
+
+.moduleTitle h1,
+.moduleTitle p {
+  margin: 0;
+}
+
+.moduleTitle h1 {
+  color: var(--color-green-900);
+  font-size: clamp(1.55rem, 4vw, 2rem);
+}
+
+.moduleTitle p {
+  margin-top: 0.15rem;
+  color: #333b60;
+  font-size: 0.82rem;
+}
+
+.moduleActions {
+  justify-content: flex-end;
+}
+
+.moduleActions a {
+  display: inline-flex;
+  min-height: var(--touch-target);
+  padding: 0.55rem 0.9rem;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid #9cb4a0;
+  border-radius: 0.7rem;
+  color: var(--color-green-900);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contextBar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dce4da;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.contextBar > div {
+  display: flex;
+  min-width: 0;
+  padding: 0 1rem;
+  align-items: center;
+  gap: 0.7rem;
+  border-right: 1px solid #e4e9e2;
+}
+
+.contextBar > div:first-child {
+  padding-left: 0;
+}
+
+.contextBar > div:last-child {
+  padding-right: 0;
+  border: 0;
+}
+
+.contextBar > div > span:last-of-type {
+  min-width: 0;
+  flex: 1;
+}
+
+.contextIcon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-green-800);
+  background: var(--color-green-50);
+}
+
+.contextBar small,
+.contextBar strong,
+.contextBar em {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contextBar small {
+  color: #596273;
+  font-size: 0.68rem;
+}
+
+.contextBar strong {
+  margin-top: 0.08rem;
+  color: #151d18;
+  font-size: 0.84rem;
+}
+
+.contextBar em {
+  color: #293550;
+  font-size: 0.68rem;
+  font-style: normal;
+}
+
+.contextBar em b {
+  color: var(--color-green-700);
+}
+
+.sectionTitle {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.sectionTitle h2 {
+  margin: 0;
+  color: #17211a;
+  font-size: 1rem;
+}
+
+.sectionTitle a {
+  display: inline-flex;
+  min-height: var(--touch-target);
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-green-800);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nutrientBadge {
+  display: inline-grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--color-green-700);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.smallBadge {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.62rem;
+}
+
+.nitrogen {
+  background: #2d9318;
+}
+.phosphorus {
+  background: #2367a5;
+}
+.potassium {
+  background: #f27a00;
+}
+.sulphur {
+  background: #8750aa;
+}
+.zinc {
+  background: #12979a;
+}
+.iron {
+  background: #d9252b;
+}
+
+.libraryCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 10.8rem auto minmax(0, 1fr) minmax(12rem, 0.8fr) auto;
+  min-height: 10rem;
+  padding: 0.9rem 1rem;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.libraryImage {
+  position: relative;
+  min-height: 8rem;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  background: #dcead6;
+}
+
+.libraryImage img {
+  object-fit: cover;
+}
+
+.librarySummary h3,
+.librarySummary p {
+  margin: 0;
+}
+
+.librarySummary h3 {
+  color: #151d18;
+  font-size: 1rem;
+}
+
+.librarySummary p {
+  margin-top: 0.3rem;
+  color: #303b57;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.librarySummary > a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.7rem;
+  margin-top: 0.6rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #a8bbaa;
+  border-radius: 0.55rem;
+  color: var(--color-green-800);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.libraryMeta {
+  display: grid;
+  align-self: stretch;
+  align-content: center;
+  gap: 0.8rem;
+  border-left: 1px solid #e2e6e1;
+}
+
+.libraryMeta > button {
+  position: absolute;
+  top: 0.9rem;
+  right: 2.9rem;
+  border: 0;
+  color: #263451;
+  background: transparent;
+}
+
+.libraryMeta > span {
+  display: flex;
+  padding-left: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: #303b57;
+  font-size: 0.75rem;
+}
+
+.libraryMeta small {
+  display: block;
+  width: 100%;
+  color: #111814;
+  font-size: 0.64rem;
+}
+
+.libraryMeta > span {
+  flex-wrap: wrap;
+}
+
+.libraryMeta i {
+  width: 4.8rem;
+  height: 0.8rem;
+  background: radial-gradient(circle, #d2d6dd 0 42%, transparent 45%) 0 0 /
+    0.96rem 0.8rem;
+}
+
+.libraryMeta .highDots {
+  background: radial-gradient(circle, #dc2e32 0 42%, transparent 45%) 0 0 /
+    0.96rem 0.8rem;
+}
+
+.libraryMeta .mediumDots {
+  background: radial-gradient(circle, #ef7900 0 42%, transparent 45%) 0 0 /
+    0.96rem 0.8rem;
+}
+
+.cardChevron {
+  color: #111814;
+}
+
+.stack {
+  display: grid;
+  min-width: 0;
+  gap: 0.9rem;
+}
+
+.panel {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.nutritionHero {
+  position: relative;
+  display: grid;
+  min-height: 16.6rem;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+  overflow: hidden;
+  border: 1px solid #d7e1d4;
+  border-radius: var(--radius-md);
+  background: #f5f9f2;
+}
+
+.heroCopy {
+  z-index: 1;
+  padding: 1.6rem;
+  background: linear-gradient(90deg, #f8fbf5 72%, rgb(248 251 245 / 20%));
+}
+
+.heroCopy h2,
+.heroCopy p {
+  margin: 0;
+}
+
+.heroCopy h2 {
+  color: var(--color-green-900);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+.heroCopy p {
+  max-width: 19rem;
+  margin-top: 0.75rem;
+  color: #2f3850;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.heroCopy a {
+  display: inline-flex;
+  min-height: 3rem;
+  padding: 0.65rem 0.9rem;
+  margin-top: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.65rem;
+  color: white;
+  background: var(--color-green-800);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 16.6rem;
+}
+
+.heroVisual img {
+  object-fit: cover;
+}
+
+.cropScroller,
+.nutrientScroller,
+.deficiencyGrid {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  grid-template-columns: repeat(6, minmax(7rem, 1fr));
+  gap: 0.65rem;
+}
+
+.cropCard {
+  display: grid;
+  min-height: 8.6rem;
+  padding: 0.7rem;
+  place-items: center;
+  gap: 0.3rem;
+  border: 1px solid #dce3da;
+  border-radius: 0.7rem;
+  color: #151d18;
+  background: white;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.cropCard:first-child {
+  border-color: var(--color-green-700);
+  box-shadow: inset 0 0 0 1px var(--color-green-700);
+}
+
+.cropCard > span {
+  display: grid;
+  width: 4.3rem;
+  height: 4.3rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #569225;
+  background: #f1f7e9;
+}
+
+.nutrientScroller {
+  grid-template-columns: repeat(6, minmax(6.5rem, 1fr));
+}
+
+.nutrientCard {
+  display: grid;
+  min-height: 7.6rem;
+  padding: 0.75rem 0.4rem;
+  place-items: center;
+  border: 1px solid #dce3da;
+  border-radius: 0.7rem;
+  background: white;
+  text-align: center;
+}
+
+.nutrientCard strong,
+.nutrientCard small {
+  display: block;
+}
+
+.nutrientCard strong {
+  font-size: 0.75rem;
+}
+
+.nutrientCard small {
+  margin-top: 0.2rem;
+  color: #58625b;
+  font-size: 0.62rem;
+}
+
+.deficiencyGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.deficiencyTile {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dce3da;
+  border-radius: 0.7rem;
+  background: white;
+  color: #141b17;
+  text-decoration: none;
+}
+
+.deficiencyTileImage {
+  position: relative;
+  min-height: 6.5rem;
+}
+
+.deficiencyTileImage img {
+  object-fit: cover;
+}
+
+.deficiencyTileImage > span {
+  position: absolute;
+  z-index: 1;
+  top: 0.35rem;
+  left: 0.35rem;
+}
+
+.deficiencyTile > div:last-child {
+  padding: 0.65rem;
+}
+
+.deficiencyTile h3,
+.deficiencyTile p {
+  margin: 0;
+}
+
+.deficiencyTile h3 {
+  font-size: 0.78rem;
+}
+
+.deficiencyTile p {
+  min-height: 2.7rem;
+  margin-top: 0.25rem;
+  color: #36415a;
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.deficiencyFooter {
+  display: flex;
+  margin-top: 0.45rem;
+  justify-content: space-between;
+  color: #333c47;
+  font-size: 0.61rem;
+}
+
+.deficiencyFooter strong {
+  color: #e1292e;
+}
+
+.tipBar,
+.infoBar,
+.sourceBar {
+  display: flex;
+  min-height: 4.4rem;
+  padding: 0.8rem 1rem;
+  align-items: center;
+  gap: 0.7rem;
+  border: 1px solid #dde8d9;
+  border-radius: var(--radius-sm);
+  color: var(--color-green-900);
+  background: linear-gradient(90deg, #f3f8f0, white);
+  font-size: 0.75rem;
+}
+
+.tipBar > svg,
+.infoBar > svg,
+.sourceBar > svg {
+  flex: 0 0 auto;
+}
+
+.tipBar a,
+.sourceBar a {
+  display: inline-flex;
+  min-height: var(--touch-target);
+  padding: 0.5rem 0.8rem;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #a8bbaa;
+  border-radius: 0.6rem;
+  color: var(--color-green-800);
+  background: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.recentAssessment {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr) minmax(10rem, 0.65fr) auto;
+  padding: 0.65rem;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #dfe5dd;
+  border-radius: 0.7rem;
+}
+
+.recentImage {
+  position: relative;
+  min-height: 5rem;
+  overflow: hidden;
+  border-radius: 0.6rem;
+}
+
+.recentImage img {
+  object-fit: cover;
+}
+
+.recentAssessment h3,
+.recentAssessment p {
+  margin: 0;
+}
+
+.recentAssessment h3 {
+  font-size: 0.8rem;
+}
+
+.recentAssessment p {
+  margin-top: 0.25rem;
+  color: #303b57;
+  font-size: 0.65rem;
+}
+
+.recentAssessment > div:nth-child(3) {
+  padding-left: 0.8rem;
+  border-left: 1px solid #e2e6e1;
+  font-size: 0.7rem;
+}
+
+.recentAssessment > div:nth-child(3) strong {
+  display: block;
+  color: var(--color-green-800);
+}
+
+.searchToolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 0.7rem;
+}
+
+.searchBox {
+  display: flex;
+  min-height: 3.6rem;
+  padding: 0 0.9rem;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid #dce3da;
+  border-radius: 0.7rem;
+  background: white;
+}
+
+.searchBox input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+}
+
+.filterButton {
+  display: inline-flex;
+  min-height: 3.6rem;
+  padding: 0.65rem 0.9rem;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #dce3da;
+  border-radius: 0.7rem;
+  color: #121914;
+  background: white;
+}
+
+.nutrientFilters {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.nutrientFilter {
+  display: grid;
+  min-height: 5rem;
+  padding: 0.45rem;
+  place-items: center;
+  border: 1px solid #dfe5dd;
+  border-radius: 0.7rem;
+  background: white;
+  font-size: 0.64rem;
+}
+
+.allFilter {
+  color: white;
+  background: var(--color-green-800);
+  font-weight: 600;
+}
+
+.libraryList {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.bottomActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 0.65fr)) minmax(0, 1fr);
+  gap: 0.7rem;
+}
+
+.bottomActions a {
+  display: inline-flex;
+  min-height: 3.3rem;
+  padding: 0.65rem 0.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #9eb2a0;
+  border-radius: 0.65rem;
+  color: var(--color-green-900);
+  background: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bottomActions a:last-child {
+  border-color: var(--color-green-800);
+  color: white;
+  background: var(--color-green-800);
+}
+
+.deficiencyHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(13rem, 0.65fr);
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.deficiencyIdentity,
+.severityPanel {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.deficiencyIdentity h2,
+.deficiencyIdentity p,
+.severityPanel p {
+  margin: 0;
+}
+
+.deficiencyIdentity h2 {
+  color: #151d18;
+  font-size: 1.3rem;
+}
+
+.deficiencyIdentity p {
+  margin-top: 0.3rem;
+  color: #303b57;
+  font-size: 0.78rem;
+}
+
+.commonPill {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  color: #c86900;
+  background: #fff2d2;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.severityPanel {
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border-left: 1px solid #e2e6e1;
+  color: var(--color-green-900);
+  font-size: 0.7rem;
+}
+
+.severityDots {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.severityDots i {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #f1cc16;
+}
+
+.severityDots .inactiveDot {
+  background: #d2d6dd;
+}
+
+.severityPanel strong {
+  color: #303b43;
+  font-size: 0.78rem;
+}
+
+.symptomLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 0.65fr);
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.symptomGallery,
+.affectedParts {
+  padding: 1rem;
+}
+
+.subheading {
+  margin: 0 0 0.8rem;
+  color: var(--color-green-900);
+  font-size: 0.95rem;
+}
+
+.symptomGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.symptomCard {
+  margin: 0;
+}
+
+.symptomImage {
+  position: relative;
+  min-height: 11rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.symptomImage img {
+  object-fit: cover;
+}
+
+.symptomCard figcaption {
+  margin-top: 0.45rem;
+  color: #28334c;
+  font-size: 0.63rem;
+  line-height: 1.45;
+}
+
+.affectedParts {
+  border-left: 1px solid #e2e6e1;
+}
+
+.plantDiagram {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.plantGraphic {
+  display: grid;
+  min-height: 13rem;
+  place-items: center;
+  color: #5a9a27;
+  background: linear-gradient(#fff, #f3f8ed);
+}
+
+.plantLabels {
+  display: grid;
+  gap: 1rem;
+}
+
+.plantLabels span {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e3e7e1;
+  font-size: 0.68rem;
+}
+
+.plantLabels strong {
+  display: block;
+  color: #141b17;
+}
+
+.informationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.informationCard {
+  padding: 1rem;
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.informationCard h2 {
+  margin: 0 0 0.7rem;
+  color: var(--color-green-900);
+  font-size: 0.95rem;
+}
+
+.iconList {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+.iconList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: #28334c;
+  font-size: 0.7rem;
+}
+
+.iconList svg {
+  flex: 0 0 auto;
+  color: var(--color-green-700);
+}
+
+.correctionPanel,
+.recommendationPanel {
+  overflow: hidden;
+  border: 1px solid #cddfc9;
+  border-radius: var(--radius-sm);
+  background: #fbfdf9;
+}
+
+.correctionContent {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1.4fr) minmax(12rem, 0.65fr);
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bagImage {
+  position: relative;
+  min-height: 8.8rem;
+}
+
+.bagImage img {
+  object-fit: contain;
+}
+
+.correctionCopy h2,
+.correctionCopy p {
+  margin: 0;
+}
+
+.correctionCopy h2 {
+  color: var(--color-green-900);
+  font-size: 1rem;
+}
+
+.correctionCopy p {
+  font-size: 0.75rem;
+}
+
+.correctionFacts,
+.doseFacts,
+.applicationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.75rem;
+  border: 1px solid #dce3da;
+  border-radius: 0.6rem;
+  background: white;
+}
+
+.correctionFacts > div,
+.doseFacts > div,
+.applicationGrid > div {
+  padding: 0.7rem;
+  border-right: 1px solid #e2e6e1;
+}
+
+.correctionFacts > div:last-child,
+.doseFacts > div:last-child,
+.applicationGrid > div:last-child {
+  border: 0;
+}
+
+.correctionFacts small,
+.correctionFacts strong,
+.doseFacts small,
+.doseFacts strong,
+.applicationGrid small,
+.applicationGrid strong {
+  display: block;
+}
+
+.correctionFacts small,
+.doseFacts small,
+.applicationGrid small {
+  color: #596273;
+  font-size: 0.62rem;
+}
+
+.correctionFacts strong,
+.doseFacts strong,
+.applicationGrid strong {
+  margin-top: 0.2rem;
+  color: #25304a;
+  font-size: 0.7rem;
+}
+
+.balanceAdvice {
+  padding: 1rem;
+  border-radius: 0.7rem;
+  background: #f1f6ee;
+}
+
+.balanceAdvice h3,
+.balanceAdvice p {
+  margin: 0;
+}
+
+.balanceAdvice h3 {
+  color: var(--color-green-900);
+  font-size: 0.82rem;
+}
+
+.balanceAdvice p {
+  margin-top: 0.6rem;
+  color: #29334d;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.badgeRow {
+  display: flex;
+  margin-top: 0.6rem;
+  gap: 0.35rem;
+}
+
+.validationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.validationCard {
+  padding: 0.85rem;
+  border-radius: 0.65rem;
+  background: #f6f8f5;
+  color: #29334d;
+  font-size: 0.67rem;
+}
+
+.validationCard strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #151d18;
+}
+
+.recommendationHeader {
+  display: flex;
+  padding: 0.75rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  color: white;
+  background: linear-gradient(90deg, #075321, #197033);
+}
+
+.recommendationHeader h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.recommendationHeader span {
+  font-size: 0.7rem;
+}
+
+.recommendationOverview {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1.25fr) minmax(12rem, 0.65fr);
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recommendationOverview h2,
+.recommendationOverview p {
+  margin: 0;
+}
+
+.recommendationOverview h2 {
+  color: var(--color-green-900);
+  font-size: 1rem;
+}
+
+.recommendationOverview p {
+  color: #303b57;
+  font-size: 0.74rem;
+}
+
+.doseFacts strong {
+  font-size: 0.76rem;
+}
+
+.doseFacts > div:last-child strong {
+  color: var(--color-green-900);
+  font-size: 1.25rem;
+}
+
+.recommendationSection {
+  padding: 1rem;
+  border-top: 1px solid #dfe5dd;
+}
+
+.recommendationSection h2 {
+  margin: 0 0 0.75rem;
+  color: var(--color-green-900);
+  font-size: 0.9rem;
+}
+
+.applicationGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.reasonGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(14rem, 0.7fr);
+  gap: 1rem;
+}
+
+.reasonImage {
+  position: relative;
+  min-height: 11rem;
+  overflow: hidden;
+  border-radius: 0.65rem;
+}
+
+.reasonImage img {
+  object-fit: cover;
+}
+
+.savedSummary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 1rem;
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.savedStat {
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  gap: 0.7rem;
+  border-right: 1px solid #e3e7e1;
+}
+
+.savedStat:last-child {
+  border: 0;
+}
+
+.savedStat > span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--color-green-800);
+}
+
+.savedStat small,
+.savedStat strong {
+  display: block;
+}
+
+.savedStat small {
+  color: #596273;
+  font-size: 0.65rem;
+}
+
+.savedStat strong {
+  margin-top: 0.12rem;
+  color: #202944;
+  font-size: 1.35rem;
+}
+
+.savedTabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid #dfe5dd;
+}
+
+.savedTabs button {
+  min-height: 3.4rem;
+  border: 0;
+  color: #333c60;
+  background: white;
+  font-size: 0.72rem;
+}
+
+.savedTabs button:first-child {
+  border-bottom: 2px solid var(--color-green-800);
+  color: var(--color-green-800);
+  font-weight: 600;
+}
+
+.savedList {
+  overflow: hidden;
+  border: 1px solid #dfe5dd;
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.savedItem {
+  display: grid;
+  grid-template-columns: 11.5rem minmax(0, 1fr) auto;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #e3e7e1;
+}
+
+.savedItem:last-child {
+  border-bottom: 0;
+}
+
+.savedImage {
+  position: relative;
+  min-height: 8.5rem;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  background: #eef4ea;
+}
+
+.savedImage img {
+  object-fit: cover;
+}
+
+.savedItem h2,
+.savedItem p {
+  margin: 0;
+}
+
+.savedItem h2 {
+  color: #161d18;
+  font-size: 1rem;
+}
+
+.savedItem p {
+  margin-top: 0.25rem;
+  color: #313b58;
+  font-size: 0.7rem;
+}
+
+.savedType {
+  display: inline-flex;
+  padding: 0.25rem 0.55rem;
+  margin-left: 0.5rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-green-800);
+  background: #eaf4e7;
+  font-size: 0.58rem;
+  font-weight: 500;
+}
+
+.savedMeta {
+  display: flex;
+  margin-top: 0.65rem;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  color: #596273;
+  font-size: 0.65rem;
+}
+
+.savedTag {
+  display: inline-block;
+  padding: 0.25rem 0.55rem;
+  margin-top: 0.55rem;
+  border-radius: 0.35rem;
+  color: var(--color-green-800);
+  background: #edf5ea;
+  font-size: 0.62rem;
+}
+
+.savedActions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.savedActions button,
+.savedActions a {
+  display: grid;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  place-items: center;
+  border: 0;
+  color: var(--color-green-900);
+  background: transparent;
+}
+
+@media (max-width: 800px) {
+  .moduleHeader {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .headerBrand > a:last-child {
+    display: none;
+  }
+
+  .contextBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .contextBar > div,
+  .contextBar > div:first-child {
+    padding: 0;
+    border: 0;
+  }
+
+  .libraryCard {
+    grid-template-columns: 7rem auto minmax(0, 1fr) auto;
+  }
+
+  .libraryMeta {
+    grid-column: 2 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid #e2e6e1;
+    border-left: 0;
+  }
+
+  .nutritionHero {
+    grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .cropScroller,
+  .nutrientScroller {
+    grid-template-columns: repeat(6, minmax(7rem, 1fr));
+    padding-bottom: 0.3rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .cropScroller::-webkit-scrollbar,
+  .nutrientScroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  .deficiencyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recentAssessment {
+    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+  }
+
+  .recentAssessment > div:nth-child(3) {
+    grid-column: 2 / -1;
+    padding: 0.6rem 0 0;
+    border-top: 1px solid #e2e6e1;
+    border-left: 0;
+  }
+
+  .symptomLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .affectedParts {
+    border-top: 1px solid #e2e6e1;
+    border-left: 0;
+  }
+
+  .correctionContent,
+  .recommendationOverview {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+
+  .balanceAdvice {
+    grid-column: 1 / -1;
+  }
+
+  .reasonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .savedSummary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem 0;
+  }
+
+  .savedStat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .savedItem {
+    grid-template-columns: 8rem minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .moduleHeader {
+    min-height: 4.8rem;
+    margin-top: -1.4rem;
+    gap: 0.35rem;
+  }
+
+  .moduleTitle h1 {
+    font-size: 1.25rem;
+  }
+
+  .moduleTitle p {
+    max-width: 12rem;
+    margin-inline: auto;
+    font-size: 0.62rem;
+  }
+
+  .moduleActions a {
+    width: var(--touch-target);
+    padding: 0;
+    justify-content: center;
+  }
+
+  .moduleActions a span {
+    display: none;
+  }
+
+  .contextBar {
+    padding: 0.7rem;
+  }
+
+  .contextIcon {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .contextBar strong {
+    font-size: 0.7rem;
+  }
+
+  .contextBar small,
+  .contextBar em {
+    font-size: 0.56rem;
+  }
+
+  .libraryCard {
+    grid-template-columns: 5.3rem auto minmax(0, 1fr);
+    padding: 0.65rem;
+    gap: 0.5rem;
+  }
+
+  .libraryImage {
+    min-height: 5.5rem;
+  }
+
+  .libraryCard > .nutrientBadge {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+
+  .librarySummary h3 {
+    font-size: 0.78rem;
+  }
+
+  .librarySummary p {
+    font-size: 0.62rem;
+  }
+
+  .librarySummary > a {
+    min-height: 2rem;
+    padding: 0.3rem 0.45rem;
+    font-size: 0.6rem;
+  }
+
+  .libraryMeta {
+    grid-column: 1 / -1;
+  }
+
+  .libraryMeta > span {
+    padding: 0.5rem 0 0;
+    font-size: 0.62rem;
+  }
+
+  .cardChevron {
+    display: none;
+  }
+
+  .nutritionHero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    padding: 1rem;
+    background: #f8fbf5;
+  }
+
+  .heroCopy h2 {
+    font-size: 1.25rem;
+  }
+
+  .heroVisual {
+    min-height: 10rem;
+  }
+
+  .cropScroller,
+  .nutrientScroller {
+    grid-auto-flow: column;
+    grid-auto-columns: 6.2rem;
+    grid-template-columns: none;
+  }
+
+  .cropCard {
+    min-height: 7.2rem;
+  }
+
+  .cropCard > span {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .nutrientCard {
+    min-height: 6.8rem;
+  }
+
+  .deficiencyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .deficiencyTileImage {
+    min-height: 5.5rem;
+  }
+
+  .deficiencyTile > div:last-child {
+    padding: 0.5rem;
+  }
+
+  .deficiencyTile h3 {
+    font-size: 0.67rem;
+  }
+
+  .deficiencyTile p {
+    font-size: 0.55rem;
+  }
+
+  .tipBar,
+  .infoBar,
+  .sourceBar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 0.64rem;
+  }
+
+  .tipBar a,
+  .sourceBar a {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .recentAssessment {
+    grid-template-columns: 4.6rem minmax(0, 1fr) auto;
+  }
+
+  .recentImage {
+    min-height: 4.3rem;
+  }
+
+  .recentAssessment h3 {
+    font-size: 0.68rem;
+  }
+
+  .recentAssessment p,
+  .recentAssessment > div:nth-child(3) {
+    font-size: 0.56rem;
+  }
+
+  .searchToolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .searchBox {
+    grid-column: 1 / -1;
+  }
+
+  .filterButton {
+    justify-content: center;
+    font-size: 0.65rem;
+  }
+
+  .nutrientFilters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .nutrientFilter {
+    min-height: 4.25rem;
+    font-size: 0.56rem;
+  }
+
+  .bottomActions {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomActions a {
+    min-height: 2.9rem;
+  }
+
+  .deficiencyHero {
+    grid-template-columns: 1fr;
+  }
+
+  .deficiencyIdentity {
+    padding: 0.8rem;
+  }
+
+  .deficiencyIdentity h2 {
+    font-size: 1rem;
+  }
+
+  .deficiencyIdentity p {
+    font-size: 0.66rem;
+  }
+
+  .severityPanel {
+    padding: 0.8rem;
+    border-top: 1px solid #e2e6e1;
+    border-left: 0;
+  }
+
+  .symptomGallery,
+  .affectedParts {
+    padding: 0.75rem;
+  }
+
+  .symptomGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .symptomImage {
+    min-height: 8.5rem;
+  }
+
+  .plantDiagram {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+  }
+
+  .plantGraphic {
+    min-height: 10rem;
+  }
+
+  .informationGrid,
+  .validationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .correctionContent,
+  .recommendationOverview {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    padding: 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .bagImage {
+    min-height: 6rem;
+  }
+
+  .correctionFacts,
+  .doseFacts {
+    grid-column: 1 / -1;
+  }
+
+  .correctionFacts > div,
+  .doseFacts > div,
+  .applicationGrid > div {
+    padding: 0.5rem;
+  }
+
+  .correctionFacts small,
+  .correctionFacts strong,
+  .doseFacts small,
+  .doseFacts strong,
+  .applicationGrid small,
+  .applicationGrid strong {
+    font-size: 0.55rem;
+  }
+
+  .recommendationHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .recommendationHeader h2 {
+    font-size: 0.82rem;
+  }
+
+  .recommendationSection {
+    padding: 0.75rem;
+  }
+
+  .applicationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .applicationGrid > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .savedSummary {
+    padding: 0.7rem;
+  }
+
+  .savedStat {
+    padding: 0.45rem;
+  }
+
+  .savedStat > span {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .savedStat small {
+    font-size: 0.54rem;
+  }
+
+  .savedStat strong {
+    font-size: 1rem;
+  }
+
+  .savedTabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .savedTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .savedTabs button {
+    min-width: 8rem;
+    flex: 0 0 auto;
+    font-size: 0.62rem;
+  }
+
+  .savedItem {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    padding: 0.7rem;
+    gap: 0.65rem;
+  }
+
+  .savedImage {
+    min-height: 5.8rem;
+  }
+
+  .savedItem h2 {
+    font-size: 0.75rem;
+  }
+
+  .savedItem p,
+  .savedMeta,
+  .savedTag {
+    font-size: 0.56rem;
+  }
+
+  .savedType {
+    display: block;
+    width: fit-content;
+    margin: 0.3rem 0 0;
+  }
+
+  .savedActions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+    border-top: 1px solid #e3e7e1;
+  }
+}

@@ -1,0 +1,501 @@
+.page {
+  width: min(1200px, calc(100% - 2rem));
+  padding: 1.25rem 0 7rem;
+  margin-inline: auto;
+  color: #101b44;
+}
+
+.breadcrumbs {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.65rem;
+  color: #17234d;
+}
+
+.breadcrumbs strong,
+.breadcrumbs a:hover {
+  color: var(--green-800);
+}
+
+.backHome {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  margin-left: auto;
+  color: var(--green-900);
+  border: 1px solid #8eb99b;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  gap: 0.45rem;
+}
+
+.titleRow {
+  display: grid;
+  margin-top: 0.85rem;
+  grid-template-columns: 1fr minmax(19rem, 0.35fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+.titleBlock {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.titleIcon {
+  display: grid;
+  width: 5.4rem;
+  height: 5.4rem;
+  flex: 0 0 auto;
+  color: #08783e;
+  background: linear-gradient(145deg, #f0f8f1, #e5f4ea);
+  border-radius: 1rem;
+  place-items: center;
+}
+
+.titleBlock h1,
+.titleBlock p,
+.titleBlock span {
+  margin: 0;
+}
+
+.titleBlock h1 {
+  color: #12214e;
+  font-size: clamp(1.8rem, 4vw, 2.55rem);
+  line-height: 1.12;
+}
+
+.titleBlock p {
+  margin-top: 0.35rem;
+  font-size: 1.08rem;
+}
+
+.titleBlock div > span {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.liveCard,
+.filters,
+.summaryGrid article,
+.marketTableCard,
+.supportGrid > article {
+  background: white;
+  border: 1px solid #dce1eb;
+  border-radius: 0.9rem;
+  box-shadow: 0 5px 18px rgb(16 24 40 / 3%);
+}
+
+.liveCard {
+  display: grid;
+  padding: 1rem 1.25rem;
+  gap: 0.35rem;
+}
+
+.liveCard strong {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.liveCard strong i {
+  width: 0.65rem;
+  height: 0.65rem;
+  background: #26a443;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.35rem #ebf8ed;
+}
+
+.liveCard p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.2rem 0 0;
+  gap: 0.5rem;
+}
+
+.filters {
+  display: grid;
+  padding: 1.25rem;
+  margin-top: 1.15rem;
+  grid-template-columns: 1.2fr 0.7fr 0.9fr auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+.filters label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.filters select {
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.65rem 0.85rem;
+  color: #17234d;
+  background: white;
+  border: 1px solid #cdd5e3;
+  border-radius: 0.55rem;
+}
+
+.filters > button {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  color: white;
+  background: #087b38;
+  border: 0;
+  border-radius: 0.55rem;
+  font-weight: 750;
+  gap: 0.5rem;
+}
+
+.summaryGrid {
+  display: grid;
+  margin-top: 1.15rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.summaryGrid article {
+  display: flex;
+  min-width: 0;
+  min-height: 8.4rem;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.85rem;
+}
+
+.summaryIcon {
+  position: relative;
+  display: grid;
+  width: 3.7rem;
+  height: 3.7rem;
+  flex: 0 0 auto;
+  color: #08783e;
+  background: #e7f5e9;
+  border-radius: 50%;
+  font-size: 1.55rem;
+  font-weight: 850;
+  place-items: center;
+}
+
+.summaryIcon svg + svg {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.35rem;
+}
+
+.priceIcon {
+  color: white;
+  background: #087b38;
+}
+
+.mspIcon {
+  color: white;
+  background: #0867d9;
+  box-shadow: 0 0 0 0.4rem #e9f2ff;
+}
+
+.summaryGrid small,
+.summaryGrid strong,
+.summaryGrid article div > span {
+  display: block;
+}
+
+.summaryGrid strong {
+  margin-top: 0.35rem;
+  color: #0d173c;
+  font-size: 1.2rem;
+}
+
+.summaryGrid strong em {
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.summaryGrid article div > span {
+  margin-top: 0.2rem;
+}
+
+.positive {
+  color: #08783e !important;
+}
+
+.negative {
+  color: #e12727 !important;
+}
+
+.infoBanner {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.85rem 1.15rem;
+  margin-top: 1.15rem;
+  color: #0856c9;
+  background: #f0f7ff;
+  border: 1px solid #d7e8ff;
+  border-radius: 0.8rem;
+  gap: 0.75rem;
+}
+
+.infoBanner strong {
+  display: block;
+}
+
+.marketTableCard {
+  padding: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.marketTableCard h2 {
+  margin: 0 0 0.7rem;
+  color: var(--green-900);
+  font-size: 1.15rem;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid #e3e6eb;
+  border-radius: 0.75rem;
+}
+
+.marketTableCard table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+}
+
+.marketTableCard th,
+.marketTableCard td {
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid #e7e9ee;
+  text-align: left;
+}
+
+.marketTableCard th {
+  color: #101b44;
+  background: #fbfcfd;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.marketTableCard th:first-child {
+  text-align: left;
+}
+
+.marketTableCard td {
+  white-space: nowrap;
+}
+
+.marketTableCard td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.marketTableCard td:first-child svg {
+  color: #12833e;
+}
+
+.selectedRow {
+  background: linear-gradient(90deg, #eef9f0, #f8fcf8);
+}
+
+.trendUp,
+.trendDown {
+  width: 3.25rem;
+  height: 1.8rem;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trendUp {
+  stroke: #15923f;
+}
+
+.trendDown {
+  stroke: #ef2c2c;
+}
+
+.moreMandis {
+  display: flex;
+  min-height: 2.8rem;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  margin: 1rem auto 0.2rem;
+  color: #075c2a;
+  background: white;
+  border: 1px solid #9cbbaa;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  gap: 0.75rem;
+}
+
+.supportGrid {
+  display: grid;
+  margin-top: 1.15rem;
+  grid-template-columns: 1fr 1.05fr 0.8fr;
+  gap: 1rem;
+}
+
+.supportGrid > article {
+  padding: 1.1rem;
+}
+
+.supportGrid h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+}
+
+.aboutCard ul {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  gap: 0.75rem;
+}
+
+.aboutCard li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.aboutCard li > svg,
+.aboutCard li > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  color: #08783e;
+  background: #e8f6ea;
+  border-radius: 50%;
+  place-items: center;
+}
+
+.quickFilters > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.quickFilters button {
+  display: grid;
+  min-height: 5.4rem;
+  color: #17234d;
+  background: white;
+  border: 1px solid #d9dee8;
+  border-radius: 0.7rem;
+  place-items: center;
+}
+
+.quickFilters button span {
+  font-size: 1.8rem;
+}
+
+.quickFilters .activeCrop {
+  background: #f4faf4;
+  border-color: #218146;
+}
+
+.helpCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.helpCard > svg {
+  color: #08783e;
+}
+
+.helpCard p {
+  flex: 1;
+  line-height: 1.7;
+}
+
+.helpCard a {
+  display: flex;
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  color: #075c2a;
+  border: 1px solid #9cbbaa;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  gap: 0.55rem;
+}
+
+@media (max-width: 900px) {
+  .titleRow,
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: min(100% - 1rem, 1200px);
+    padding-top: 0.5rem;
+  }
+
+  .breadcrumbs > span,
+  .breadcrumbs > a:not(.backHome) {
+    display: none;
+  }
+
+  .backHome {
+    margin-left: 0;
+  }
+
+  .titleBlock {
+    align-items: flex-start;
+  }
+
+  .titleIcon {
+    width: 3.7rem;
+    height: 3.7rem;
+  }
+
+  .titleBlock h1 {
+    font-size: 1.65rem;
+  }
+
+  .titleBlock p,
+  .titleBlock div > span {
+    font-size: 0.82rem;
+  }
+
+  .filters,
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters > button {
+    width: 100%;
+  }
+
+  .summaryGrid article {
+    min-height: 6.8rem;
+  }
+
+  .quickFilters > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

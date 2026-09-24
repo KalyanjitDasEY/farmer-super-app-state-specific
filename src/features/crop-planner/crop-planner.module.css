@@ -1,0 +1,804 @@
+.plannerPage,
+.calendarPage {
+  display: grid;
+  min-width: 0;
+  gap: 1.25rem;
+  color: #13182a;
+}
+
+.plannerHero,
+.cropHero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  color: white;
+  background:
+    radial-gradient(circle at 86% 10%, rgb(155 215 105 / 28%), transparent 30%),
+    linear-gradient(120deg, #034c25, #087039);
+}
+
+.plannerHero {
+  display: grid;
+  min-height: 13.5rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.plannerHero::after,
+.cropHero::after {
+  position: absolute;
+  right: -5rem;
+  bottom: -7rem;
+  width: 22rem;
+  height: 15rem;
+  border: 2rem solid rgb(255 255 255 / 6%);
+  border-radius: 50%;
+  content: "";
+}
+
+.heroIcon {
+  position: relative;
+  display: grid;
+  width: 6.3rem;
+  height: 6.3rem;
+  color: #09652d;
+  background: white;
+  border-radius: 50%;
+  place-items: center;
+}
+
+.heroSprout {
+  position: absolute;
+  bottom: 1.15rem;
+  color: #16823e;
+  background: white;
+}
+
+.eyebrow,
+.cropHero > div > p {
+  margin: 0 0 0.3rem;
+  color: #cde9d5;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plannerHero h1,
+.cropHero h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
+  line-height: 1.1;
+}
+
+.plannerHero > div > p:last-child {
+  max-width: 40rem;
+  margin: 0.7rem 0 0;
+  color: #e6f4e9;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.55;
+}
+
+.heroArtwork {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  color: #edf8ef;
+}
+
+.heroArtwork svg:last-child {
+  margin-left: -1.5rem;
+  color: #9dd356;
+  filter: drop-shadow(0 3px 1px rgb(0 0 0 / 14%));
+}
+
+.plannerForm {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: -2.1rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid #dce7df;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 98%);
+  box-shadow: 0 12px 34px rgb(14 74 36 / 8%);
+}
+
+.plannerForm > h2,
+.benefits > h2,
+.journey > h2 {
+  margin: 0;
+  color: #074f29;
+  font-size: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+  color: #30384b;
+  font-size: 0.9rem;
+}
+
+.control,
+.areaControl {
+  display: grid;
+  min-height: 4rem;
+  align-items: center;
+  border: 1px solid #cfd6d1;
+  border-radius: 0.65rem;
+  background: white;
+}
+
+.control {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.control > svg {
+  margin-left: 1rem;
+  color: #108037;
+}
+
+.control input,
+.control select,
+.areaControl input,
+.areaControl select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0.75rem 1rem;
+  color: #111827;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.control input:focus,
+.control select:focus,
+.areaControl input:focus,
+.areaControl select:focus {
+  box-shadow: inset 0 0 0 2px #17823b;
+  border-radius: 0.55rem;
+}
+
+.areaControl {
+  grid-template-columns: minmax(0, 1fr) 8rem;
+}
+
+.areaControl select {
+  border-left: 1px solid #dce2de;
+}
+
+.whyPlan,
+.tip,
+.departmentNote {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid #d8e5da;
+  border-radius: 0.75rem;
+}
+
+.whyPlan {
+  padding: 1rem 1.2rem;
+  color: #0a5b2e;
+  background: linear-gradient(90deg, #f2f8f3, #f7f9ed);
+}
+
+.whyPlan > div {
+  flex: 1;
+}
+
+.whyPlan strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #0a4d28;
+}
+
+.whyPlan p {
+  margin: 0;
+  color: #263041;
+  line-height: 1.45;
+}
+
+.whyPlan > svg:last-child {
+  color: #6ba637;
+}
+
+.benefits {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e7e3;
+  border-radius: 0.8rem;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.benefitGrid article {
+  display: grid;
+  padding: 0.5rem 1rem;
+  gap: 0.45rem;
+  text-align: center;
+  place-items: center;
+}
+
+.benefitGrid article:not(:last-child) {
+  border-right: 1px solid #e7ebe8;
+}
+
+.benefitGrid article > span {
+  display: grid;
+  width: 5rem;
+  height: 5rem;
+  color: #0c672e;
+  background: #eaf4e6;
+  border-radius: 50%;
+  place-items: center;
+}
+
+.benefitGrid strong {
+  color: #0b5129;
+  line-height: 1.25;
+}
+
+.benefitGrid p {
+  margin: 0;
+  color: #394153;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.tip {
+  padding: 0.85rem 1rem;
+  color: #543811;
+  background: #fff6e5;
+  border-color: #f4ddb1;
+}
+
+.tip > svg {
+  flex: 0 0 auto;
+  color: #d97706;
+}
+
+.primaryButton,
+.advisoryButton {
+  display: inline-flex;
+  width: min(100%, 35rem);
+  min-height: 4rem;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: white;
+  border: 0;
+  border-radius: 0.7rem;
+  background: linear-gradient(100deg, #035127, #087039);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primaryButton:hover,
+.advisoryButton:hover {
+  background: #023d1d;
+}
+
+.calendarTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.calendarTopbar > a {
+  display: inline-flex;
+  min-height: 2.8rem;
+  padding: 0.55rem 0.8rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #07542a;
+  border-radius: 0.55rem;
+  font-weight: 800;
+}
+
+.calendarTopbar .editButton {
+  color: white;
+  border: 1px solid rgb(255 255 255 / 25%);
+  background: #086032;
+}
+
+.cropHero {
+  display: grid;
+  min-height: 13rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.cropImage {
+  position: relative;
+  z-index: 1;
+  width: 8.5rem;
+  height: 8.5rem;
+  object-fit: cover;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+.cropHero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.varietyBadge {
+  display: inline-flex;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid rgb(255 255 255 / 42%);
+  border-radius: 0.45rem;
+}
+
+.cropMeta {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.8rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cropMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #eff8f1;
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.currentStage,
+.nextActivity {
+  display: grid;
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  text-align: center;
+  border: 1px solid #d7e6d8;
+  border-radius: 1rem;
+  place-items: center;
+}
+
+.currentStage {
+  background: linear-gradient(145deg, #f7fbf7, #edf6ec);
+}
+
+.nextActivity {
+  border-color: #f2dfbd;
+  background: linear-gradient(145deg, #fffdf8, #fff7e7);
+}
+
+.currentStage h2,
+.nextActivity h2 {
+  margin: 0;
+  color: #075128;
+  font-size: 1.1rem;
+}
+
+.nextActivity h2,
+.nextActivity > p {
+  color: #c65d05;
+}
+
+.statusIcon {
+  display: grid;
+  width: 6rem;
+  height: 6rem;
+  margin: 0.7rem 0;
+  color: #17813b;
+  background: rgb(255 255 255 / 80%);
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #dce9dd;
+  place-items: center;
+}
+
+.nextActivity .statusIcon {
+  color: #d26a08;
+  background: #fff6db;
+}
+
+.currentStage h3,
+.nextActivity h3 {
+  margin: 0;
+  color: #064b26;
+  font-size: 1.55rem;
+}
+
+.currentStage > p,
+.nextActivity > p {
+  display: inline-flex;
+  margin: 0.65rem 0;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.progressTrack {
+  width: min(100%, 21rem);
+  height: 0.75rem;
+  margin-top: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dceadc;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #128136, #2ca244);
+  transition: width 240ms ease;
+}
+
+.currentStage > strong {
+  margin-top: 0.55rem;
+  color: #07512a;
+}
+
+.stageActions {
+  display: grid;
+  width: 100%;
+  margin-top: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.stageActions a,
+.stageActions button,
+.detailsButton {
+  display: inline-flex;
+  min-height: 3.4rem;
+  padding: 0.65rem 0.85rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #07572c;
+  border: 1px solid #0e7135;
+  border-radius: 0.65rem;
+  background: white;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.stageActions button {
+  color: white;
+  background: #0b6a33;
+}
+
+.stageActions button:disabled {
+  border-color: #8cae94;
+  background: #76927d;
+  cursor: default;
+}
+
+.recommendation {
+  display: grid;
+  width: min(100%, 20rem);
+  margin: 0.25rem 0 1rem;
+  padding-top: 0.8rem;
+  gap: 0.25rem;
+  border-top: 1px solid #e6ddcc;
+}
+
+.detailsButton {
+  width: 100%;
+  color: #c25b05;
+  border-color: #e78a20;
+}
+
+.activityDetails {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  color: #60400c;
+  border-radius: 0.55rem;
+  background: #fff4db;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.journey {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid #dfe6e1;
+  border-radius: 1rem;
+  background: white;
+}
+
+.journey ol {
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+
+.journey li {
+  position: relative;
+  min-height: 3.5rem;
+  padding-left: 3.25rem;
+}
+
+.journey li:not(:last-child)::before {
+  position: absolute;
+  top: 2rem;
+  bottom: -0.5rem;
+  left: 1.05rem;
+  width: 2px;
+  background: #cbd3cc;
+  content: "";
+}
+
+.timelineMarker {
+  position: absolute;
+  z-index: 1;
+  top: 0.45rem;
+  left: 0.25rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  border: 3px solid #c7ccd1;
+  border-radius: 50%;
+  background: white;
+  place-items: center;
+}
+
+.completedMarker {
+  border-color: #15913b;
+  background: #15913b;
+}
+
+.currentMarker {
+  border-color: #128136;
+  box-shadow: inset 0 0 0 5px white;
+  background: #128136;
+}
+
+.stageRow {
+  display: grid;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0.6rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto minmax(9rem, auto) auto;
+  gap: 0.7rem;
+  color: #141a2d;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stageRow strong span {
+  margin-right: 0.65rem;
+}
+
+.stageRow time {
+  text-align: right;
+}
+
+.completedBadge,
+.upcomingBadge {
+  padding: 0.35rem 0.65rem;
+  color: #0c6a31;
+  border-radius: 0.4rem;
+  background: #e8f5e9;
+  font-size: 0.78rem;
+}
+
+.upcomingBadge {
+  color: #d46a06;
+  background: #fff3dc;
+}
+
+.currentJourneyStage {
+  padding-top: 0.25rem;
+  padding-bottom: 0.65rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #f2f8f2, #f8faf6);
+}
+
+.stageAdvice {
+  display: grid;
+  margin: 0.2rem 0.7rem 0 0.6rem;
+  padding: 0.8rem 1rem;
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  border: 1px solid #dce5de;
+  border-radius: 0.65rem;
+  background: white;
+}
+
+.stageAdvice > svg:first-child {
+  color: #1b8a3e;
+}
+
+.stageAdvice > svg:last-child {
+  color: #0a6b32;
+}
+
+.stageAdvice p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.departmentNote {
+  min-height: 3.5rem;
+  padding: 0.8rem 1rem;
+  color: #0a4f29;
+  background: #f5faf5;
+}
+
+.departmentNote span {
+  flex: 1;
+}
+
+.advisoryButton {
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .plannerHero {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .heroArtwork {
+    display: none;
+  }
+
+  .formGrid,
+  .statusGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefitGrid article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .benefitGrid article:nth-child(-n + 2) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e7ebe8;
+  }
+
+  .cropHero {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+
+  .cropImage {
+    margin-inline: auto;
+  }
+
+  .cropMeta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .plannerPage,
+  .calendarPage {
+    gap: 0.85rem;
+  }
+
+  .plannerHero {
+    min-height: 11rem;
+    padding: 1.15rem;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .heroIcon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .heroIcon > svg:first-child {
+    width: 32px;
+  }
+
+  .heroSprout {
+    right: 0.55rem;
+    bottom: 0.65rem;
+    width: 18px;
+  }
+
+  .plannerHero h1 {
+    font-size: 1.55rem;
+  }
+
+  .plannerHero > div > p:last-child {
+    font-size: 0.84rem;
+  }
+
+  .plannerForm {
+    margin-top: -1rem;
+    padding: 1rem;
+  }
+
+  .control,
+  .areaControl {
+    min-height: 3.5rem;
+  }
+
+  .whyPlan > svg:last-child {
+    display: none;
+  }
+
+  .benefitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitGrid article {
+    padding: 0.85rem;
+    border-right: 0;
+    border-bottom: 1px solid #e7ebe8;
+  }
+
+  .benefitGrid article:last-child {
+    border-bottom: 0;
+  }
+
+  .stageActions {
+    grid-template-columns: 1fr;
+  }
+
+  .stageRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .stageRow time {
+    padding-left: 1.5rem;
+    text-align: left;
+  }
+
+  .stageRow > svg {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .stageAdvice {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .stageAdvice > svg:last-child {
+    display: none;
+  }
+
+  .calendarTopbar .editButton {
+    font-size: 0;
+  }
+}

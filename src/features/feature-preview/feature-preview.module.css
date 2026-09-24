@@ -1,0 +1,178 @@
+.previewPage {
+  position: relative;
+  display: grid;
+  min-height: min(38rem, calc(100vh - 12rem));
+  padding: clamp(2rem, 7vw, 5rem) 1.25rem;
+  overflow: hidden;
+  align-content: center;
+  justify-items: center;
+  color: #12311f;
+  border: 1px solid #d8eadc;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgb(122 196 129 / 18%), transparent 25%),
+    radial-gradient(circle at 88% 78%, rgb(255 196 91 / 16%), transparent 26%),
+    linear-gradient(145deg, #fbfffc, #f0faef);
+  box-shadow: 0 18px 44px rgb(27 102 53 / 8%);
+  text-align: center;
+}
+
+.previewPage::before,
+.previewPage::after {
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  border: 2rem solid rgb(34 139 69 / 5%);
+  border-radius: 50%;
+  content: "";
+}
+
+.previewPage::before {
+  top: -9rem;
+  right: -7rem;
+}
+
+.previewPage::after {
+  bottom: -10rem;
+  left: -8rem;
+}
+
+.ambientLeaf {
+  position: absolute;
+  top: clamp(1rem, 4vw, 2rem);
+  right: clamp(1rem, 4vw, 2rem);
+  color: #80bd61;
+  transform: rotate(18deg);
+}
+
+.spinnerWrap {
+  position: relative;
+  display: grid;
+  width: 8.5rem;
+  height: 8.5rem;
+  margin-bottom: 1.5rem;
+  place-items: center;
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  border: 0.55rem solid #dff1df;
+  border-top-color: #13833d;
+  border-right-color: #77b94d;
+  border-radius: 50%;
+  animation: positiveSpin 1s linear infinite;
+}
+
+.spinnerIcon {
+  display: grid;
+  width: 5.6rem;
+  height: 5.6rem;
+  color: #0b6a32;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 8px 24px rgb(23 122 57 / 12%);
+  place-items: center;
+}
+
+.featureName {
+  margin: 0 0 0.6rem;
+  padding: 0.35rem 0.8rem;
+  color: #0a6731;
+  border: 1px solid #bfe0c5;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 84%);
+  font-size: 0.83rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.previewPage h1 {
+  max-width: 40rem;
+  margin: 0;
+  color: #074d27;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.message {
+  max-width: 39rem;
+  margin: 1rem 0 1.4rem;
+  color: #405347;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.positiveNote {
+  display: inline-flex;
+  min-height: 3rem;
+  padding: 0.7rem 1rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #155c31;
+  border: 1px solid #cce5d1;
+  border-radius: 0.7rem;
+  background: white;
+  font-weight: 700;
+}
+
+.positiveNote > svg {
+  box-sizing: content-box;
+  padding: 0.15rem;
+  color: white;
+  border-radius: 50%;
+  background: #2c984d;
+}
+
+.homeLink {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #0b6331;
+  border-radius: 0.65rem;
+  font-weight: 800;
+}
+
+.homeLink:hover {
+  background: #e4f3e5;
+}
+
+@keyframes positiveSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2.5s;
+  }
+}
+
+@media (max-width: 520px) {
+  .previewPage {
+    min-height: calc(100vh - 12rem);
+    padding-inline: 1rem;
+    border-radius: 0.9rem;
+  }
+
+  .spinnerWrap {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .spinnerIcon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .positiveNote {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

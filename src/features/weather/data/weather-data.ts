@@ -1,0 +1,501 @@
+export type WeatherKind =
+  "storm" | "rain" | "cloudy" | "partly-cloudy" | "sunny" | "night";
+export type Suitability = "suitable" | "caution" | "not-suitable";
+
+export type ForecastDay = {
+  day: string;
+  date: string;
+  weather: WeatherKind;
+  high: number;
+  low: number;
+  rainChance: number;
+  rainfall: number;
+  humidity: number;
+  wind: string;
+  risk: "Low" | "Moderate" | "High";
+};
+
+export const forecastDays: readonly ForecastDay[] = [
+  {
+    day: "Today",
+    date: "20 May",
+    weather: "partly-cloudy",
+    high: 34,
+    low: 24,
+    rainChance: 10,
+    rainfall: 0,
+    humidity: 68,
+    wind: "12 SW",
+    risk: "Low",
+  },
+  {
+    day: "Tue",
+    date: "21 May",
+    weather: "sunny",
+    high: 35,
+    low: 24,
+    rainChance: 20,
+    rainfall: 0.3,
+    humidity: 65,
+    wind: "14 SW",
+    risk: "Low",
+  },
+  {
+    day: "Wed",
+    date: "22 May",
+    weather: "rain",
+    high: 32,
+    low: 23,
+    rainChance: 60,
+    rainfall: 8.5,
+    humidity: 80,
+    wind: "16 SW",
+    risk: "Moderate",
+  },
+  {
+    day: "Thu",
+    date: "23 May",
+    weather: "rain",
+    high: 30,
+    low: 22,
+    rainChance: 80,
+    rainfall: 18.2,
+    humidity: 85,
+    wind: "18 W",
+    risk: "High",
+  },
+  {
+    day: "Fri",
+    date: "24 May",
+    weather: "partly-cloudy",
+    high: 33,
+    low: 23,
+    rainChance: 30,
+    rainfall: 2.1,
+    humidity: 70,
+    wind: "12 W",
+    risk: "Moderate",
+  },
+  {
+    day: "Sat",
+    date: "25 May",
+    weather: "sunny",
+    high: 36,
+    low: 25,
+    rainChance: 10,
+    rainfall: 0,
+    humidity: 60,
+    wind: "10 NW",
+    risk: "Low",
+  },
+  {
+    day: "Sun",
+    date: "26 May",
+    weather: "partly-cloudy",
+    high: 37,
+    low: 26,
+    rainChance: 10,
+    rainfall: 0,
+    humidity: 55,
+    wind: "8 NW",
+    risk: "Low",
+  },
+] as const;
+
+export const extendedForecast: readonly ForecastDay[] = [
+  ...forecastDays,
+  {
+    day: "Mon",
+    date: "27 May",
+    weather: "sunny",
+    high: 36,
+    low: 25,
+    rainChance: 10,
+    rainfall: 0,
+    humidity: 58,
+    wind: "9 NW",
+    risk: "Low",
+  },
+  {
+    day: "Tue",
+    date: "28 May",
+    weather: "partly-cloudy",
+    high: 35,
+    low: 25,
+    rainChance: 20,
+    rainfall: 0.2,
+    humidity: 62,
+    wind: "11 W",
+    risk: "Low",
+  },
+  {
+    day: "Wed",
+    date: "29 May",
+    weather: "rain",
+    high: 33,
+    low: 24,
+    rainChance: 50,
+    rainfall: 4.1,
+    humidity: 76,
+    wind: "14 SW",
+    risk: "Moderate",
+  },
+] as const;
+
+export type HourForecast = {
+  time: string;
+  weather: WeatherKind;
+  temperature: number;
+  feelsLike: number;
+  rainChance: number;
+  rainfall: number;
+  humidity: number;
+  wind: string;
+};
+
+export const hourlyForecast: readonly HourForecast[] = [
+  {
+    time: "Now\n9 AM",
+    weather: "partly-cloudy",
+    temperature: 32,
+    feelsLike: 36,
+    rainChance: 0,
+    rainfall: 0,
+    humidity: 70,
+    wind: "10 SW",
+  },
+  {
+    time: "10 AM",
+    weather: "sunny",
+    temperature: 30,
+    feelsLike: 34,
+    rainChance: 0,
+    rainfall: 0,
+    humidity: 65,
+    wind: "12 SW",
+  },
+  {
+    time: "11 AM",
+    weather: "sunny",
+    temperature: 31,
+    feelsLike: 35,
+    rainChance: 0,
+    rainfall: 0,
+    humidity: 60,
+    wind: "12 SW",
+  },
+  {
+    time: "12 PM",
+    weather: "sunny",
+    temperature: 32,
+    feelsLike: 36,
+    rainChance: 10,
+    rainfall: 0.1,
+    humidity: 55,
+    wind: "14 SW",
+  },
+  {
+    time: "1 PM",
+    weather: "sunny",
+    temperature: 33,
+    feelsLike: 37,
+    rainChance: 10,
+    rainfall: 0.1,
+    humidity: 50,
+    wind: "14 SW",
+  },
+  {
+    time: "2 PM",
+    weather: "partly-cloudy",
+    temperature: 34,
+    feelsLike: 38,
+    rainChance: 10,
+    rainfall: 0.1,
+    humidity: 48,
+    wind: "12 SW",
+  },
+  {
+    time: "3 PM",
+    weather: "cloudy",
+    temperature: 33,
+    feelsLike: 37,
+    rainChance: 30,
+    rainfall: 0.3,
+    humidity: 52,
+    wind: "12 W",
+  },
+  {
+    time: "4 PM",
+    weather: "cloudy",
+    temperature: 31,
+    feelsLike: 35,
+    rainChance: 40,
+    rainfall: 0.6,
+    humidity: 60,
+    wind: "12 W",
+  },
+  {
+    time: "5 PM",
+    weather: "rain",
+    temperature: 29,
+    feelsLike: 32,
+    rainChance: 60,
+    rainfall: 1.2,
+    humidity: 70,
+    wind: "10 NW",
+  },
+  {
+    time: "6 PM",
+    weather: "rain",
+    temperature: 27,
+    feelsLike: 30,
+    rainChance: 70,
+    rainfall: 1.5,
+    humidity: 80,
+    wind: "10 NW",
+  },
+  {
+    time: "7 PM",
+    weather: "night",
+    temperature: 26,
+    feelsLike: 28,
+    rainChance: 20,
+    rainfall: 0.2,
+    humidity: 75,
+    wind: "8 NW",
+  },
+  {
+    time: "8 PM",
+    weather: "night",
+    temperature: 25,
+    feelsLike: 27,
+    rainChance: 10,
+    rainfall: 0,
+    humidity: 70,
+    wind: "6 W",
+  },
+] as const;
+
+export const operationRows = [
+  {
+    operation: "Irrigation",
+    values: [
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "caution",
+      "caution",
+      "not-suitable",
+      "not-suitable",
+    ],
+  },
+  {
+    operation: "Fertilizer Application",
+    values: [
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "caution",
+      "not-suitable",
+      "not-suitable",
+      "not-suitable",
+    ],
+  },
+  {
+    operation: "Pesticide Spraying",
+    values: [
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "caution",
+      "caution",
+      "caution",
+      "not-suitable",
+      "not-suitable",
+      "not-suitable",
+    ],
+  },
+  {
+    operation: "Harvesting",
+    values: [
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "caution",
+      "not-suitable",
+      "not-suitable",
+      "not-suitable",
+    ],
+  },
+  {
+    operation: "Weeding",
+    values: [
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "suitable",
+      "caution",
+      "not-suitable",
+      "not-suitable",
+      "not-suitable",
+    ],
+  },
+] as const satisfies ReadonlyArray<{
+  operation: string;
+  values: readonly Suitability[];
+}>;
+
+export const dailySuitability = [
+  {
+    date: "20 May (Mon)",
+    window: "10:00 AM – 4:00 PM",
+    hours: "6 h 00 m",
+    rainfall: "0.0",
+    wind: "12",
+    status: "caution",
+  },
+  {
+    date: "21 May (Tue)",
+    window: "7:00 AM – 11:00 AM\n4:00 PM – 6:00 PM",
+    hours: "6 h 00 m",
+    rainfall: "0.3",
+    wind: "12",
+    status: "suitable",
+  },
+  {
+    date: "22 May (Wed)",
+    window: "7:00 AM – 12:00 PM",
+    hours: "5 h 00 m",
+    rainfall: "8.5",
+    wind: "16",
+    status: "not-suitable",
+  },
+  {
+    date: "23 May (Thu)",
+    window: "8:00 AM – 11:00 AM",
+    hours: "3 h 00 m",
+    rainfall: "18.2",
+    wind: "18",
+    status: "not-suitable",
+  },
+  {
+    date: "24 May (Fri)",
+    window: "7:00 AM – 10:00 AM",
+    hours: "3 h 00 m",
+    rainfall: "2.1",
+    wind: "14",
+    status: "caution",
+  },
+  {
+    date: "25 May (Sat)",
+    window: "7:00 AM – 1:00 PM",
+    hours: "6 h 00 m",
+    rainfall: "0.0",
+    wind: "10",
+    status: "suitable",
+  },
+  {
+    date: "26 May (Sun)",
+    window: "7:00 AM – 11:00 AM",
+    hours: "4 h 00 m",
+    rainfall: "0.0",
+    wind: "8",
+    status: "suitable",
+  },
+] as const satisfies ReadonlyArray<{
+  date: string;
+  window: string;
+  hours: string;
+  rainfall: string;
+  wind: string;
+  status: Suitability;
+}>;
+
+const weatherTextHindi: Readonly<Record<string, string>> = {
+  Today: "आज",
+  Tue: "मंगल",
+  Wed: "बुध",
+  Thu: "गुरु",
+  Fri: "शुक्र",
+  Sat: "शनि",
+  Sun: "रवि",
+  Mon: "सोम",
+  "20 May": "20 मई",
+  "21 May": "21 मई",
+  "22 May": "22 मई",
+  "23 May": "23 मई",
+  "24 May": "24 मई",
+  "25 May": "25 मई",
+  "26 May": "26 मई",
+  "27 May": "27 मई",
+  "28 May": "28 मई",
+  "29 May": "29 मई",
+  "Now\n9 AM": "अभी\nसुबह 9 बजे",
+  "10 AM": "सुबह 10 बजे",
+  "11 AM": "सुबह 11 बजे",
+  "12 PM": "दोपहर 12 बजे",
+  "1 PM": "दोपहर 1 बजे",
+  "2 PM": "दोपहर 2 बजे",
+  "3 PM": "दोपहर 3 बजे",
+  "4 PM": "शाम 4 बजे",
+  "5 PM": "शाम 5 बजे",
+  "6 PM": "शाम 6 बजे",
+  "7 PM": "शाम 7 बजे",
+  "8 PM": "रात 8 बजे",
+  "12 SW": "12 दक्षिण-पश्चिम",
+  "14 SW": "14 दक्षिण-पश्चिम",
+  "16 SW": "16 दक्षिण-पश्चिम",
+  "18 W": "18 पश्चिम",
+  "12 W": "12 पश्चिम",
+  "10 NW": "10 उत्तर-पश्चिम",
+  "8 NW": "8 उत्तर-पश्चिम",
+  "9 NW": "9 उत्तर-पश्चिम",
+  "11 W": "11 पश्चिम",
+  "10 SW": "10 दक्षिण-पश्चिम",
+  "6 W": "6 पश्चिम",
+  Irrigation: "सिंचाई",
+  "Fertilizer Application": "उर्वरक डालना",
+  "Pesticide Spraying": "कीटनाशक छिड़काव",
+  Harvesting: "कटाई",
+  Weeding: "निराई",
+  "20 May (Mon)": "20 मई (सोम)",
+  "21 May (Tue)": "21 मई (मंगल)",
+  "22 May (Wed)": "22 मई (बुध)",
+  "23 May (Thu)": "23 मई (गुरु)",
+  "24 May (Fri)": "24 मई (शुक्र)",
+  "25 May (Sat)": "25 मई (शनि)",
+  "26 May (Sun)": "26 मई (रवि)",
+  "10:00 AM – 4:00 PM": "सुबह 10:00 – शाम 4:00",
+  "7:00 AM – 11:00 AM\n4:00 PM – 6:00 PM": "सुबह 7:00 – 11:00\nशाम 4:00 – 6:00",
+  "7:00 AM – 12:00 PM": "सुबह 7:00 – दोपहर 12:00",
+  "8:00 AM – 11:00 AM": "सुबह 8:00 – 11:00",
+  "7:00 AM – 10:00 AM": "सुबह 7:00 – 10:00",
+  "7:00 AM – 1:00 PM": "सुबह 7:00 – दोपहर 1:00",
+  "7:00 AM – 11:00 AM": "सुबह 7:00 – 11:00",
+  "6 h 00 m": "6 घंटे 00 मिनट",
+  "5 h 00 m": "5 घंटे 00 मिनट",
+  "3 h 00 m": "3 घंटे 00 मिनट",
+  "4 h 00 m": "4 घंटे 00 मिनट",
+};
+
+export function translateWeatherText(t: Translator, value: string): string {
+  return t(value, weatherTextHindi[value] ?? value);
+}
+import type { Translator } from "@/i18n/localized-text";

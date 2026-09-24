@@ -1,0 +1,1012 @@
+.appShell {
+  min-height: 100dvh;
+  padding-bottom: 6.4rem;
+  background: #f8faf7;
+}
+
+.appHeader {
+  position: sticky;
+  z-index: var(--layer-header);
+  top: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 96%);
+  backdrop-filter: blur(14px);
+}
+
+.headerInner {
+  display: flex;
+  width: min(100% - 2rem, var(--page-max));
+  min-height: 5.35rem;
+  margin: 0 auto;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.brandLink {
+  text-decoration: none;
+}
+
+.marketplaceAppHeader {
+  box-shadow: 0 4px 18px rgb(13 72 32 / 7%);
+}
+
+.marketplaceSearch {
+  display: flex;
+  min-width: 15rem;
+  min-height: 3rem;
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid #cfdacf;
+  border-radius: 0.75rem;
+  background: white;
+}
+
+.marketplaceSearch:focus-within {
+  border-color: var(--color-green-700);
+  box-shadow: 0 0 0 3px rgb(33 118 55 / 12%);
+}
+
+.marketplaceSearch input {
+  min-width: 0;
+  padding: 0 0.9rem;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--color-ink);
+  background: transparent;
+  font-size: 0.84rem;
+}
+
+.marketplaceSearch button {
+  display: grid;
+  width: 3rem;
+  border: 0;
+  place-items: center;
+  color: var(--color-green-900);
+  background: transparent;
+  cursor: pointer;
+}
+
+.locationButton {
+  display: flex;
+  min-height: var(--touch-target);
+  padding: 0.45rem 0.7rem;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid #dce8da;
+  border-radius: var(--radius-sm);
+  color: var(--color-green-900);
+  background: #f8fbf6;
+  cursor: pointer;
+}
+
+.locationButton span {
+  display: grid;
+  text-align: left;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.locationButton small {
+  color: var(--color-muted);
+  font-size: 0.66rem;
+  font-weight: 400;
+}
+
+.headerActions {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.headerActions > label {
+  min-height: var(--touch-target);
+  border-color: #dce8da;
+  box-shadow: none;
+}
+
+.headerActions a {
+  position: relative;
+  display: inline-flex;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--color-green-900);
+  text-decoration: none;
+}
+
+.headerActions a:hover {
+  border-color: #dce8da;
+  background: var(--color-green-50);
+}
+
+.headerActions .badged span {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  display: grid;
+  width: 1.15rem;
+  height: 1.15rem;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background: #e53e32;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.headerActions .helpLink {
+  width: auto;
+  padding: 0 0.8rem;
+  gap: 0.4rem;
+  border-color: var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.appMain {
+  width: min(100% - 2rem, var(--page-max));
+  margin: 0 auto;
+  padding: 1.4rem 0 2rem;
+}
+
+.assistantMain {
+  padding-top: 1rem;
+}
+
+.bottomNavigation {
+  position: fixed;
+  z-index: var(--layer-header);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: min(100%, 760px);
+  min-height: 5.25rem;
+  margin: 0 auto;
+  padding: 0.45rem max(0.5rem, env(safe-area-inset-right))
+    max(0.45rem, env(safe-area-inset-bottom))
+    max(0.5rem, env(safe-area-inset-left));
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  border-radius: 1.7rem 1.7rem 0 0;
+  background: rgb(255 255 255 / 98%);
+  box-shadow: 0 -8px 30px rgb(20 73 38 / 10%);
+}
+
+@media (min-width: 761px) {
+  .marketplaceBottomNavigation {
+    display: none;
+  }
+}
+
+.bottomNavItem {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.18rem;
+  border-radius: 1rem;
+  color: #323b44;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.bottomNavItem > span {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.bottomNavItem svg {
+  stroke-width: 2.25;
+}
+
+.bottomNavItem.active {
+  color: var(--color-green-800);
+  font-weight: 700;
+}
+
+.bottomNavItem.active:not(.featuredNav) > span {
+  background: var(--color-green-50);
+}
+
+.featuredNav > span {
+  width: 3.7rem;
+  height: 3.7rem;
+  margin-top: -1.6rem;
+  color: white;
+  background: var(--color-green-800);
+  box-shadow: 0 7px 16px rgb(21 95 44 / 28%);
+}
+
+.panelNav.active {
+  margin: 0.2rem 0;
+  border-radius: 0.7rem;
+  color: white;
+  background: var(--color-green-800);
+}
+
+.panelNav.active > span {
+  color: white;
+}
+
+.pageHeader {
+  display: flex;
+  min-height: 4rem;
+  margin-bottom: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pageHeading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.pageHeading h1 {
+  margin: 0;
+  color: var(--color-green-950);
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  line-height: 1.2;
+}
+
+.pageHeading p {
+  margin: 0.28rem 0 0;
+  color: #596273;
+  font-size: 0.9rem;
+}
+
+.backButton {
+  display: grid;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-ink);
+  background: white;
+}
+
+.pageAction {
+  flex: 0 0 auto;
+}
+
+.sectionHeading {
+  display: flex;
+  margin: 1.45rem 0 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  color: var(--color-green-900);
+  font-size: 1.12rem;
+}
+
+.sectionHeading a {
+  display: inline-flex;
+  min-height: var(--touch-target);
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-green-700);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.serviceCard {
+  position: relative;
+  display: flex;
+  min-height: 8.8rem;
+  padding: 1rem;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: hidden;
+  border: 1px solid #dce7da;
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
+  background: white;
+  text-decoration: none;
+  transition:
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+
+.serviceCard:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.serviceCard strong,
+.serviceCard small {
+  display: block;
+}
+
+.serviceCard strong {
+  color: var(--color-green-950);
+  font-size: 0.94rem;
+}
+
+.serviceCard small {
+  margin-top: 0.25rem;
+  color: #5d6675;
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.serviceIcon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 0.9rem;
+  color: var(--color-green-800);
+  background: var(--color-green-100);
+}
+
+.blue .serviceIcon {
+  color: #1565a8;
+  background: #eaf4ff;
+}
+
+.orange .serviceIcon {
+  color: #bd5c00;
+  background: #fff2df;
+}
+
+.purple .serviceIcon {
+  color: #7650a3;
+  background: #f4ebff;
+}
+
+.pink .serviceIcon {
+  color: #a83c6e;
+  background: #fdebf3;
+}
+
+.teal .serviceIcon {
+  color: #147b75;
+  background: #e4f6f2;
+}
+
+.cardArrow {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  color: var(--color-green-700);
+}
+
+.serviceBadge {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  padding: 0.18rem 0.38rem;
+  border-radius: 0.3rem;
+  color: white;
+  background: #f58220;
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.featuredService {
+  border-color: #a8d1a5;
+  background: linear-gradient(145deg, #f7fff4, #eef8eb);
+}
+
+.compactServiceGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #dfe6dc;
+  border-radius: var(--radius-md);
+  background: white;
+  box-shadow: 0 3px 12px rgb(17 75 35 / 5%);
+}
+
+.compactServiceGrid .serviceCard {
+  min-height: 9.1rem;
+  padding: 0.9rem 0.45rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border: 0;
+  border-right: 1px solid #e8ece6;
+  border-bottom: 1px solid #e8ece6;
+  border-radius: 0;
+  text-align: center;
+}
+
+.compactServiceGrid .serviceCard:nth-child(5n) {
+  border-right: 0;
+}
+
+.compactServiceGrid .serviceCard:nth-last-child(-n + 5) {
+  border-bottom: 0;
+}
+
+.compactServiceGrid .serviceCard:hover {
+  z-index: 1;
+  background: var(--color-green-50);
+  box-shadow: inset 0 0 0 1px #b8d4b4;
+  transform: none;
+}
+
+.compactServiceGrid .serviceIcon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+}
+
+.compactServiceGrid .serviceCard strong {
+  font-size: 0.83rem;
+  line-height: 1.25;
+}
+
+.compactServiceGrid .serviceCard small {
+  margin-top: 0.18rem;
+  font-size: 0.65rem;
+  line-height: 1.3;
+}
+
+.compactServiceGrid .cardArrow {
+  display: none;
+}
+
+.cropContext {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1rem;
+  padding: 1rem;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: white;
+}
+
+.cropContext > div {
+  display: flex;
+  min-width: 0;
+  padding: 0 1rem;
+  align-items: center;
+  gap: 0.7rem;
+  border-right: 1px solid #e5e9e3;
+}
+
+.cropContext > div > span:last-child {
+  min-width: 0;
+}
+
+.cropContext > div:first-child {
+  padding-left: 0;
+}
+
+.cropContext > div:last-child {
+  padding-right: 0;
+  border: 0;
+}
+
+.contextIcon {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.8rem;
+  color: var(--color-green-800);
+  background: var(--color-green-50);
+}
+
+.cropContext small,
+.cropContext strong,
+.cropContext em {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cropContext small {
+  color: #667085;
+  font-size: 0.7rem;
+}
+
+.cropContext strong {
+  margin-top: 0.1rem;
+  color: #182025;
+  font-size: 0.87rem;
+}
+
+.cropContext em {
+  color: #43506a;
+  font-size: 0.7rem;
+  font-style: normal;
+}
+
+.stepProgress {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 650px;
+  padding: 0;
+  margin: 0.7rem auto 1.25rem;
+  list-style: none;
+}
+
+.stepProgress li {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  color: #768078;
+  font-size: 0.68rem;
+}
+
+.stepProgress li::before {
+  position: absolute;
+  z-index: 0;
+  top: 0.9rem;
+  right: 50%;
+  left: -50%;
+  height: 2px;
+  background: #dce3dc;
+  content: "";
+}
+
+.stepProgress li:first-child::before {
+  display: none;
+}
+
+.stepProgress li > span {
+  z-index: 1;
+  display: grid;
+  width: 1.85rem;
+  height: 1.85rem;
+  place-items: center;
+  border: 2px solid #cfd8cf;
+  border-radius: 50%;
+  background: white;
+  font-weight: 700;
+}
+
+.stepProgress .completeStep,
+.stepProgress .currentStep {
+  color: var(--color-green-800);
+  font-weight: 600;
+}
+
+.stepProgress .completeStep::before,
+.stepProgress .currentStep::before {
+  background: var(--color-green-700);
+}
+
+.stepProgress .completeStep > span,
+.stepProgress .currentStep > span {
+  border-color: var(--color-green-700);
+  color: white;
+  background: var(--color-green-700);
+}
+
+.primaryLink {
+  display: inline-flex;
+  min-height: 3.3rem;
+  padding: 0.75rem 1.2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid var(--color-green-800);
+  border-radius: var(--radius-sm);
+  color: white;
+  background: var(--color-green-800);
+  box-shadow: 0 7px 16px rgb(21 95 44 / 14%);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.secondaryLink {
+  color: var(--color-green-800);
+  background: white;
+  box-shadow: none;
+}
+
+.leafImage {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #d8e6ce;
+}
+
+.leafImage img {
+  object-fit: cover;
+}
+
+.statCard {
+  display: flex;
+  min-height: 6.3rem;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #dce4da;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(145deg, #fff, #f7faf5);
+}
+
+.statCard > span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-green-800);
+  background: var(--color-green-100);
+}
+
+.statCard small,
+.statCard strong,
+.statCard em {
+  display: block;
+}
+
+.statCard small {
+  color: #596273;
+  font-size: 0.76rem;
+}
+
+.statCard strong {
+  margin-top: 0.15rem;
+  color: var(--color-green-900);
+  font-size: 1.35rem;
+}
+
+.statCard em {
+  color: #5d6675;
+  font-size: 0.7rem;
+  font-style: normal;
+}
+
+.freshnessNote {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  gap: 0.4rem;
+  color: #667085;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 800px) {
+  .headerInner,
+  .appMain {
+    width: min(100% - 1.25rem, var(--page-max));
+  }
+
+  .appMain.assistantMain {
+    width: 100%;
+    padding: 0;
+  }
+
+  .headerInner {
+    gap: 0.55rem;
+  }
+
+  .headerActions .actionSearch,
+  .headerActions .actionAssistant,
+  .headerActions .actionProfile,
+  .headerActions .helpLink {
+    display: none;
+  }
+
+  .locationButton {
+    margin-left: auto;
+  }
+
+  .headerActions {
+    margin-left: 0;
+  }
+
+  .marketplaceHeaderInner {
+    flex-wrap: wrap;
+    padding: 0.6rem 0;
+  }
+
+  .marketplaceHeaderInner .brandLink {
+    margin-right: auto;
+  }
+
+  .marketplaceHeaderInner .brandLink [role="img"] {
+    gap: 0.4rem;
+  }
+
+  .marketplaceHeaderInner .brandLink [role="img"] > svg {
+    width: 2.4rem;
+  }
+
+  .marketplaceHeaderInner .brandLink [role="img"] > span {
+    font-size: 1.05rem;
+  }
+
+  .marketplaceSearch {
+    min-width: 100%;
+    min-height: 2.75rem;
+    order: 3;
+  }
+
+  .serviceGrid:not(.compactServiceGrid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .serviceGrid.compactServiceGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .compactServiceGrid .serviceCard:nth-child(5n) {
+    border-right: 1px solid #e8ece6;
+  }
+
+  .compactServiceGrid .serviceCard:nth-last-child(-n + 5) {
+    border-bottom: 1px solid #e8ece6;
+  }
+
+  .compactServiceGrid .serviceCard:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .cropContext {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .cropContext > div,
+  .cropContext > div:first-child {
+    padding: 0;
+    border: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .appShell {
+    padding-bottom: 5.9rem;
+  }
+
+  .headerInner {
+    min-height: 4.7rem;
+  }
+
+  .headerInner:not(.marketplaceHeaderInner) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 5.8rem;
+    padding: 0.45rem 0;
+    align-items: center;
+    gap: 0.1rem 0.4rem;
+  }
+
+  .headerInner:not(.marketplaceHeaderInner) .brandLink {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .headerInner:not(.marketplaceHeaderInner) .headerActions {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .headerInner:not(.marketplaceHeaderInner) .locationButton {
+    min-height: 2rem;
+    padding: 0.1rem 0;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .marketplaceHeaderInner {
+    min-height: 0;
+  }
+
+  .marketplaceHeaderInner .headerActions {
+    gap: 0.2rem;
+  }
+
+  .marketplaceHeaderInner .headerActions a {
+    min-width: 2.5rem;
+  }
+
+  .marketplaceHeaderInner .actionCart {
+    display: none;
+  }
+
+  .marketplaceHeaderInner .headerActions > label {
+    min-height: 2.5rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .locationButton {
+    max-width: 10.5rem;
+    border: 0;
+    background: transparent;
+  }
+
+  .locationButton > svg:last-child {
+    display: none;
+  }
+
+  .pageHeader {
+    align-items: flex-start;
+  }
+
+  .pageHeading h1 {
+    font-size: 1.3rem;
+  }
+
+  .pageHeading p {
+    font-size: 0.78rem;
+  }
+
+  .pageAction .primaryLink {
+    min-height: var(--touch-target);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .serviceCard {
+    min-height: 8.3rem;
+    padding: 0.8rem;
+  }
+
+  .compactServiceGrid .serviceCard {
+    min-height: 8.5rem;
+    padding: 0.75rem 0.45rem;
+    gap: 0.35rem;
+  }
+
+  .serviceGrid.compactServiceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compactServiceGrid .serviceCard:nth-child(3n) {
+    border-right: 1px solid #e8ece6;
+  }
+
+  .compactServiceGrid .serviceCard:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .compactServiceGrid .serviceIcon {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .compactServiceGrid .serviceCard strong {
+    font-size: 0.68rem;
+  }
+
+  .compactServiceGrid .serviceCard small {
+    font-size: 0.54rem;
+    line-height: 1.25;
+    -webkit-line-clamp: 3;
+  }
+
+  .serviceCard small {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .serviceIcon {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .bottomNavigation {
+    min-height: 4.9rem;
+    border-radius: 1.35rem 1.35rem 0 0;
+  }
+
+  .bottomNavItem {
+    font-size: 0.62rem;
+  }
+
+  .bottomNavItem > span {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .featuredNav > span {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .cropContext {
+    padding: 0.75rem;
+  }
+
+  .contextIcon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .cropContext strong {
+    font-size: 0.76rem;
+  }
+
+  .cropContext em {
+    font-size: 0.62rem;
+  }
+
+  .leafImage {
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .appMain,
+  .headerInner {
+    width: calc(100% - 0.8rem);
+  }
+
+  .appMain.assistantMain {
+    width: 100%;
+  }
+
+  .locationButton {
+    max-width: 9rem;
+    padding-inline: 0.25rem;
+  }
+
+  .locationButton span {
+    font-size: 0.72rem;
+  }
+
+  .bottomNavItem {
+    font-size: 0.56rem;
+  }
+
+  .compactServiceGrid .serviceCard {
+    min-height: 7.5rem;
+    padding-inline: 0.12rem;
+  }
+
+  .compactServiceGrid .serviceIcon {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .compactServiceGrid .serviceCard strong {
+    font-size: 0.61rem;
+  }
+
+  .compactServiceGrid .serviceCard small {
+    font-size: 0.49rem;
+  }
+}
