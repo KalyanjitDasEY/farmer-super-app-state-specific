@@ -20,8 +20,8 @@ export function LanguageSwitcher({
 
   const switchLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value as Locale;
-    localStorage.setItem("raj-kisan-locale", nextLocale);
-    document.cookie = `raj-kisan-locale=${nextLocale}; Path=${appBasePath || "/"}; Max-Age=31536000; SameSite=Lax`;
+    localStorage.setItem("bihar-kisan-locale", nextLocale);
+    document.cookie = `bihar-kisan-locale=${nextLocale}; Path=${appBasePath || "/"}; Max-Age=31536000; SameSite=Lax`;
     router.refresh();
   };
 

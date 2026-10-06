@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("Nearby Sellers & Services", "आस-पास के विक्रेता और सेवाएं"),
     description: t(
-      "Find verified agricultural suppliers and storage facilities near Chomu.",
-      "चौमूं के पास सत्यापित कृषि आपूर्तिकर्ता और भंडारण सुविधाएं खोजें।",
+      "Explore demo agricultural suppliers and storage facilities near Bihta.",
+      "बिहटा के पास डेमो कृषि आपूर्तिकर्ता और भंडारण सुविधाएं देखें।",
     ),
   };
 }

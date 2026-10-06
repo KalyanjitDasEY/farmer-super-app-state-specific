@@ -57,11 +57,11 @@ describe("BottomNavigation", () => {
       screen.getByRole("dialog", { name: "किसान प्रोफाइल" }),
     ).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "रमेश कुमार" })).toBeVisible();
-    expect(screen.getByText("जन आधार")).toBeVisible();
+    expect(screen.getByText("आधार (छिपाया गया डेमो)")).toBeVisible();
     expect(screen.getByText("भूमि सारांश")).toBeVisible();
     expect(screen.getByText("भू-अभिलेख सारांश")).toBeVisible();
     expect(screen.getByText("ई-केवाईसी स्थिति")).toBeVisible();
-    expect(screen.getByText("पहचान सत्यापित")).toBeVisible();
+    expect(screen.getByText("केवल डेमो")).toBeVisible();
     expect(screen.getByRole("button", { name: "बंद करें" })).toBeVisible();
     expect(
       screen.getByText(

@@ -37,7 +37,11 @@ export function PwaClient({ dictionary }: { dictionary: Dictionary }) {
         const cacheNames = await caches.keys();
         await Promise.all(
           cacheNames
-            .filter((cacheName) => cacheName.startsWith("raj-kisan-"))
+            .filter(
+              (cacheName) =>
+                cacheName.startsWith("raj-kisan-") ||
+                cacheName.startsWith("bihar-kisan-"),
+            )
             .map((cacheName) => caches.delete(cacheName)),
         );
 

@@ -216,7 +216,7 @@ export default async function MachineryHomePage() {
             [
               [
                 localized("Rotavator (6 Feet)", "रोटावेटर (6 फीट)"),
-                "Deoria FPO Society",
+                "Bihta FPO Society",
                 localized(
                   "21 May 2024, 09:00 AM",
                   "21 मई 2024, 09:00 पूर्वाह्न",

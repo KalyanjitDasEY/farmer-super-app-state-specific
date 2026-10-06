@@ -21,37 +21,37 @@ const checks = [
   [
     localized("Animal Identity", "पशु की पहचान"),
     localized("Photo & basic details", "तस्वीर और मूल विवरण"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Age Verification", "आयु सत्यापन"),
     localized("Teeth / Birth record", "दाँत / जन्म रिकॉर्ड"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Breed Verification", "नस्ल सत्यापन"),
     localized("Breed characteristics", "नस्ल की विशेषताएँ"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Health Records", "स्वास्थ्य रिकॉर्ड"),
     localized("Vaccination & tests", "टीकाकरण और परीक्षण"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Milk Record", "दूध रिकॉर्ड"),
     localized("Milk test / Yield", "दूध परीक्षण / उत्पादन"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Pregnancy Status", "गर्भावस्था स्थिति"),
     localized("Test report", "परीक्षण रिपोर्ट"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Ownership Proof", "स्वामित्व प्रमाण"),
     localized("Seller identity", "विक्रेता की पहचान"),
-    localized("Verified", "सत्यापित"),
+    localized("Demo entry", "डेमो प्रविष्टि"),
   ],
   [
     localized("Price Validity", "मूल्य की वैधता"),
@@ -100,7 +100,7 @@ export default async function ListingReviewPage() {
         </div>
         <div>
           <b>3</b>
-          <span>{t("Verified", "सत्यापित")}</span>
+          <span>{t("Demo check", "डेमो जांच")}</span>
           <small>{t("Pending", "लंबित")}</small>
         </div>
         <div>
@@ -140,7 +140,7 @@ export default async function ListingReviewPage() {
                 <br />
                 {t("Breed:", "नस्ल:")} HF (Holstein Friesian)
                 <br />
-                {t("Location: Raipur, Deoria", "स्थान: रायपुर, देवरिया")}
+                {t("Location: Amhara, Bihta", "स्थान: अमहरा, बिहटा")}
               </p>
             </div>
           </article>
@@ -231,7 +231,7 @@ export default async function ListingReviewPage() {
                   <li key={t(item)}>
                     <CheckCircle2 size={15} />
                     <span>{t(item)}</span>
-                    <b>{t("Verified", "सत्यापित")}</b>
+                    <b>{t("Demo entry", "डेमो प्रविष्टि")}</b>
                   </li>
                 ))}
               </ul>
@@ -261,11 +261,11 @@ export default async function ListingReviewPage() {
             <article className={styles.panel}>
               <h2>{t("Location & Delivery", "स्थान और डिलीवरी")}</h2>
               <p>
-                Ram Prasad Farm, Pusa Basmati 1121
+                Ram Prasad Farm, {t("Amhara", "अमहरा")}
                 <br />
                 {t(
-                  "Raipur, Deoria, Uttar Pradesh – 274001",
-                  "रायपुर, देवरिया, उत्तर प्रदेश – 274001",
+                  "Bihta, Patna, Bihar – 801103",
+                  "बिहटा, पटना, बिहार – 801103",
                 )}
               </p>
               <p>
@@ -383,8 +383,8 @@ export default async function ListingReviewPage() {
       <aside className={styles.safeBar}>
         <ShieldCheck size={21} />
         {t(
-          "Verified listings build trust and get more enquiries.",
-          "सत्यापित लिस्टिंग भरोसा बढ़ाती हैं और अधिक पूछताछ लाती हैं।",
+          "This is a demo review; no animal or seller has been verified.",
+          "यह डेमो समीक्षा है; किसी पशु या विक्रेता का सत्यापन नहीं हुआ है।",
         )}
       </aside>
     </div>

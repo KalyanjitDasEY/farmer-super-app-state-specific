@@ -1,5 +1,5 @@
 {
-  "name": "rajasthan-farmer-super-app",
+  "name": "bihar-farmer-super-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -44,5 +44,5 @@
     "typescript": "^5",
     "vitest": "^4.1.11"
   },
-  "description": "Accessible bilingual Rajasthan farmer services PWA"
+  "description": "Accessible bilingual Bihar farmer services demo PWA"
 }

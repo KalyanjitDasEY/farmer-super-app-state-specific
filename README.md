@@ -1,6 +1,6 @@
-# Raj Kisan Suvidha
+# Bihar Kisan Suvidha
 
-Frontend-only bilingual Progressive Web Application for Rajasthan farmer services.
+Frontend-only bilingual Progressive Web Application demonstrating Bihar farmer services. This is not an official Bihar government portal: schemes, market prices, identities, applications, and contact details shown inside the app are illustrative and do not submit to government systems. For official services visit [Bihar Agriculture DBT](https://dbtagriculture.bihar.gov.in/).
 
 ## Requirements
 
@@ -29,6 +29,23 @@ Advisories, Krishi Input Marketplace, NutriCheck, Crop Doctor, Leaf Colour
 Check, Pest & Disease, Pashu Bazaar, My Farms, Farm Machinery, and Agri
 Startups service modules. Each module includes its related detail flows and
 remains available under the configured base path.
+
+The accident-support walkthrough retains its existing `/mksy` URL for demo
+compatibility; it is **not** presented as an official Bihar scheme or claim
+portal. Bihar-localized locations, catalogue entries, and sample identifiers
+are illustrative. Consult the [Bihar Agriculture Department](https://state.bihar.gov.in/krishi/CitizenHome.html)
+and [Directorate of Horticulture](https://horticulture.bihar.gov.in/) for
+current services and eligibility.
+
+## Farmer imagery
+
+The farmer photos are illustrative; the site does not claim every person pictured
+is from Bihar. The scheme and login photographs are identified as Bihar scenes
+by their Wikimedia Commons uploaders; the gateway and marketplace portrait has
+no verified state of origin. Crops, resizing, and a horizontal flip are credited
+on the bilingual `/image-credits` page, linked from the footer. The sample ID
+uses an original illustrated avatar rather than a photograph of a real person.
+No imagery was copied from the reference site.
 
 ## Testing and validation
 
@@ -61,38 +78,47 @@ npm run build
 npm run start
 ```
 
-The production server listens on port `3001`.
+`npm run start` listens on port `3001` locally. The deployment script starts
+the Bihar PM2 process on port `3002` so the Rajasthan app can remain on `3001`.
 
 ## Deployment
 
-1. Copy `.env.production.example` to `.env.production`.
-2. Confirm `NEXT_PUBLIC_BASE_PATH=/raj-kisan-suvidha` before building. The base path is compiled into the client bundle.
+1. Copy `.env.production.example` to `.env.production`, then review the values for your deployment.
+2. Confirm `NEXT_PUBLIC_BASE_PATH=/bihar-kisan-suvidha` before building. The base path is compiled into the client bundle.
 3. Make the deployment script executable and run it:
 
    ```bash
    chmod +x deploy.sh
-   ./deploy.sh
+   CLEAN_SOURCE_AFTER_DEPLOY=false ./deploy.sh
    ```
 
    The script installs dependencies, creates a standalone production build,
-   atomically deploys it to `/var/www/raj-kisan-suvidha`, starts or restarts
-   the `raj-kisan-suvidha` PM2 process on `127.0.0.1:3001`, verifies
-   `/raj-kisan-suvidha/`, and rolls back when deployment fails.
+   atomically deploys it to `/var/www/bihar-kisan-suvidha`, starts or restarts
+   the `bihar-kisan-suvidha` PM2 process on `127.0.0.1:3002`, verifies
+   `/bihar-kisan-suvidha/login`, and rolls back when deployment fails.
+   `CLEAN_SOURCE_AFTER_DEPLOY=false` preserves the source checkout.
 
-4. Add the locations from `deploy/nginx/raj-kisan-suvidha.conf.example` to the existing `eyaisahayak.in` Nginx server block.
-5. Reload Nginx and open `https://eyaisahayak.in/raj-kisan-suvidha/`.
+4. Replace the existing Bihar locations in the `eyaisahayak.in` Nginx server block with those from `deploy/nginx/bihar-kisan-suvidha.conf.example`. Keep the Rajasthan locations on port `3001`; do not add a second copy of the Bihar locations.
+5. Run `sudo nginx -t && sudo systemctl reload nginx`, then open `https://eyaisahayak.in/bihar-kisan-suvidha/login`.
 6. Serve over HTTPS so installation and service-worker features are available.
 
-Nginx must preserve `/raj-kisan-suvidha` when proxying. Do not add a trailing slash to the `proxy_pass` upstream URL.
+Nginx must preserve `/bihar-kisan-suvidha` when proxying. Do not add a trailing
+slash to the `proxy_pass` upstream URL. Proxy `/bihar-kisan-suvidha` directly:
+redirecting it to `/bihar-kisan-suvidha/` can loop with Next.js's slashless
+canonical URL. Both the Rajasthan and Bihar apps need separate PM2 processes
+and ports. Confirm the Bihar build includes
+`NEXT_PUBLIC_BASE_PATH=/bihar-kisan-suvidha` before deploying; this setting
+cannot be changed by Nginx after the build.
 
 Deployment values can be overridden without editing the script:
 
 ```bash
-APP_NAME=raj-kisan-suvidha \
-DEPLOY_DIR=/var/www/raj-kisan-suvidha \
+APP_NAME=bihar-kisan-suvidha \
+DEPLOY_DIR=/var/www/bihar-kisan-suvidha \
 APP_HOST=127.0.0.1 \
-PORT=3001 \
-HEALTH_PATH=/raj-kisan-suvidha/ \
+CLEAN_SOURCE_AFTER_DEPLOY=false \
+PORT=3002 \
+HEALTH_PATH=/bihar-kisan-suvidha/login \
 ./deploy.sh
 ```
 

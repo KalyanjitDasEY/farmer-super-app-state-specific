@@ -23,7 +23,7 @@ describe("KrishiMitraChat", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/कल जयपुर के आसपास हल्की बारिश की संभावना है/),
+        screen.getByText(/कल पटना के आसपास हल्की बारिश की संभावना है/),
       ).toBeVisible();
     });
   });

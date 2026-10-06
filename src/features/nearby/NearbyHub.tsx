@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, BadgeCheck, MapPin, Store } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info, MapPin, Store } from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -33,8 +33,8 @@ export function NearbyHub() {
           </h1>
           <span>
             {t(
-              "Find trusted agricultural suppliers and storage facilities around Chomu.",
-              "चौमूं के आसपास विश्वसनीय कृषि आपूर्तिकर्ता और भंडारण सुविधाएं खोजें।",
+              "Explore agricultural suppliers and storage around Amhara, Bihta.",
+              "अमहरा, बिहटा के आसपास कृषि आपूर्तिकर्ता और भंडारण सुविधाएं देखें।",
             )}
           </span>
         </div>
@@ -43,7 +43,7 @@ export function NearbyHub() {
           <span>
             <small>{t("Your location", "आपका स्थान")}</small>
             <strong>
-              {t("Chomu, Jaipur, Rajasthan", "चौमूं, जयपुर, राजस्थान")}
+              {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")}
             </strong>
           </span>
         </div>
@@ -58,17 +58,17 @@ export function NearbyHub() {
             <h2>{t("Choose a nearby service", "आस-पास की सेवा चुनें")}</h2>
             <p>
               {t(
-                "Compare verified sellers, available products, distance, timings and contact details.",
-                "सत्यापित विक्रेताओं, उपलब्ध उत्पादों, दूरी, समय और संपर्क विवरण की तुलना करें।",
+                "Compare sample listings, products, distance, timings and contact details.",
+                "नमूना सूचियों, उत्पादों, दूरी, समय और संपर्क विवरण की तुलना करें।",
               )}
             </p>
           </div>
         </div>
         <p>
-          <BadgeCheck size={18} aria-hidden="true" />
+          <Info size={18} aria-hidden="true" />
           {t(
-            "Listings verified by the Agriculture Department, Rajasthan",
-            "सूचियां राजस्थान कृषि विभाग द्वारा सत्यापित हैं",
+            "Demo listings — confirm details with providers before visiting",
+            "डेमो सूचियां — जाने से पहले प्रदाताओं से विवरण की पुष्टि करें",
           )}
         </p>
       </section>
@@ -98,13 +98,13 @@ export function NearbyHub() {
 
       <section className={styles.hubTrust}>
         <article>
-          <BadgeCheck size={26} aria-hidden="true" />
+          <Info size={26} aria-hidden="true" />
           <div>
-            <strong>{t("Verified listings", "सत्यापित सूचियां")}</strong>
+            <strong>{t("Sample listings", "नमूना सूचियां")}</strong>
             <span>
               {t(
-                "Department-verified sellers and facilities",
-                "विभाग द्वारा सत्यापित विक्रेता और सुविधाएं",
+                "Illustrative sellers and storage facilities",
+                "उदाहरण के लिए विक्रेता और भंडारण सुविधाएं",
               )}
             </span>
           </div>

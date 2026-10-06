@@ -9,29 +9,22 @@ import { localized } from "@/i18n/localized-text";
 import { ClaimActions, Field, FormSection, Notice } from "./mksy-components";
 import styles from "./mksy.module.css";
 
-const assistanceSlabs = [
+const incidentCategories = [
   [
     localized("Accidental Death", "दुर्घटना में मृत्यु"),
-    localized("Due to specified accident", "निर्दिष्ट दुर्घटना के कारण"),
-    "₹5,00,000",
+    localized("Example incident category", "उदाहरण घटना श्रेणी"),
   ],
   [
     localized("Permanent Total Disability", "स्थायी पूर्ण दिव्यांगता"),
-    localized(
-      "Loss of both limbs / both eyes",
-      "दोनों अंगों / दोनों आंखों की हानि",
-    ),
-    "₹5,00,000",
+    localized("Example permanent disability", "स्थायी दिव्यांगता का उदाहरण"),
   ],
   [
     localized("Loss of Two Limbs / Two Eyes", "दो अंगों / दोनों आंखों की हानि"),
-    localized("As per scheme rules", "योजना के नियमों के अनुसार"),
-    "₹2,50,000",
+    localized("Example incident category", "उदाहरण घटना श्रेणी"),
   ],
   [
     localized("Loss of One Limb or One Eye", "एक अंग या एक आंख की हानि"),
-    localized("As per scheme rules", "योजना के नियमों के अनुसार"),
-    "₹1,25,000",
+    localized("Example incident category", "उदाहरण घटना श्रेणी"),
   ],
 ] as const;
 
@@ -86,18 +79,18 @@ export function AccidentVictimForm() {
               <option>{t("Dependent", "आश्रित")}</option>
             </select>
           </Field>
-          <Field label={t("Jan Aadhaar Number", "जन आधार संख्या")} required>
+          <Field label={t("Demo Farmer ID", "डेमो किसान आईडी")} required>
             <div className={styles.inlineField}>
-              <input defaultValue="XXXX XXXX 9012" readOnly />
+              <input defaultValue="BR23F12345678" readOnly />
               <button type="button">
-                <Check size={16} /> {t("Verify", "सत्यापित करें")}
+                <Check size={16} /> {t("Sample ID", "नमूना आईडी")}
               </button>
             </div>
           </Field>
           <Field
             label={t(
-              "Victim / Farmer Name (as per Jan Aadhaar)",
-              "पीड़ित / किसान का नाम (जन आधार के अनुसार)",
+              "Victim / Farmer Name (sample)",
+              "पीड़ित / किसान का नाम (नमूना)",
             )}
             required
             wide
@@ -114,48 +107,48 @@ export function AccidentVictimForm() {
             <input type="number" defaultValue="45" />
           </Field>
           <Field label={t("District", "जिला")} required>
-            <select defaultValue="Jaipur">
-              <option>Jaipur</option>
+            <select defaultValue="Patna">
+              <option value="Patna">{t("Patna", "पटना")}</option>
             </select>
           </Field>
-          <Field label={t("Tehsil", "तहसील")} required>
-            <select defaultValue="Chomu">
-              <option>Chomu</option>
+          <Field label={t("Block / Anchal", "प्रखंड / अंचल")} required>
+            <select defaultValue="Bihta">
+              <option value="Bihta">{t("Bihta", "बिहटा")}</option>
             </select>
           </Field>
           <Field label={t("Village", "गांव")} required>
-            <input defaultValue="Mor" />
+            <input defaultValue={t("Amhara", "अमहरा")} key={locale} />
           </Field>
         </div>
         <p className={styles.successLine}>
           <Check size={16} />{" "}
           {t(
-            "Details verified with Jan Aadhaar.",
-            "विवरण जन आधार से सत्यापित किया गया।",
+            "Sample identity shown; no external verification performed.",
+            "नमूना पहचान दर्शाई गई है; कोई बाहरी सत्यापन नहीं हुआ।",
           )}
         </p>
       </FormSection>
 
       <FormSection
         title={t(
-          "C. Assistance Slab (Auto Calculated)",
-          "C. सहायता स्लैब (स्वतः गणना)",
+          "C. Incident Category (Demo Selection)",
+          "C. घटना श्रेणी (डेमो चयन)",
         )}
       >
         <p>
           {t(
-            "Select the applicable assistance slab. The claim amount is calculated automatically.",
-            "लागू सहायता स्लैब चुनें। दावा राशि की गणना स्वतः की जाएगी।",
+            "Select a sample incident category to continue the demo. No benefit amount is calculated.",
+            "डेमो जारी रखने के लिए नमूना घटना श्रेणी चुनें। किसी लाभ राशि की गणना नहीं होती।",
           )}
         </p>
         <div className={styles.selectionTable}>
           <div className={styles.tableHead}>
             <span>{t("Incident Type", "घटना का प्रकार")}</span>
-            <span>{t("Eligibility Condition", "पात्रता शर्त")}</span>
-            <span>{t("Assistance Amount", "सहायता राशि")}</span>
+            <span>{t("Example description", "उदाहरण विवरण")}</span>
+            <span>{t("Benefit amount", "लाभ राशि")}</span>
             <span>{t("Select", "चुनें")}</span>
           </div>
-          {assistanceSlabs.map(([incident, condition, amount], index) => (
+          {incidentCategories.map(([incident, condition], index) => (
             <button
               className={selectedSlab === index ? styles.selectedRow : ""}
               type="button"
@@ -164,7 +157,7 @@ export function AccidentVictimForm() {
             >
               <span>{t(incident)}</span>
               <span>{t(condition)}</span>
-              <strong>{amount}</strong>
+              <strong>{t("Not specified", "निर्दिष्ट नहीं")}</strong>
               <em>
                 {selectedSlab === index
                   ? t("Selected", "चयनित")
@@ -175,8 +168,8 @@ export function AccidentVictimForm() {
         </div>
         <Notice>
           {t(
-            "Claim amount is derived from the selected assistance slab as per MKSY rules.",
-            "दावा राशि MKSY के नियमों के अनुसार चयनित सहायता स्लैब से निर्धारित होती है।",
+            "These categories are illustrative only; they do not establish official Bihar eligibility or a payable amount.",
+            "ये श्रेणियां केवल सांकेतिक हैं; इनसे बिहार की आधिकारिक पात्रता या देय राशि निर्धारित नहीं होती।",
           )}
         </Notice>
       </FormSection>
@@ -200,18 +193,18 @@ export function LocationNarrativeForm() {
       >
         <div className={styles.formGrid}>
           <Field label={t("District", "जिला")} required>
-            <select defaultValue="Jaipur">
-              <option>Jaipur</option>
+            <select defaultValue="Patna">
+              <option value="Patna">{t("Patna", "पटना")}</option>
             </select>
           </Field>
-          <Field label={t("Tehsil", "तहसील")} required>
-            <select defaultValue="Chomu">
-              <option>Chomu</option>
+          <Field label={t("Block / Anchal", "प्रखंड / अंचल")} required>
+            <select defaultValue="Bihta">
+              <option value="Bihta">{t("Bihta", "बिहटा")}</option>
             </select>
           </Field>
           <Field label={t("Revenue Village", "राजस्व गांव")} required>
-            <select defaultValue="Mor">
-              <option>Mor</option>
+            <select defaultValue="Amhara">
+              <option value="Amhara">{t("Amhara", "अमहरा")}</option>
             </select>
           </Field>
           <Field
@@ -220,13 +213,13 @@ export function LocationNarrativeForm() {
           >
             <input
               defaultValue={t(
-                "Near Khandela Road, Village Mor",
-                "खंडेला रोड के पास, गांव मोर",
+                "Near village road, Amhara",
+                "गांव की सड़क के पास, अमहरा",
               )}
               key={locale}
             />
           </Field>
-          <Field label={t("Land / Khasra Number", "भूमि / खसरा संख्या")}>
+          <Field label={t("Khesra", "खेसरा")}>
             <input defaultValue="123/1" />
           </Field>
         </div>
@@ -258,15 +251,15 @@ export function LocationNarrativeForm() {
             <Field label={t("Nearest Landmark", "निकटतम पहचान स्थल")}>
               <input
                 defaultValue={t(
-                  "Near Mor Primary School",
-                  "मोर प्राथमिक विद्यालय के पास",
+                  "Near Amhara village school",
+                  "अमहरा गांव के स्कूल के पास",
                 )}
                 key={locale}
               />
             </Field>
             <Field label={t("Police Station", "पुलिस थाना")}>
               <input
-                defaultValue={t("Chomu Police Station", "चोमू पुलिस थाना")}
+                defaultValue={t("Bihta Police Station", "बिहटा पुलिस थाना")}
                 key={locale}
               />
             </Field>
@@ -318,7 +311,13 @@ export function LocationNarrativeForm() {
             )}
             required
           >
-            <input defaultValue="SMS Hospital, Jaipur" />
+            <input
+              defaultValue={t(
+                "Patna Medical College and Hospital",
+                "पटना मेडिकल कॉलेज और अस्पताल",
+              )}
+              key={locale}
+            />
           </Field>
           <Field label={t("Type of Treatment", "उपचार का प्रकार")} required>
             <select
@@ -390,8 +389,11 @@ const documents = [
     "0.98 MB",
   ],
   [
-    localized("Jamabandi / Girdawari", "जमाबंदी / गिरदावरी"),
-    "Jamabandi_2023.pdf",
+    localized(
+      "Bihar land record / khata-khesra",
+      "बिहार भूमि अभिलेख / खाता-खेसरा",
+    ),
+    "Land_Record_Sample.pdf",
     "1.02 MB",
   ],
   [
@@ -424,15 +426,15 @@ export function DocumentsForm() {
               </strong>
               <span>
                 {index < 3
-                  ? t("Mandatory", "अनिवार्य")
-                  : t("Optional", "वैकल्पिक")}
+                  ? t("Demo required", "डेमो में आवश्यक")
+                  : t("Demo optional", "डेमो में वैकल्पिक")}
               </span>
               <span>
                 {file}
                 <small>{size}</small>
               </span>
               <em>
-                <Check size={15} /> {t("Uploaded", "अपलोड किया गया")}
+                <Check size={15} /> {t("Sample file", "नमूना फ़ाइल")}
               </em>
               <button type="button">
                 <Eye size={16} /> {t("View", "देखें")}
@@ -445,8 +447,8 @@ export function DocumentsForm() {
           <span>
             <strong>
               {t(
-                "Drag and drop files here or click to upload",
-                "फाइलें यहां खींचकर छोड़ें या अपलोड करने के लिए क्लिक करें",
+                "Sample upload area (no files are sent)",
+                "नमूना अपलोड क्षेत्र (कोई फ़ाइल नहीं भेजी जाती)",
               )}
             </strong>
             <small>
@@ -460,31 +462,29 @@ export function DocumentsForm() {
         <p className={styles.successLine}>
           <Check size={16} />{" "}
           {t(
-            "All mandatory documents uploaded.",
-            "सभी अनिवार्य दस्तावेज़ अपलोड हो गए हैं।",
+            "Sample files are shown; no documents have been submitted.",
+            "नमूना फ़ाइलें दिखाई गई हैं; कोई दस्तावेज़ जमा नहीं हुआ है।",
           )}
         </p>
       </FormSection>
 
       <FormSection
         title={t(
-          "B. e-KYC Verification (Jan Aadhaar)",
-          "B. ई-केवाईसी सत्यापन (जन आधार)",
+          "B. Demo Identity Check (Farmer ID)",
+          "B. डेमो पहचान जांच (किसान आईडी)",
         )}
       >
         <Notice tone="blue">
           {t(
-            "e-KYC is mandatory to ensure identity verification before claim submission.",
-            "दावा जमा करने से पहले पहचान सत्यापन सुनिश्चित करने के लिए ई-केवाईसी अनिवार्य है।",
+            "This sample OTP flow does not contact any identity service or perform real e-KYC.",
+            "यह नमूना OTP प्रक्रिया किसी पहचान सेवा से नहीं जुड़ती और वास्तविक ई-केवाईसी नहीं करती।",
           )}
         </Notice>
         <div className={styles.formGrid}>
-          <Field label={t("Jan Aadhaar Number", "जन आधार संख्या")}>
-            <input defaultValue="XXXX XXXX 9012" readOnly />
+          <Field label={t("Demo Farmer ID", "डेमो किसान आईडी")}>
+            <input defaultValue="BR23F12345678" readOnly />
           </Field>
-          <Field
-            label={t("Name (as per Jan Aadhaar)", "नाम (जन आधार के अनुसार)")}
-          >
+          <Field label={t("Name (sample)", "नाम (नमूना)")}>
             <input defaultValue="RAMESH KUMAR" readOnly />
           </Field>
           <Field
@@ -492,7 +492,7 @@ export function DocumentsForm() {
           >
             <input defaultValue="98XXXXXX56" readOnly />
           </Field>
-          <Field label={t("e-KYC Mode", "ई-केवाईसी माध्यम")}>
+          <Field label={t("Demo check mode", "डेमो जांच माध्यम")}>
             <div className={styles.modeButtons}>
               {(["OTP", "e-Sign"] as const).map((item) => (
                 <button
@@ -508,11 +508,11 @@ export function DocumentsForm() {
           </Field>
         </div>
         <div className={styles.otpPanel}>
-          <strong>{t("OTP Verification", "OTP सत्यापन")}</strong>
+          <strong>{t("Sample OTP", "नमूना OTP")}</strong>
           <p>
             {t(
-              "Enter OTP sent to 98XXXXXX56",
-              "98XXXXXX56 पर भेजा गया OTP दर्ज करें",
+              "Sample digits only; no OTP is sent",
+              "केवल नमूना अंक; कोई OTP भेजा नहीं जाता",
             )}
           </p>
           <div>
@@ -527,22 +527,22 @@ export function DocumentsForm() {
           </div>
           <span>
             <Check size={16} />{" "}
-            {t("OTP Verified Successfully", "OTP सफलतापूर्वक सत्यापित हुआ")}
+            {t("Sample OTP displayed", "नमूना OTP दिखाया गया")}
           </span>
         </div>
         <p className={styles.successLine}>
           <Check size={16} />{" "}
           {t(
-            "e-KYC verification completed successfully.",
-            "ई-केवाईसी सत्यापन सफलतापूर्वक पूरा हुआ।",
+            "Demo identity step shown; not verified against any registry.",
+            "डेमो पहचान चरण दिखाया गया; किसी रजिस्ट्री से सत्यापन नहीं हुआ।",
           )}
         </p>
       </FormSection>
 
       <Notice tone="amber">
         {t(
-          "Your documents and e-KYC will be verified by the department before final submission.",
-          "अंतिम रूप से जमा करने से पहले विभाग आपके दस्तावेज़ों और ई-केवाईसी का सत्यापन करेगा।",
+          "Do not upload real documents or enter actual identity details in this demo.",
+          "इस डेमो में वास्तविक दस्तावेज़ या पहचान विवरण दर्ज न करें।",
         )}
       </Notice>
       <ClaimActions
@@ -569,23 +569,23 @@ export function ReviewDeclaration() {
           />
           <span>
             {t(
-              "I hereby declare that the information provided above is true and correct. I understand that false information may lead to rejection.",
-              "मैं घोषित करता/करती हूं कि ऊपर दी गई जानकारी सत्य और सही है। मैं समझता/समझती हूं कि गलत जानकारी के कारण दावा अस्वीकार हो सकता है।",
+              "I understand this is a sample claim journey and does not submit an application to any government office.",
+              "मैं समझता/समझती हूं कि यह नमूना दावा प्रक्रिया है और इससे किसी सरकारी कार्यालय में आवेदन जमा नहीं होता।",
             )}
           </span>
         </label>
       </FormSection>
       <Notice tone="amber">
         {t(
-          "Ensure all information and documents are correct before submission.",
-          "जमा करने से पहले सुनिश्चित करें कि सभी जानकारी और दस्तावेज़ सही हैं।",
+          "Continue to view a sample status; this action does not file a real claim.",
+          "नमूना स्थिति देखने के लिए आगे बढ़ें; इससे वास्तविक दावा दर्ज नहीं होता।",
         )}
       </Notice>
       <div className={accepted ? undefined : styles.disabledActions}>
         <ClaimActions
           backHref="/mksy/claim/documents"
           nextHref={accepted ? "/mksy/status" : "/mksy/claim/review"}
-          nextLabel={t("Submit Claim", "दावा जमा करें")}
+          nextLabel={t("View Demo Status", "डेमो स्थिति देखें")}
           submit
         />
       </div>

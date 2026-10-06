@@ -94,8 +94,8 @@ export default async function MarketplaceHomePage() {
         </div>
         <Image
           className={styles.heroFarmer}
-          src="/images/authenticated/marketplace/hero-farmer.png"
-          alt={t("Farmer in a field", "खेत में किसान")}
+          src="/images/authenticated/marketplace/bihar-farmer.jpg"
+          alt={t("Farmer seated at his farm", "अपने खेत पर बैठा किसान")}
           width={223}
           height={228}
           priority
@@ -106,10 +106,7 @@ export default async function MarketplaceHomePage() {
         <div>
           <strong>{t("Weather at Your Farm", "आपके फार्म का मौसम")}</strong>
           <small>
-            {t(
-              "Raipur, Deoria, Uttar Pradesh",
-              "रायपुर, देवरिया, उत्तर प्रदेश",
-            )}
+            {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")}
           </small>
         </div>
         <div className={styles.temperature}>

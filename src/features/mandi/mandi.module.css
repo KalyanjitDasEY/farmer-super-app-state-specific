@@ -141,7 +141,7 @@
   border-radius: 0.55rem;
 }
 
-.filters > button {
+.filters > a {
   display: inline-flex;
   min-height: 3.1rem;
   align-items: center;
@@ -153,6 +153,7 @@
   border-radius: 0.55rem;
   font-weight: 750;
   gap: 0.5rem;
+  text-decoration: none;
 }
 
 .summaryGrid {

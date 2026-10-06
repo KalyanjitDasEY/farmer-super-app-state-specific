@@ -29,8 +29,8 @@ const credentials = [
   {
     title: "Farmer Profile VC",
     titleHi: "किसान प्रोफाइल वीसी",
-    issuer: "Agriculture Department, Rajasthan",
-    issuerHi: "कृषि विभाग, राजस्थान",
+    issuer: "Bihar Farmer Demo",
+    issuerHi: "बिहार किसान डेमो",
     id: "FPVC-2024-00012345",
     issued: "12 May 2024",
     issuedHi: "12 मई 2024",
@@ -40,8 +40,8 @@ const credentials = [
   {
     title: "Land Parcel VC",
     titleHi: "भूमि भूखंड वीसी",
-    issuer: "Revenue Department, Rajasthan",
-    issuerHi: "राजस्व विभाग, राजस्थान",
+    issuer: "Bihar Farmer Demo",
+    issuerHi: "बिहार किसान डेमो",
     id: "LPVC-2024-00012345",
     issued: "10 May 2024",
     issuedHi: "10 मई 2024",
@@ -49,10 +49,10 @@ const credentials = [
     validHi: "10 मई 2027",
   },
   {
-    title: "Crop / Girdawari VC",
-    titleHi: "फसल / गिरदावरी वीसी",
-    issuer: "Agriculture Department, Rajasthan",
-    issuerHi: "कृषि विभाग, राजस्थान",
+    title: "Crop Record VC",
+    titleHi: "फसल रिकॉर्ड वीसी",
+    issuer: "Bihar Farmer Demo",
+    issuerHi: "बिहार किसान डेमो",
     id: "CGVC-2024-00054321",
     issued: "08 May 2024",
     issuedHi: "08 मई 2024",
@@ -62,8 +62,8 @@ const credentials = [
   {
     title: "Soil Health VC",
     titleHi: "मृदा स्वास्थ्य वीसी",
-    issuer: "Soil Health Card Scheme, Rajasthan",
-    issuerHi: "मृदा स्वास्थ्य कार्ड योजना, राजस्थान",
+    issuer: "Bihar Farmer Demo",
+    issuerHi: "बिहार किसान डेमो",
     id: "SHVC-2024-00098765",
     issued: "03 May 2024",
     issuedHi: "03 मई 2024",
@@ -90,8 +90,8 @@ export function CredentialWalletPage({
         "सत्यापन योग्य क्रेडेंशियल वॉलेट",
       )}
       subtitle={t(
-        "Your verified and signed credentials issued by trusted authorities.",
-        "विश्वसनीय प्राधिकरणों द्वारा जारी आपके सत्यापित और हस्ताक्षरित क्रेडेंशियल।",
+        "Sample Bihar credentials for demonstration; not official or digitally signed.",
+        "प्रदर्शन के लिए नमूना बिहार क्रेडेंशियल; ये आधिकारिक या डिजिटल हस्ताक्षरित नहीं हैं।",
       )}
       aside={
         <>
@@ -103,26 +103,26 @@ export function CredentialWalletPage({
             </div>
             <DefinitionGrid
               items={[
-                [t("Valid", "वैध"), "4"],
+                [t("Demo", "डेमो"), "4"],
                 [t("Expired", "समाप्त"), "0"],
                 [t("Invalid", "अमान्य"), "0"],
                 [t("Unavailable", "अनुपलब्ध"), "0"],
               ]}
             />
           </HelpPanel>
-          <HelpPanel title={t("Security & Trust", "सुरक्षा और भरोसा")}>
+          <HelpPanel title={t("Demo Wallet", "डेमो वॉलेट")}>
             <ul className={styles.profileCheckList}>
               {[
                 t(
-                  "Digitally signed by issuer",
-                  "जारीकर्ता द्वारा डिजिटल रूप से हस्ताक्षरित",
+                  "Sample records, not signed credentials",
+                  "नमूना रिकॉर्ड, हस्ताक्षरित क्रेडेंशियल नहीं",
                 ),
-                t("Tamper-proof & immutable", "छेड़छाड़-रोधी और अपरिवर्तनीय"),
+                t("Not for official use", "आधिकारिक उपयोग के लिए नहीं"),
                 t(
-                  "You control what to share",
-                  "क्या साझा करना है, इसका नियंत्रण आपके पास",
+                  "Preview what the demo would share",
+                  "डेमो में साझा होने वाली जानकारी देखें",
                 ),
-                t("Time-bound & revocable", "समयबद्ध और रद्द करने योग्य"),
+                t("Dates are illustrative", "तिथियां उदाहरण मात्र हैं"),
               ].map((item) => (
                 <li key={item}>
                   <Check size={16} aria-hidden="true" />
@@ -149,8 +149,8 @@ export function CredentialWalletPage({
       <div className={styles.profileInfoStrip}>
         <ShieldCheck size={20} aria-hidden="true" />
         {t(
-          "These credentials are digitally signed, tamper-proof and can be shared securely with your consent.",
-          "ये क्रेडेंशियल डिजिटल रूप से हस्ताक्षरित, छेड़छाड़-रोधी हैं और आपकी सहमति से सुरक्षित रूप से साझा किए जा सकते हैं।",
+          "These are sample credentials for a demo. No government agency has issued or verified them.",
+          "ये डेमो के नमूना क्रेडेंशियल हैं। किसी सरकारी एजेंसी ने इन्हें जारी या सत्यापित नहीं किया है।",
         )}
       </div>
 
@@ -160,7 +160,7 @@ export function CredentialWalletPage({
             <button className={styles.profileTabActive}>
               {t("All (4)", "सभी (4)")}
             </button>
-            <button>{t("Valid (4)", "वैध (4)")}</button>
+            <button>{t("Demo (4)", "डेमो (4)")}</button>
             <button>{t("Expired (0)", "समाप्त (0)")}</button>
             <button>{t("Invalid (0)", "अमान्य (0)")}</button>
             <button>{t("Unavailable (0)", "अनुपलब्ध (0)")}</button>
@@ -185,7 +185,7 @@ export function CredentialWalletPage({
                 <div>
                   <h3>{t(credential.title, credential.titleHi)}</h3>
                   <p>
-                    {t("Issued by", "जारीकर्ता")}{" "}
+                    {t("Demo source", "डेमो स्रोत")}{" "}
                     {t(credential.issuer, credential.issuerHi)}
                   </p>
                 </div>
@@ -212,7 +212,7 @@ export function CredentialWalletPage({
               <div className={styles.credentialCardFooter}>
                 <span className={styles.profileStatusSuccess}>
                   <BadgeCheck size={16} aria-hidden="true" />
-                  {t("Valid", "वैध")}
+                  {t("Demo", "डेमो")}
                 </span>
                 <a
                   className={styles.button}
@@ -235,8 +235,8 @@ export function CredentialWalletPage({
         <span>
           <strong>{t("Important Notes", "महत्वपूर्ण बातें")}</strong>
           {t(
-            "Credentials cannot be altered after issue. Always share them only with trusted departments or agencies.",
-            "जारी होने के बाद क्रेडेंशियल बदले नहीं जा सकते। इन्हें हमेशा केवल विश्वसनीय विभागों या एजेंसियों के साथ साझा करें।",
+            "Sample credentials do not provide proof of identity. Do not use them for official applications.",
+            "नमूना क्रेडेंशियल पहचान का प्रमाण नहीं हैं। आधिकारिक आवेदनों में इनका उपयोग न करें।",
           )}
         </span>
       </div>
@@ -259,8 +259,8 @@ export function CredentialProofPage({
       dictionary={dictionary}
       title={t("Credential Proof / JWT", "क्रेडेंशियल प्रमाण / जेडब्ल्यूटी")}
       subtitle={t(
-        "View cryptographic proof and verification details of this credential.",
-        "इस क्रेडेंशियल का क्रिप्टोग्राफिक प्रमाण और सत्यापन विवरण देखें।",
+        "Preview the sample proof fields; no real signature or government verification is provided.",
+        "नमूना प्रमाण फील्ड देखें; कोई वास्तविक हस्ताक्षर या सरकारी सत्यापन उपलब्ध नहीं है।",
       )}
       backHref={routes.profileWallet(locale)}
     >
@@ -277,10 +277,7 @@ export function CredentialProofPage({
             )}
           </p>
           <p>
-            {t(
-              "Issued by Agriculture Department, Rajasthan",
-              "कृषि विभाग, राजस्थान द्वारा जारी",
-            )}
+            {t("Sample from Bihar Farmer Demo", "बिहार किसान डेमो का नमूना")}
           </p>
         </div>
         <DefinitionGrid
@@ -292,7 +289,7 @@ export function CredentialProofPage({
             [
               t("Status", "स्थिति"),
               <span className={styles.profileStatusSuccess} key="valid">
-                {t("Valid", "वैध")}
+                {t("Demo", "डेमो")}
               </span>,
             ],
             [t("Valid Upto", "तक वैध"), t("12 May 2027", "12 मई 2027")],
@@ -310,8 +307,8 @@ export function CredentialProofPage({
             [
               t("Purpose", "उद्देश्य"),
               t(
-                "Identity and land based verification for agriculture services",
-                "कृषि सेवाओं के लिए पहचान और भूमि-आधारित सत्यापन",
+                "Sample identity and land information for agriculture services",
+                "कृषि सेवाओं के लिए नमूना पहचान और भूमि जानकारी",
               ),
             ],
             [t("Subject", "विषय"), "RAMESH KUMAR"],
@@ -325,11 +322,11 @@ export function CredentialProofPage({
             [t("Format", "प्रारूप"), "W3C Verifiable Credential (JWT) v2.0"],
             [
               t("Issuer DID", "जारीकर्ता डीआईडी"),
-              "did:raj:agri:dept:raj:12345",
+              "did:example:bihar-farmer-demo",
             ],
             [
               t("Credential Schema", "क्रेडेंशियल स्कीमा"),
-              "https://rajkisan.rajasthan.gov.in/schemas/farmer-profile-v1.0.json",
+              "https://bihar-farmer-demo.invalid/schemas/farmer-profile-v1.0.json",
             ],
           ]}
         />
@@ -341,12 +338,12 @@ export function CredentialProofPage({
             [t("Proof Type", "प्रमाण प्रकार"), "Ed25519Signature2020"],
             [
               t("Verification Method", "सत्यापन विधि"),
-              "did:raj:agri:dept:raj:12345#key-1",
+              "did:example:bihar-farmer-demo#key-1",
             ],
             [
               t("Signature Status", "हस्ताक्षर स्थिति"),
               <span className={styles.profileStatusSuccess} key="signature">
-                {t("Signature Verified", "हस्ताक्षर सत्यापित")}
+                {t("Sample only — not verified", "केवल नमूना — सत्यापित नहीं")}
               </span>,
             ],
             [
@@ -389,12 +386,12 @@ export function CredentialProofPage({
       >
         <pre className={styles.profileJsonPreview}>{`{
   "name": "RAMESH KUMAR",
-  "janAadhaarMasked": "XXXX XXXX 9012",
-  "farmerId": "RKJAI2405123456",
+  "aadhaarMaskedDemo": "XXXX XXXX 9012",
+  "farmerId": "BR23F12345678",
   "totalLandAreaHa": 3.62,
-  "totalKhasra": 8,
-  "district": "Jaipur",
-  "state": "Rajasthan",
+  "totalKhesra": 8,
+  "district": "Patna",
+  "state": "Bihar",
   "issuedOn": "2024-05-12T05:50:00Z",
   "validUpto": "2027-05-12T05:50:00Z"
 }`}</pre>
@@ -406,20 +403,20 @@ export function CredentialProofPage({
           <div>
             <strong>
               {t(
-                "This credential is cryptographically valid and has not been revoked.",
-                "यह क्रेडेंशियल क्रिप्टोग्राफिक रूप से वैध है और रद्द नहीं किया गया है।",
+                "This is a demo preview, not a cryptographically verified credential.",
+                "यह डेमो पूर्वावलोकन है, क्रिप्टोग्राफिक रूप से सत्यापित क्रेडेंशियल नहीं।",
               )}
             </strong>
             <p>
               {t(
-                "Verified On 21 May 2024, 11:22 AM",
-                "सत्यापन: 21 मई 2024, सुबह 11:22 बजे",
+                "Sample date: 21 May 2024, 11:22 AM",
+                "नमूना तिथि: 21 मई 2024, सुबह 11:22 बजे",
               )}
             </p>
             <p>
               {t(
-                "Verified By Raj Kisan Suvidha System",
-                "राज किसान सुविधा प्रणाली द्वारा सत्यापित",
+                "Displayed by Bihar Farmer Demo",
+                "बिहार किसान डेमो में प्रदर्शित",
               )}
             </p>
           </div>
@@ -429,8 +426,8 @@ export function CredentialProofPage({
       <div className={styles.profileInfoStrip}>
         <ShieldCheck size={20} aria-hidden="true" />
         {t(
-          "This credential is digitally signed by the issuing authority. Any tampering with the data will invalidate the signature.",
-          "यह क्रेडेंशियल जारीकर्ता प्राधिकरण द्वारा डिजिटल रूप से हस्ताक्षरित है। डेटा में किसी भी छेड़छाड़ से हस्ताक्षर अमान्य हो जाएगा।",
+          "The signature fields above are placeholders. No authority has signed or verified this sample credential.",
+          "ऊपर के हस्ताक्षर फील्ड केवल नमूने हैं। किसी प्राधिकरण ने इस नमूना क्रेडेंशियल पर हस्ताक्षर या सत्यापन नहीं किया है।",
         )}
       </div>
 

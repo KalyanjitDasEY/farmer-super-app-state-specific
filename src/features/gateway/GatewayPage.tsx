@@ -65,8 +65,8 @@ const services = [
   [
     "gateway.service.market",
     BarChart3,
-    "Check current mandi prices across Rajasthan",
-    "राजस्थान की वर्तमान मंडी कीमतें देखें",
+    "Explore indicative mandi prices across Bihar",
+    "बिहार के सांकेतिक मंडी भाव देखें",
   ],
   [
     "gateway.service.applications",
@@ -129,7 +129,7 @@ export function GatewayPage({
           </div>
           <Image
             className={styles.heroImage}
-            src={withBasePath("/images/gateway-hero-reference-v3.png")}
+            src={withBasePath("/images/gateway-bihar-farmer.jpg")}
             alt=""
             width={524}
             height={464}
@@ -213,14 +213,14 @@ export function GatewayPage({
               ))}
               <li>
                 {t(
-                  "End-to-end encrypted platform",
-                  "आरंभ से अंत तक एन्क्रिप्टेड प्लेटफॉर्म",
+                  "Demo: do not enter real identity or payment details",
+                  "डेमो: वास्तविक पहचान या भुगतान विवरण दर्ज न करें",
                 )}
               </li>
               <li>
                 {t(
-                  "Government of Rajasthan initiative",
-                  "राजस्थान सरकार की पहल",
+                  "Bihar-focused demonstration, not an official government service",
+                  "बिहार पर केंद्रित डेमो, आधिकारिक सरकारी सेवा नहीं",
                 )}
               </li>
             </ul>
@@ -258,19 +258,14 @@ export function GatewayPage({
             <h2>{dictionary["gateway.support"]}</h2>
             <p>{dictionary["gateway.supportText"]}</p>
             <p>
-              <a href="tel:18001806020">1800-180-6020</a>
-            </p>
-            <p>
-              <a href="mailto:support@rajkisansuvidha.rajasthan.gov.in">
-                support@rajkisansuvidha.rajasthan.gov.in
-              </a>
-            </p>
-            <p>
               {t(
-                "Monday - Saturday | 9:00 AM - 6:00 PM",
-                "सोमवार - शनिवार | सुबह 9:00 - शाम 6:00",
+                "For official assistance, consult the Bihar Agriculture Department website.",
+                "आधिकारिक सहायता के लिए बिहार कृषि विभाग की वेबसाइट देखें।",
               )}
             </p>
+            <a href="https://dbtagriculture.bihar.gov.in/">
+              {t("Bihar Agriculture DBT portal", "बिहार कृषि डीबीटी पोर्टल")}
+            </a>
           </article>
         </div>
       </section>

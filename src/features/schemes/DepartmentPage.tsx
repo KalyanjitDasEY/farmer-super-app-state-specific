@@ -27,9 +27,9 @@ const departmentIcons: Record<string, LucideIcon> = {
   agriculture: Sprout,
   horticulture: Apple,
   marketing: Store,
-  rsamb: Wheat,
-  rssc: UsersRound,
-  rssoca: ShieldCheck,
+  "bihar-marketing": Wheat,
+  "bihar-recruitment": UsersRound,
+  "bihar-seeds": ShieldCheck,
 };
 
 export function DepartmentPage({
@@ -81,8 +81,8 @@ export function DepartmentPage({
         <div className={`${styles.card} ${styles.departmentPanel}`}>
           <h2 className={styles.sectionHeading}>
             {locale === "hi"
-              ? "केंद्रीय या राजस्थान राज्य विभाग / एजेंसी चुनें"
-              : "Choose from Central or Rajasthan State Departments / Agencies"}
+              ? "केंद्रीय या बिहार राज्य विभाग / एजेंसी चुनें"
+              : "Choose from Central or Bihar State Departments / Agencies"}
           </h2>
           <p className={styles.departmentPanelLead}>
             {locale === "hi"
@@ -116,7 +116,7 @@ export function DepartmentPage({
                   <a
                     className={styles.departmentArrow}
                     aria-disabled={!department.available ? "true" : undefined}
-                    href={`${routes.schemeCatalogue(locale)}?jurisdiction=rajasthan&agency=${department.id}`}
+                    href={`${routes.schemeCatalogue(locale)}?jurisdiction=bihar&agency=${department.id}`}
                   >
                     <span className="sr-only">
                       {department.available

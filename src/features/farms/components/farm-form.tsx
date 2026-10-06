@@ -81,14 +81,14 @@ export function FarmForm({ crop = false }: { crop?: boolean }) {
               options={[
                 t("Paddy (Dhan)", "धान"),
                 t("Wheat", "गेहूं"),
-                t("Mustard", "सरसों"),
-                t("Bajra", "बाजरा"),
+                t("Maize", "मक्का"),
+                t("Moong", "मूंग"),
               ]}
             />
             <Field
               label={t("Variety", "किस्म")}
               name="variety"
-              placeholder={t("e.g. Pusa Basmati 1121", "जैसे पूसा बासमती 1121")}
+              placeholder={t("e.g. Rajendra Mahsuri", "जैसे राजेंद्र महसूरी")}
             />
             <Field
               label={t("Sowing date", "बुवाई की तारीख")}
@@ -141,17 +141,17 @@ export function FarmForm({ crop = false }: { crop?: boolean }) {
             <Field
               label={t("Village / Locality", "गांव / इलाका")}
               name="village"
-              placeholder={t("Enter village", "गांव दर्ज करें")}
+              placeholder={t("Amhara, Bihta", "अमहरा, बिहटा")}
             />
             <Field
               label={t("District", "जिला")}
               name="district"
-              placeholder={t("Jaipur", "जयपुर")}
+              placeholder={t("Patna", "पटना")}
             />
             <Field
               label={t("State", "राज्य")}
               name="state"
-              placeholder={t("Rajasthan", "राजस्थान")}
+              placeholder={t("Bihar", "बिहार")}
             />
             <Field
               label={t("Field name", "खेत का नाम")}

@@ -285,8 +285,8 @@ export function ContextStrip() {
         <Store size={22} />
         <span>
           <small>{t("Location", "स्थान")}</small>
-          <strong>{t("Raipur, Deoria", "रायपुर, देवरिया")}</strong>
-          <em>{t("Uttar Pradesh", "उत्तर प्रदेश")}</em>
+          <strong>{t("Amhara, Bihta", "अमहरा, बिहटा")}</strong>
+          <em>{t("Patna, Bihar", "पटना, बिहार")}</em>
         </span>
       </div>
       <div>

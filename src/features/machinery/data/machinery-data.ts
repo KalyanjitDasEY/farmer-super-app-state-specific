@@ -64,7 +64,7 @@ export const machines: readonly Machine[] = [
     name: localized("Seed Drill (Happy Seeder)", "सीड ड्रिल (हैप्पी सीडर)"),
     category: localized("Sowing", "बुवाई"),
     image: "/images/authenticated/machinery/seed-drill.jpg",
-    provider: "Deoria CHC",
+    provider: "Bihta CHC",
     rating: "4.7",
     reviews: 74,
     distance: localized("6.1 km away", "6.1 किमी दूर"),
@@ -148,7 +148,7 @@ export const providers: readonly Provider[] = [
     ],
   },
   {
-    name: "Deoria CHC",
+    name: "Bihta CHC",
     type: localized("CHC", "CHC"),
     distance: localized("9.5 km away", "9.5 किमी दूर"),
     rating: "4.4",

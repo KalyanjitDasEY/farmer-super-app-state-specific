@@ -42,8 +42,8 @@ export default async function AnimalSearchPage() {
           <h1>{t("Animal Search & Listing", "पशु खोज और लिस्टिंग")}</h1>
           <p>
             {t(
-              "Find healthy animals from verified sellers",
-              "सत्यापित विक्रेताओं से स्वस्थ पशु खोजें",
+              "Explore illustrative animal listings; confirm details with sellers",
+              "सांकेतिक पशु लिस्टिंग देखें; विवरण विक्रेता से जांचें",
             )}
           </p>
         </div>
@@ -129,7 +129,7 @@ export default async function AnimalSearchPage() {
             title={t("Seller Type", "विक्रेता का प्रकार")}
             options={[
               t("All Sellers", "सभी विक्रेता"),
-              t("Verified Sellers", "सत्यापित विक्रेता"),
+              t("Sample Sellers", "नमूना विक्रेता"),
               t("Cooperatives / FPO", "सहकारी समितियाँ / FPO"),
               t("Commercial Breeders", "व्यावसायिक प्रजनक"),
             ]}

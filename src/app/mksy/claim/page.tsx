@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
   return {
     title: t(
-      "MKSY Claim - Accident and Victim",
-      "MKSY दावा - दुर्घटना और पीड़ित",
+      "Bihar Demo Claim - Accident and Victim",
+      "बिहार डेमो दावा - दुर्घटना और पीड़ित",
     ),
   };
 }
@@ -27,8 +27,8 @@ export default async function MksyClaimPage() {
         "दुर्घटना की मुख्य जानकारी और दावेदार का विवरण दर्ज करें।",
       )}
       notice={t(
-        "Please provide correct details of the accident and the victim. All fields marked with * are mandatory.",
-        "कृपया दुर्घटना और पीड़ित का सही विवरण दें। * से चिह्नित सभी फ़ील्ड अनिवार्य हैं।",
+        "Use sample accident and farmer details. Fields marked with * are part of this demo.",
+        "नमूना दुर्घटना और किसान विवरण दर्ज करें। * चिह्नित फ़ील्ड इस डेमो का भाग हैं।",
       )}
     >
       <AccidentVictimForm />

@@ -70,7 +70,7 @@ export function RegistrationShell({
           </div>
           <Image
             className={styles.authAsideImage}
-            src={withBasePath("/images/auth-scene-reference-v3.png")}
+            src={withBasePath("/images/auth-bihar-farmers.jpg")}
             alt=""
             width={490}
             height={430}

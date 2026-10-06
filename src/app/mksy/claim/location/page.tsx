@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
   return {
     title: t(
-      "MKSY Claim - Location and Narrative",
-      "MKSY दावा - स्थान और विवरण",
+      "Bihar Demo Claim - Location and Narrative",
+      "बिहार डेमो दावा - स्थान और विवरण",
     ),
   };
 }

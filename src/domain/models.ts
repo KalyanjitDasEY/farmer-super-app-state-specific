@@ -1,6 +1,6 @@
 import type { Locale } from "@/types/locale";
 
-export type Jurisdiction = "central" | "rajasthan";
+export type Jurisdiction = "central" | "bihar";
 export type SchemeCategory =
   | "income"
   | "irrigation"
@@ -72,7 +72,7 @@ export interface AdministrativeArea {
 export interface DashboardSnapshot {
   farmerName: LocalizedText;
   farmerId: string;
-  janAadhaarMasked: string;
+  aadhaarMasked: string;
   landAreaHectares: number;
   khasraCount: number;
   applicationCount: number;

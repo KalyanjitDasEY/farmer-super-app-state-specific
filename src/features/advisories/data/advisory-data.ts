@@ -100,7 +100,7 @@ const advisoryHindi: Record<string, string> = {
   "19 May 2024, 06:30 PM": "19 मई 2024, 06:30 अपराह्न",
   "19 May 2024, 05:45 PM": "19 मई 2024, 05:45 अपराह्न",
   "19 May 2024, 05:15 PM": "19 मई 2024, 05:15 अपराह्न",
-  "Deoria, Gorakhpur, Basti": "देवरिया, गोरखपुर, बस्ती",
+  "Patna, Nalanda, Vaishali": "पटना, नालंदा, वैशाली",
 };
 
 export const advisoryText = (value: string) =>
@@ -193,7 +193,7 @@ export const advisoryFeed: readonly AdvisoryItem[] = [
     label: "Market",
     description: "Price for Pusa Basmati 1121 is higher in nearby mandis.",
     date: "19 May 2024, 05:45 PM",
-    scope: ["Deoria, Gorakhpur, Basti"],
+    scope: ["Patna, Nalanda, Vaishali"],
     actionLabel: "Market Insight",
     action: "Consider selling in the next 3–5 days for better returns.",
     buttonLabel: "View Market",

@@ -10,7 +10,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/types/locale";
 import styles from "@/styles/application.module.css";
 
-type Method = "janAadhaar" | "farmerId" | "mobile";
+type Method = "aadhaar" | "farmerId" | "mobile";
 
 export function LoginForm({
   locale,
@@ -20,7 +20,7 @@ export function LoginForm({
   dictionary: Dictionary;
 }) {
   const router = useRouter();
-  const [method, setMethod] = useState<Method>("janAadhaar");
+  const [method, setMethod] = useState<Method>("aadhaar");
   const [identifier, setIdentifier] = useState("");
   const [challengeId, setChallengeId] = useState<string | null>(null);
   const [otp, setOtp] = useState("");
@@ -53,7 +53,7 @@ export function LoginForm({
       setError(dictionary["login.invalidOtp"]);
       return;
     }
-    sessionStorage.setItem("raj-kisan-demo-auth", "true");
+    sessionStorage.setItem("bihar-kisan-demo-auth", "true");
     router.push("/home");
   };
 
@@ -66,7 +66,7 @@ export function LoginForm({
       <fieldset>
         <legend className={styles.legend}>{dictionary["login.select"]}</legend>
         <div className={`${styles.radioCards} ${styles.loginRadioCards}`}>
-          {(["janAadhaar", "farmerId", "mobile"] as const).map((option) => (
+          {(["aadhaar", "farmerId", "mobile"] as const).map((option) => (
             <label className={styles.radioCard} key={option}>
               <input
                 type="radio"

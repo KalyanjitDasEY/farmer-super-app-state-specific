@@ -177,8 +177,8 @@ export default async function MyAnimalListingsPage() {
           <h2>{t("Verification Promise", "सत्यापन का वादा")}</h2>
           <p>
             {t(
-              "All listings are verified for authenticity and transparent livestock trading.",
-              "प्रामाणिकता और पारदर्शी पशुधन व्यापार के लिए सभी लिस्टिंग सत्यापित की जाती हैं।",
+              "Listings are illustrative. Confirm animal details and seller identity independently.",
+              "लिस्टिंग सांकेतिक हैं। पशु और विक्रेता की पहचान स्वतंत्र रूप से जांचें।",
             )}
           </p>
         </article>

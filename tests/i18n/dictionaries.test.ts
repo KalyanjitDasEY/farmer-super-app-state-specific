@@ -18,10 +18,11 @@ describe("localization dictionaries", () => {
   it("provides Hindi names and descriptions for home services", () => {
     const dictionary = getDictionary("hi");
 
-    expect(dictionary["common.jaipur"]).toBe("जयपुर");
+    expect(dictionary["common.patna"]).toBe("पटना");
+    expect(dictionary["common.bihar"]).toBe("बिहार");
     expect(dictionary["home.service.inputs"]).toBe("कृषि सामग्री विक्रेता");
-    expect(dictionary["home.service.rewards"]).toBe("कृषक उपहार");
-    expect(dictionary["home.service.food"]).toBe("किसान कलेवा");
+    expect(dictionary["home.service.rewards"]).toBe("किसान पुरस्कार");
+    expect(dictionary["home.service.food"]).toBe("किसान भोजन सेवाएं");
     expect(dictionary["home.service.schemeDiscoveryDescription"]).toBe(
       "योजनाएं देखें और आवेदन करें",
     );
@@ -34,7 +35,7 @@ describe("localization dictionaries", () => {
     const dictionary = getDictionary("hi");
 
     expect(dictionary["common.close"]).toBe("बंद करें");
-    expect(dictionary["home.janAadhaar"]).toBe("जन आधार");
+    expect(dictionary["home.aadhaar"]).toBe("आधार");
     expect(dictionary["home.landSummary"]).toBe("भूमि सारांश");
     expect(dictionary["home.cadastral"]).toBe("भू-अभिलेख सारांश");
     expect(dictionary["home.ekyc"]).toBe("ई-केवाईसी स्थिति");

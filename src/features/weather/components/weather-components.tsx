@@ -96,8 +96,8 @@ export function FarmContext({
     {
       label: t("Location", "स्थान"),
       value: t(
-        "Raipur, Deoria\nUttar Pradesh\n274 km away",
-        "रायपुर, देवरिया\nउत्तर प्रदेश\n274 किमी दूर",
+        "Amhara, Bihta\nPatna, Bihar\nYour saved farm",
+        "अमहरा, बिहटा\nपटना, बिहार\nआपका सहेजा हुआ खेत",
       ),
       icon: MapPin,
     },

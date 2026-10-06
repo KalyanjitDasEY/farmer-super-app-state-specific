@@ -1,6 +1,5 @@
-import Image from "next/image";
+import { Sprout } from "lucide-react";
 
-import { withBasePath } from "@/config/base-path";
 import { routes } from "@/config/routes";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/types/locale";
@@ -19,14 +18,10 @@ export function Brand({
       href={routes.gateway(locale)}
       aria-label={dictionary["brand.name"]}
     >
-      <Image
-        className={styles.brandLogo}
-        src={withBasePath("/images/brand-logo.png")}
-        alt=""
-        width={280}
-        height={110}
-        priority
-      />
+      <span className={styles.brandMark} aria-hidden="true">
+        <Sprout size={28} />
+      </span>
+      <span className={styles.brandText}>{dictionary["brand.name"]}</span>
     </a>
   );
 }

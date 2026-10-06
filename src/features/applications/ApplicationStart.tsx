@@ -40,19 +40,19 @@ const fieldLabels = {
   en: {
     fullName: "Full name",
     farmerId: "Farmer ID",
-    janAadhaar: "Jan Aadhaar",
+    aadhaar: "Aadhaar",
     mobile: "Registered mobile",
     dateOfBirth: "Date of birth",
     gender: "Gender",
     category: "Farmer category",
     addressLine: "Address",
     village: "Village",
-    tehsil: "Tehsil",
+    tehsil: "Block / Anchal",
     district: "District",
     state: "State",
     pinCode: "PIN code",
     area: "Total land area",
-    khasraCount: "Linked Khasra records",
+    khasraCount: "Linked Khesra records",
     ownership: "Ownership",
     crops: "Current crops",
     bankName: "Bank",
@@ -65,19 +65,19 @@ const fieldLabels = {
   hi: {
     fullName: "पूरा नाम",
     farmerId: "किसान आईडी",
-    janAadhaar: "जन आधार",
+    aadhaar: "आधार",
     mobile: "पंजीकृत मोबाइल",
     dateOfBirth: "जन्म तिथि",
     gender: "लिंग",
     category: "किसान श्रेणी",
     addressLine: "पता",
     village: "गांव",
-    tehsil: "तहसील",
+    tehsil: "प्रखंड / अंचल",
     district: "जिला",
     state: "राज्य",
     pinCode: "पिन कोड",
     area: "कुल भूमि क्षेत्र",
-    khasraCount: "लिंक खसरा रिकॉर्ड",
+    khasraCount: "लिंक खेसरा रिकॉर्ड",
     ownership: "स्वामित्व",
     crops: "वर्तमान फसलें",
     bankName: "बैंक",
@@ -151,7 +151,7 @@ export function ApplicationStart({
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({});
   const [uploadErrors, setUploadErrors] = useState<UploadedFiles>({});
   const confirmationRef = useRef<HTMLInputElement>(null);
-  const reference = "RJ-DEMO-2026-001";
+  const reference = "BR-DEMO-2026-001";
   const labels = fieldLabels[locale];
   const documents = useMemo(
     () => getApplicationDocumentRequirements(scheme),
@@ -205,7 +205,7 @@ export function ApplicationStart({
   const personalDetails = [
     { label: labels.fullName, value: farmerProfile.personal.fullName[locale] },
     { label: labels.farmerId, value: farmerProfile.personal.farmerId },
-    { label: labels.janAadhaar, value: farmerProfile.personal.janAadhaar },
+    { label: labels.aadhaar, value: farmerProfile.personal.aadhaar },
     { label: labels.mobile, value: farmerProfile.personal.mobile },
     {
       label: labels.dateOfBirth,
@@ -350,7 +350,7 @@ export function ApplicationStart({
                 <strong>
                   {scheme.jurisdiction === "central"
                     ? dictionary["apply.centralScheme"]
-                    : dictionary["apply.rajasthanScheme"]}
+                    : dictionary["apply.biharScheme"]}
                 </strong>
               </div>
               <div>
@@ -361,8 +361,8 @@ export function ApplicationStart({
             <div className={styles.editableFields}>
               <label>
                 <span>{dictionary["apply.primaryFarm"]}</span>
-                <select defaultValue="morija">
-                  <option value="morija">Morija Farm · Chomu · 3.62 ha</option>
+                <select defaultValue="amhara">
+                  <option value="amhara">Amhara Farm · Bihta · 3.62 ha</option>
                 </select>
               </label>
               <label>

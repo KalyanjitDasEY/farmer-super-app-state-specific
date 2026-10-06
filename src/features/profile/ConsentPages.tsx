@@ -44,17 +44,12 @@ const selectableFields = [
   ],
   [
     "Land Records",
-    "Khasra Number, Area, Land Ownership",
+    "Khesra Number, Area, Land Ownership",
     "Partial (Last 4 digits)",
     true,
   ],
   ["Crop Details", "Crop Type, Sowing Area, Season", "As required", true],
-  [
-    "Jan Aadhaar / Aadhaar",
-    "Jan Aadhaar Number",
-    "Masked (XXXX XXXX 9012)",
-    false,
-  ],
+  ["Aadhaar (demo)", "Masked Aadhaar Number", "Masked (XXXX XXXX 9012)", false],
   [
     "Banking Information",
     "Bank Name, Account Number, IFSC",
@@ -72,15 +67,15 @@ const includedData = [
   ],
   [
     "Land Records",
-    "Khasra Number, Area, Land Ownership",
+    "Khesra Number, Area, Land Ownership",
     "Partial (Last 4 digits)",
-    "8 Khasra / Total Area: 3.62 Ha",
+    "8 Khesra / Total Area: 3.62 Ha",
   ],
   [
     "Crop Details",
     "Crop Type, Sowing Area, Season",
     "As required",
-    "Wheat, Mustard / Season: Rabi 2023-24",
+    "Rice, Wheat / Seasons: Kharif & Rabi 2023-24",
   ],
 ] as const;
 
@@ -92,20 +87,22 @@ const consentHindi: Record<string, string> = {
   "Mobile Number, Email Address": "मोबाइल नंबर, ईमेल पता",
   "Mobile (XXXXXX5678)": "मोबाइल (XXXXXX5678)",
   "Land Records": "भूमि अभिलेख",
-  "Khasra Number, Area, Land Ownership": "खसरा नंबर, क्षेत्रफल, भूमि स्वामित्व",
+  "Khesra Number, Area, Land Ownership":
+    "खेसरा नंबर, क्षेत्रफल, भूमि स्वामित्व",
   "Partial (Last 4 digits)": "आंशिक (अंतिम 4 अंक)",
   "Crop Details": "फसल विवरण",
   "Crop Type, Sowing Area, Season": "फसल प्रकार, बुवाई क्षेत्र, मौसम",
   "As required": "आवश्यकतानुसार",
-  "Jan Aadhaar / Aadhaar": "जन आधार / आधार",
-  "Jan Aadhaar Number": "जन आधार नंबर",
+  "Aadhaar (demo)": "आधार (डेमो)",
+  "Masked Aadhaar Number": "छिपाया गया आधार नंबर",
   "Masked (XXXX XXXX 9012)": "छिपा हुआ (XXXX XXXX 9012)",
   "Banking Information": "बैंकिंग जानकारी",
   "Bank Name, Account Number, IFSC": "बैंक का नाम, खाता नंबर, आईएफएससी",
   "Account (XXXX 9012)": "खाता (XXXX 9012)",
   "RAMESH KUMAR (RA***)": "RAMESH KUMAR (RA***)",
-  "8 Khasra / Total Area: 3.62 Ha": "8 खसरा / कुल क्षेत्र: 3.62 हे.",
-  "Wheat, Mustard / Season: Rabi 2023-24": "गेहूं, सरसों / मौसम: रबी 2023-24",
+  "8 Khesra / Total Area: 3.62 Ha": "8 खेसरा / कुल क्षेत्र: 3.62 हे.",
+  "Rice, Wheat / Seasons: Kharif & Rabi 2023-24":
+    "धान, गेहूं / मौसम: खरीफ और रबी 2023-24",
 };
 
 function ConsentHelpPanels({ locale }: { locale: Locale }) {
@@ -233,7 +230,7 @@ export function ConsentFieldsPage({
             </span>
             <select className={styles.select} defaultValue="agri">
               <option value="agri">
-                {t("Agriculture Department, Rajasthan", "कृषि विभाग, राजस्थान")}
+                {t("Bihar Agriculture (demo)", "बिहार कृषि (डेमो)")}
               </option>
             </select>
           </label>
@@ -365,8 +362,8 @@ export function ConsentFieldsPage({
           <ul>
             <li>
               {t(
-                "Land Records (Khasra Number, Area, Land Ownership)",
-                "भूमि अभिलेख (खसरा नंबर, क्षेत्रफल, भूमि स्वामित्व)",
+                "Land Records (Khesra Number, Area, Land Ownership)",
+                "भूमि अभिलेख (खेसरा नंबर, क्षेत्रफल, भूमि स्वामित्व)",
               )}
             </li>
             <li>
@@ -419,7 +416,7 @@ export function ConsentReviewPage({
       "Mobile Number, Email Address",
       "Not required for this purpose",
     ],
-    ["Jan Aadhaar / Aadhaar", "Jan Aadhaar Number", "Not permitted"],
+    ["Aadhaar (demo)", "Masked Aadhaar Number", "Not permitted"],
     [
       "Banking Information",
       "Bank Name, Account Number, IFSC",
@@ -471,7 +468,7 @@ export function ConsentReviewPage({
           items={[
             [
               t("Recipient / Department", "प्राप्तकर्ता / विभाग"),
-              t("Agriculture Department, Rajasthan", "कृषि विभाग, राजस्थान"),
+              t("Bihar Agriculture (demo)", "बिहार कृषि (डेमो)"),
             ],
             [
               t("Purpose", "उद्देश्य"),
@@ -482,7 +479,7 @@ export function ConsentReviewPage({
             ],
             [
               t("Reference / Application", "संदर्भ / आवेदन"),
-              "RK-DRIP-2024-001234",
+              "BR-DRIP-2024-001234",
             ],
             [
               t("Validity of Consent", "सहमति की वैधता"),
@@ -732,7 +729,7 @@ export function ConsentTokenPage({
                 ],
                 [
                   t("Issued By", "जारीकर्ता"),
-                  t("Raj Kisan Suvidha System", "राज किसान सुविधा प्रणाली"),
+                  t("Bihar Farmer Demo", "बिहार किसान डेमो"),
                 ],
                 [
                   t("Revocable By", "रद्द करने वाला"),
@@ -805,7 +802,7 @@ export function ConsentTokenPage({
               ],
               [
                 t("Recipient", "प्राप्तकर्ता"),
-                t("Agriculture Department, Rajasthan", "कृषि विभाग, राजस्थान"),
+                t("Bihar Agriculture (demo)", "बिहार कृषि (डेमो)"),
               ],
               [
                 t("Purpose", "उद्देश्य"),
@@ -826,17 +823,14 @@ export function ConsentTokenPage({
           />
           <div className={styles.consentQrPanel}>
             <QrVisual
-              label={t(
-                "Scan to verify this consent",
-                "इस सहमति के सत्यापन के लिए स्कैन करें",
-              )}
-              value="https://rajkisan.rajasthan.gov.in/verify/consent/CON-2024-05-21-7F3A8B9C"
+              label={t("Scan demo consent token", "डेमो सहमति टोकन स्कैन करें")}
+              value="https://bihar-farmer-demo.invalid/verify/consent/CON-2024-05-21-7F3A8B9C"
             />
             <span>
               <BadgeCheck size={16} aria-hidden="true" />
               {t(
-                "Verified by Raj Kisan Suvidha System",
-                "राज किसान सुविधा प्रणाली द्वारा सत्यापित",
+                "Sample token — not officially verified",
+                "नमूना टोकन — आधिकारिक रूप से सत्यापित नहीं",
               )}
             </span>
           </div>

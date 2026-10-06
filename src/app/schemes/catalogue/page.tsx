@@ -11,7 +11,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getRequestLocale } from "@/i18n/server";
 import { repositories } from "@/services/repositories";
 
-const jurisdictions: Jurisdiction[] = ["central", "rajasthan"];
+const jurisdictions: Jurisdiction[] = ["central", "bihar"];
 const categories: SchemeCategory[] = [
   "income",
   "irrigation",

@@ -96,29 +96,29 @@ export default async function BookingRequirementPage() {
             </label>
             <label>
               {t("Village", "गाँव")}
-              <select defaultValue="Pusa Basmati">
-                <option>Pusa Basmati</option>
+              <select defaultValue="Amhara">
+                <option>Amhara</option>
               </select>
             </label>
             <label>
-              {t("Tehsil", "तहसील")}
-              <select defaultValue="Deoria">
-                <option>Deoria</option>
+              {t("Block / Anchal", "प्रखंड / अंचल")}
+              <select defaultValue="Bihta">
+                <option>Bihta</option>
               </select>
             </label>
             <label>
               {t("District", "ज़िला")}
-              <select defaultValue="Deoria">
-                <option>Deoria</option>
+              <select defaultValue="Patna">
+                <option>Patna</option>
               </select>
             </label>
             <label>
               {t("State", "राज्य")}
-              <input defaultValue={t("Uttar Pradesh", "उत्तर प्रदेश")} />
+              <input defaultValue={t("Bihar", "बिहार")} />
             </label>
             <label>
               {t("PIN Code", "पिन कोड")}
-              <input defaultValue="274001" />
+              <input defaultValue="801103" />
             </label>
           </div>
         </fieldset>

@@ -24,7 +24,7 @@ export default async function NotFound() {
           )}
         </p>
         <a href={withBasePath("/")}>
-          {t("Return to Raj Kisan Suvidha", "राज किसान सुविधा पर लौटें")}
+          {t("Return to Bihar Kisan Suvidha", "बिहार किसान सुविधा पर लौटें")}
         </a>
       </div>
     </main>

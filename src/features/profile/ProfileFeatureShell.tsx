@@ -51,9 +51,15 @@ export function ProfileFeatureShell({
 
         <header className={styles.profileFeatureHeader}>
           <div>
-            <span>{t("Raj Kisan Suvidha", "राज किसान सुविधा")}</span>
+            <span>{t("Bihar Farmer Demo", "बिहार किसान डेमो")}</span>
             <h1>{title}</h1>
             <p>{subtitle}</p>
+            <p>
+              {t(
+                "Demo only — no official verification or real data sharing.",
+                "केवल डेमो — कोई आधिकारिक सत्यापन या वास्तविक डेटा साझाकरण नहीं।",
+              )}
+            </p>
           </div>
           <a
             className={`${styles.button} ${styles.buttonSecondary}`}

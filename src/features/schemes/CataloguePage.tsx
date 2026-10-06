@@ -65,8 +65,8 @@ const categoryIcons: Record<SchemeCategory, LucideIcon> = {
 const schemeImageIcons: Record<string, string> = {
   "pm-kisan": "/images/scheme-pm-kisan-icon-v2.png",
   "fasal-bima": "/images/scheme-rupee-icon-v2.png",
-  "jal-swavalamban": "/images/scheme-water-icon-v2.png",
-  "rajasthan-kisan-bima": "/images/scheme-fasal-bima-icon-v2.png",
+  "bihar-irrigation": "/images/scheme-water-icon-v2.png",
+  "bihar-crop-support": "/images/scheme-fasal-bima-icon-v2.png",
 };
 
 export interface CatalogueFilters {
@@ -132,7 +132,7 @@ export function CataloguePage({
           </div>
           <Image
             className={styles.pageHeroImage}
-            src={withBasePath("/images/scheme-hero-reference.png")}
+            src={withBasePath("/images/scheme-bihar-farmers.jpg")}
             alt=""
             width={524}
             height={293}
@@ -292,17 +292,17 @@ export function CataloguePage({
               </a>
               <a
                 className={
-                  filters.jurisdiction === "rajasthan"
+                  filters.jurisdiction === "bihar"
                     ? styles.catalogueChipActive
                     : ""
                 }
                 href={createHref({
-                  jurisdiction: "rajasthan",
+                  jurisdiction: "bihar",
                   category: undefined,
                   page: "1",
                 })}
               >
-                {dictionary["schemes.rajasthan"]}
+                {dictionary["schemes.bihar"]}
               </a>
               <a
                 className={
@@ -362,14 +362,14 @@ export function CataloguePage({
                         <div className={styles.resultCopy}>
                           <span
                             className={`${styles.badge} ${
-                              scheme.jurisdiction === "rajasthan"
+                              scheme.jurisdiction === "bihar"
                                 ? styles.badgeBlue
                                 : ""
                             }`}
                           >
                             {scheme.jurisdiction === "central"
                               ? dictionary["schemes.central"]
-                              : dictionary["schemes.rajasthan"]}
+                              : dictionary["schemes.bihar"]}
                           </span>
                           <h2>{scheme.title[locale]}</h2>
                           <span className={styles.resultCategory}>
@@ -536,8 +536,8 @@ export function CataloguePage({
                   </h3>
                   <p>
                     {locale === "hi"
-                      ? "राज किसान सुविधा पोर्टल के माध्यम से ऑनलाइन आवेदन करें।"
-                      : "Apply online through the Raj Kisan Suvidha portal."}
+                      ? "बिहार किसान सुविधा डेमो में आवेदन प्रक्रिया देखें।"
+                      : "Explore the application process in this Bihar Kisan Suvidha demo."}
                   </p>
                 </section>
                 <div className={styles.previewDisclaimer}>

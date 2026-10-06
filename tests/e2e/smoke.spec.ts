@@ -9,7 +9,7 @@ const appUrl = (path: string) => `${basePath}${path}`;
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
     {
-      name: "raj-kisan-locale",
+      name: "bihar-kisan-locale",
       value: "en",
       domain: "127.0.0.1",
       path: basePath || "/",
@@ -20,7 +20,7 @@ test.beforeEach(async ({ context }) => {
 test("public gateway reaches login and scheme discovery", async ({ page }) => {
   await page.goto(appUrl("/"));
   await expect(
-    page.getByRole("heading", { name: "Raj Kisan Suvidha", level: 1 }),
+    page.getByRole("heading", { name: "Bihar Kisan Suvidha", level: 1 }),
   ).toBeVisible();
 
   await page
@@ -35,10 +35,60 @@ test("public gateway reaches login and scheme discovery", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Service Hub" }),
   ).toBeVisible();
+  const hubHeroBackground = await page
+    .locator("main > section")
+    .first()
+    .evaluate((element) => getComputedStyle(element).backgroundImage);
+  expect(hubHeroBackground.match(/linear-gradient\(/g)).toHaveLength(1);
+  expect(hubHeroBackground).not.toContain("255, 255, 255");
   await page.getByRole("link", { name: /View Central Schemes/ }).click();
   await expect(
     page.getByRole("heading", { name: "Scheme Catalogue" }),
   ).toBeVisible();
+  await page.goto(appUrl("/schemes/catalogue?jurisdiction=bihar"));
+  await expect(
+    page
+      .getByRole("heading", { name: "Bihar Irrigation Support (Demo)" })
+      .first(),
+  ).toBeVisible();
+});
+
+test("Bihar farmer artwork loads and credits are accessible", async ({
+  page,
+}) => {
+  await page.goto(appUrl("/"));
+  await expect(
+    page.getByRole("link", { name: "Bihar Kisan Suvidha" }).first(),
+  ).toBeVisible();
+
+  const farmerImage = page.locator('img[src*="gateway-bihar-farmer.jpg"]');
+  await expect(farmerImage).toBeVisible();
+  await expect
+    .poll(() =>
+      farmerImage.evaluate((image) => (image as HTMLImageElement).naturalWidth),
+    )
+    .toBeGreaterThan(0);
+
+  await page.getByRole("link", { name: "Image credits" }).click();
+  await expect(page).toHaveURL(new RegExp(`${appUrl("/image-credits")}$`));
+  await expect(
+    page.getByRole("heading", { name: "Image credits" }),
+  ).toBeVisible();
+  await expect(page.getByRole("link", { name: "CC BY-SA 4.0" })).toBeVisible();
+
+  for (const [path, file] of [
+    ["/login", "auth-bihar-farmers.jpg"],
+    ["/schemes", "scheme-bihar-farmers.jpg"],
+    ["/profile", "farmer-avatar-bihar.svg"],
+  ] as const) {
+    await page.goto(appUrl(path), { waitUntil: "domcontentloaded" });
+    const image = page.locator(`img[src*="${file}"]`).first();
+    await expect
+      .poll(() =>
+        image.evaluate((element: HTMLImageElement) => element.naturalWidth),
+      )
+      .toBeGreaterThan(0);
+  }
 });
 
 test("language switching keeps the same clean URL", async ({ page }) => {
@@ -49,6 +99,9 @@ test("language switching keeps the same clean URL", async ({ page }) => {
     new RegExp(`${basePath.replaceAll("/", "\\/")}\\/?$`),
   );
   await expect(page.getByText("आपका स्वागत है")).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "बिहार किसान सुविधा" }).first(),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "किसान लॉगिन" }).first(),
   ).toBeVisible();
@@ -64,9 +117,27 @@ test("OTP login navigates without a locale segment", async ({ page }) => {
   await expect(page).toHaveURL(
     new RegExp(`${basePath.replaceAll("/", "\\/")}\\/home$`),
   );
+  await page.getByRole("button", { name: "Profile" }).click();
   await expect(
     page.getByRole("heading", { name: "Ramesh Kumar" }),
   ).toBeVisible();
+});
+
+test("registration uses Bihar district, block and village hierarchy", async ({
+  page,
+}) => {
+  await page.goto(appUrl("/register/location"));
+  await page.waitForLoadState("networkidle");
+  await expect(page.locator("#district")).toContainText("Patna");
+  await page.locator("#district").selectOption("patna");
+  await expect(page.locator("#tehsil")).toContainText("Bihta");
+  await page.locator("#tehsil").selectOption("bihta");
+  await expect(page.locator("#village")).toContainText("Amhara");
+  await page.locator("#village").selectOption("amhara");
+  await page.locator("#khasra").fill("123/45");
+  await page.getByRole("button", { name: "Resolve Location" }).click();
+  await expect(page).toHaveURL(/\/register\/complete$/);
+  await expect(page.getByText("BR-DEMO-260922")).toBeVisible();
 });
 
 test("primary application journey creates a fictional draft", async ({
@@ -76,7 +147,7 @@ test("primary application journey creates a fictional draft", async ({
   await page.getByRole("link", { name: "Apply Now" }).first().click();
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Create demo draft" }).click();
-  await expect(page.getByText("RJ-DEMO-2026-001")).toBeVisible();
+  await expect(page.getByText("BR-DEMO-2026-001")).toBeVisible();
 });
 
 test("scheme application prefills farmer records and accepts required uploads", async ({
@@ -91,8 +162,8 @@ test("scheme application prefills farmer records and accepts required uploads", 
     }),
   ).toBeVisible();
   await expect(page.getByText("Ramesh Kumar")).toBeVisible();
-  await expect(page.getByText("RJ23F12345678")).toBeVisible();
-  await expect(page.getByText("Morija", { exact: true })).toBeVisible();
+  await expect(page.getByText("BR23F12345678")).toBeVisible();
+  await expect(page.getByText("Amhara", { exact: true })).toBeVisible();
   await expect(page.getByText("Bank of Baroda", { exact: true })).toBeVisible();
   await expect(
     page.getByText("Available in profile", { exact: true }),
@@ -162,7 +233,7 @@ test("farmer service modules render their replicated landing screens", async ({
 
     const heroImageName =
       path === "/marketplace"
-        ? "Farmer in a field"
+        ? "Farmer seated at his farm"
         : path === "/nutricheck"
           ? "Paddy leaf with nutrient markers"
           : null;
@@ -185,7 +256,7 @@ test("crop planner creates an interactive crop calendar", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Plan Your Crop", level: 1 }),
   ).toBeVisible();
-  await expect(page.getByLabel("Select Location")).toContainText("Chomu");
+  await expect(page.getByLabel("Select Location")).toContainText("Bihta");
 
   await page.getByRole("button", { name: "Get Crop Recommendation" }).click();
 
@@ -193,9 +264,7 @@ test("crop planner creates an interactive crop calendar", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Paddy (Dhan)", level: 1 }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Morija, Chomu, Jaipur, Rajasthan"),
-  ).toBeVisible();
+  await expect(page.getByText("Amhara, Bihta, Patna, Bihar")).toBeVisible();
 
   const progress = page.getByRole("progressbar", {
     name: "Crop plan progress",
@@ -224,8 +293,8 @@ test("unfinished dashboard services show a positive preview and return home", as
 
   const unfinishedServices = [
     "e-NAM",
-    "Krishak Uphaar",
-    "Kisan Kalewa",
+    "Farmer Rewards",
+    "Farmer Food Services",
     "FPO & Services",
     "Finance & Loans",
     "Training & Videos",
@@ -274,7 +343,7 @@ test("soil health card shows parcel analysis and working report actions", async 
       level: 1,
     }),
   ).toBeVisible();
-  await expect(page.getByText("SHC-RJ-24-05-1231")).toBeVisible();
+  await expect(page.getByText("SHC-BR-24-05-1231")).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Soil Parameter Summary" }),
   ).toBeVisible();
@@ -289,7 +358,7 @@ test("soil health card shows parcel analysis and working report actions", async 
   await page.getByRole("button", { name: /Download PDF/ }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toBe(
-    "soil-health-card-SHC-RJ-24-05-1231.pdf",
+    "soil-health-card-SHC-BR-24-05-1231.pdf",
   );
 
   await page.getByRole("button", { name: /Refresh Report/ }).click();
@@ -365,16 +434,16 @@ test("nearby sellers hub links four responsive service screens", async ({
   await page.goto(appUrl("/nearby/seeds"));
   await page
     .getByPlaceholder("Search by supplier name, seed type...")
-    .fill("Govindgarh");
+    .fill("Balaji");
   await expect(
-    page.getByRole("heading", { name: "Govindgarh Balaji Seeds" }),
+    page.getByRole("heading", { name: "Amhara Balaji Seeds" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Chomu Krishi Seed Center" }),
+    page.getByRole("heading", { name: "Bihta Krishi Seed Center" }),
   ).toHaveCount(0);
 
   const seller = page.locator("article").filter({
-    has: page.getByRole("heading", { name: "Govindgarh Balaji Seeds" }),
+    has: page.getByRole("heading", { name: "Amhara Balaji Seeds" }),
   });
   await seller.getByRole("button", { name: "View Details" }).click();
   await expect(
@@ -405,7 +474,14 @@ test("mandi and diagnostic services render responsively", async ({ page }) => {
   }
 
   await page.goto(appUrl("/mandi"));
+  await expect(
+    page.getByText("Illustrative Bihar market data • Not live rates"),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Check Official Rates" }),
+  ).toHaveAttribute("href", "https://agmarknet.gov.in/");
   const cropSelect = page.getByLabel("Select Crop");
+  await expect(cropSelect.locator('option[value="maize"]')).toHaveText("Maize");
   await cropSelect.selectOption("paddy");
   await expect(
     page.getByRole("heading", {
@@ -511,11 +587,11 @@ test("livestock, farm, machinery and startup services render responsively", asyn
   }
 
   for (const [path, imageName] of [
-    ["/pashu-bazaar", "Farmer with healthy cattle"],
+    ["/pashu-bazaar", "Cow and calf"],
     ["/machinery", "Farm tractor ready for booking"],
   ] as const) {
     await page.goto(appUrl(path));
-    const image = page.getByRole("img", { name: imageName });
+    const image = page.getByRole("img", { name: imageName }).first();
     await expect(image).toBeVisible();
     await expect
       .poll(() =>
@@ -571,26 +647,28 @@ test("new service entry actions reach their nested flows", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("MKSY tile opens the complete claim flow without horizontal overflow", async ({
+test("Bihar accident support demo opens the complete claim flow without horizontal overflow", async ({
   page,
 }) => {
   test.setTimeout(90_000);
 
   await page.goto(appUrl("/home"));
   await expect(
-    page.locator("main").getByRole("link", { name: /MKSY/ }),
+    page.locator("main").getByRole("link", { name: /Accident Support Demo/ }),
   ).toHaveAttribute("href", appUrl("/mksy"));
 
   await page.goto(appUrl("/mksy"));
   await expect(
-    page.getByRole("heading", {
-      name: "Mukhyamantri Krishak Durghatna Kalyan Yojana",
-      level: 1,
-      exact: true,
-    }),
+    page
+      .getByRole("heading", {
+        name: "Bihar Farmer Accident Support Demo",
+        level: 1,
+        exact: true,
+      })
+      .last(),
   ).toBeVisible();
   const heroImage = page.getByRole("img", {
-    name: "Rajasthan farmer standing in an agricultural field",
+    name: "Farmer standing in an agricultural field (illustrative image)",
   });
   await expect(heroImage).toBeVisible();
   await expect
@@ -599,7 +677,7 @@ test("MKSY tile opens the complete claim flow without horizontal overflow", asyn
     )
     .toBeGreaterThan(0);
 
-  await page.getByRole("link", { name: /Start Claim/ }).click();
+  await page.getByRole("link", { name: /Start Demo Claim/ }).click();
   await expect(page.getByText("Step 1 of 5")).toBeVisible();
 
   await page.getByRole("link", { name: /Next: Accident Details/ }).click();
@@ -611,14 +689,14 @@ test("MKSY tile opens the complete claim flow without horizontal overflow", asyn
   await page.getByRole("link", { name: /Next: Review/ }).click();
   await expect(page.getByText("Step 5 of 5")).toBeVisible();
   await page.getByRole("checkbox").check();
-  await page.getByRole("link", { name: /Submit Claim/ }).click();
+  await page.getByRole("link", { name: /View Demo Status/ }).click();
 
   await expect(page).toHaveURL(
     new RegExp(`${basePath.replaceAll("/", "\\/")}\\/mksy\\/status$`),
   );
   await expect(
     page.getByRole("heading", {
-      name: "MKSY Claim Approval Pipeline",
+      name: "Bihar Demo Claim Timeline",
       level: 1,
     }),
   ).toBeVisible();

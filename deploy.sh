@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-APP_NAME="${APP_NAME:-raj-kisan-suvidha}"
+APP_NAME="${APP_NAME:-bihar-kisan-suvidha}"
 APP_DIR="${APP_DIR:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)}"
-DEPLOY_DIR="${DEPLOY_DIR:-/var/www/raj-kisan-suvidha}"
+DEPLOY_DIR="${DEPLOY_DIR:-/var/www/bihar-kisan-suvidha}"
 APP_HOST="${APP_HOST:-127.0.0.1}"
-PORT="${PORT:-3001}"
-HEALTH_PATH="${HEALTH_PATH:-/raj-kisan-suvidha/}"
+PORT="${PORT:-3002}"
+HEALTH_PATH="${HEALTH_PATH:-/bihar-kisan-suvidha/login}"
 CLEAN_SOURCE_AFTER_DEPLOY="${CLEAN_SOURCE_AFTER_DEPLOY:-true}"
 SOURCE_CLEANUP_DIR="/root/raj-farmer-app"
 STAGING_DIR="${DEPLOY_DIR}.staging.$$"
@@ -163,7 +163,7 @@ start_or_restart_app
 
 log "Checking application health"
 for attempt in {1..15}; do
-	if curl --fail --silent --show-error --max-time 10 \
+	if curl --fail --location --max-redirs 5 --silent --show-error --max-time 10 \
 		"http://${APP_HOST}:${PORT}${HEALTH_PATH}" >/dev/null; then
 		pm2 save
 		rm -rf -- "$BACKUP_DIR"

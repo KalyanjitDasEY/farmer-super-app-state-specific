@@ -15,6 +15,7 @@ import { withBasePath } from "@/config/base-path";
 import { routes } from "@/config/routes";
 import type { DashboardSnapshot } from "@/domain/models";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { createTranslator } from "@/i18n/localized-text";
 import { formatCurrency, formatNumber } from "@/lib/format";
 import styles from "@/styles/application.module.css";
 import type { Locale } from "@/types/locale";
@@ -28,16 +29,23 @@ export function FarmerProfileOverview({
   dictionary: Dictionary;
   snapshot: DashboardSnapshot;
 }) {
+  const t = createTranslator(locale);
   const profileServices = [
     {
       title: dictionary["profile.digitalId"],
-      description: dictionary["profile.digitalIdDescription"],
+      description: t(
+        "View your sample farmer ID and its QR code.",
+        "अपनी नमूना किसान आईडी और उसका क्यूआर कोड देखें।",
+      ),
       href: routes.profileDigitalId(locale),
       icon: IdCard,
     },
     {
       title: dictionary["profile.wallet"],
-      description: dictionary["profile.walletDescription"],
+      description: t(
+        "Explore sample credentials for the demo.",
+        "डेमो के नमूना क्रेडेंशियल देखें।",
+      ),
       href: routes.profileWallet(locale),
       icon: WalletCards,
     },
@@ -66,8 +74,8 @@ export function FarmerProfileOverview({
       <section className={`${styles.card} ${styles.dashboardWelcome}`}>
         <Image
           className={styles.avatar}
-          src={withBasePath("/images/farmer-avatar-reference-v2.png")}
-          alt={snapshot.farmerName[locale]}
+          src={withBasePath("/images/farmer-avatar-bihar.svg")}
+          alt={t("Illustrative farmer avatar", "किसान का सांकेतिक चित्र")}
           width={122}
           height={122}
           priority
@@ -78,13 +86,16 @@ export function FarmerProfileOverview({
           <p>{snapshot.farmerId}</p>
           <span className={styles.badge}>
             <BadgeCheck size={16} aria-hidden="true" />
-            {dictionary["home.verified"]}
+            {t("Demo Profile", "डेमो प्रोफाइल")}
           </span>
         </div>
         <div className={styles.summaryPair}>
           <div>
-            <strong>{dictionary["home.janAadhaar"]}</strong>
-            <p>{snapshot.janAadhaarMasked}</p>
+            <strong>
+              {dictionary["home.aadhaar"]}{" "}
+              {t("(masked demo)", "(छिपाया गया डेमो)")}
+            </strong>
+            <p>{snapshot.aadhaarMasked}</p>
           </div>
           <div>
             <strong>{dictionary["home.landSummary"]}</strong>
@@ -124,9 +135,7 @@ export function FarmerProfileOverview({
         <article className={`${styles.card} ${styles.metricCard}`}>
           <ShieldCheck size={30} aria-hidden="true" />
           <h2>{dictionary["home.ekyc"]}</h2>
-          <p className={styles.metricValue}>
-            {dictionary["register.verified"]}
-          </p>
+          <p className={styles.metricValue}>{t("Demo only", "केवल डेमो")}</p>
         </article>
         <article className={`${styles.card} ${styles.metricCard}`}>
           <FileText size={30} aria-hidden="true" />

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 122">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#e8f5ec"/>
+      <stop offset="1" stop-color="#b9dfbe"/>
+    </linearGradient>
+    <clipPath id="frame">
+      <circle cx="61" cy="61" r="60"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <circle cx="61" cy="61" r="60" fill="url(#sky)"/>
+    <path d="M0 99q30-22 64-15 36-5 58 9v29H0z" fill="#82b46c"/>
+    <path d="M3 122q9-32 35-36l19-5h10l19 5q25 5 34 36z" fill="#faf8ed"/>
+    <path d="M40 91q-1-18 9-22h24q10 4 9 22l-20 14z" fill="#a96a43"/>
+    <path d="M42 47q0-24 19-24t19 24v12q-2 21-19 24-17-3-19-24z" fill="#ba784e"/>
+    <path d="M41 52q-8-4-8 5 0 8 10 10m38-15q8-4 8 5 0 8-10 10" fill="#ba784e"/>
+    <path d="M40 51q-5-30 21-33 26 1 22 32l-6-15q-15-9-34 4z" fill="#263329"/>
+    <path d="M46 53q5-3 10 0m11 0q5-3 10 0" fill="none" stroke="#312d28" stroke-linecap="round" stroke-width="2"/>
+    <path d="M61 54v11m-7 5q7 5 14 0" fill="none" stroke="#754b36" stroke-linecap="round" stroke-width="2"/>
+    <path d="M49 62q3 4 12 1 9 3 12-1-1 10-12 10T49 62" fill="#34302a"/>
+    <path d="M38 87q12 14 23 14 11 0 23-14l10 6q-8 12-18 19l-15-8-15 8Q36 105 28 93z" fill="#e3e6db"/>
+    <path d="M46 112 61 104l15 8" fill="none" stroke="#c5ccbc" stroke-width="2"/>
+  </g>
+  <circle cx="61" cy="61" r="60" fill="none" stroke="#fff" stroke-width="2"/>
+</svg>

@@ -25,12 +25,12 @@ const devanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_ORIGIN ?? "http://localhost:3001"),
   title: {
-    default: "Raj Kisan Suvidha",
-    template: "%s | Raj Kisan Suvidha",
+    default: "Bihar Kisan Suvidha",
+    template: "%s | Bihar Kisan Suvidha",
   },
   description:
-    "Bilingual progressive web application for Rajasthan farmer services.",
-  applicationName: "Raj Kisan Suvidha",
+    "Bilingual progressive web application demonstrating Bihar farmer services.",
+  applicationName: "Bihar Kisan Suvidha",
   manifest: withBasePath("/manifest.webmanifest"),
   icons: {
     icon: [

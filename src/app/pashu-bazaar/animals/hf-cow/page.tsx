@@ -54,7 +54,7 @@ export default async function AnimalDetailPage() {
           <div className={styles.galleryMain}>
             <Image
               src="/images/authenticated/pashu-bazaar/hf-cow-detail.jpg"
-              alt={t("Verified HF milking cow", "सत्यापित दुधारू HF गाय")}
+              alt={t("Sample HF milking cow", "नमूना दुधारू HF गाय")}
               fill
               loading="eager"
               sizes="(max-width: 720px) 100vw, 50vw"
@@ -169,7 +169,7 @@ export default async function AnimalDetailPage() {
                 <li key={t(item)}>
                   <CheckCircle2 size={16} />
                   <span>{t(item)}</span>
-                  <b>{t("Verified", "सत्यापित")}</b>
+                  <b>{t("Demo", "डेमो")}</b>
                 </li>
               ))}
             </ul>
@@ -230,7 +230,7 @@ export default async function AnimalDetailPage() {
                   ],
                   [
                     localized("Transport Partner", "परिवहन भागीदार"),
-                    "Raj Kisan Suvidha Logistics",
+                    "Bihar Kisan Suvidha Demo Logistics",
                   ],
                   [
                     localized("Estimated Delivery", "अनुमानित डिलीवरी"),
@@ -260,12 +260,9 @@ export default async function AnimalDetailPage() {
               />
             </div>
             <p>
-              {t("Village:", "गाँव:")} Pusa Basmati 1121
+              {t("Village:", "गाँव:")} {t("Amhara", "अमहरा")}
               <br />
-              {t(
-                "Raipur, Deoria, Uttar Pradesh – 274001",
-                "रायपुर, देवरिया, उत्तर प्रदेश – 274001",
-              )}
+              {t("Bihta, Patna, Bihar – 801103", "बिहटा, पटना, बिहार – 801103")}
             </p>
           </article>
         </div>

@@ -2,7 +2,6 @@
 
 import {
   ArrowLeft,
-  BadgeCheck,
   ChevronDown,
   CircleHelp,
   Clock3,
@@ -12,7 +11,6 @@ import {
   Navigation,
   Phone,
   Search,
-  ShieldCheck,
   SlidersHorizontal,
   SortAsc,
   Star,
@@ -102,8 +100,8 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
           <Info size={20} aria-hidden="true" />
           <p>
             {t(
-              "Search and filter verified listings, compare distance and available products, then call the seller or open their details.",
-              "सत्यापित सूचियां खोजें और फ़िल्टर करें, दूरी व उपलब्ध उत्पादों की तुलना करें, फिर विक्रेता को कॉल करें या उनका विवरण खोलें।",
+              "Search and filter sample listings, compare distance and products, then contact the provider to confirm details.",
+              "नमूना सूचियां खोजें और फ़िल्टर करें, दूरी व उत्पादों की तुलना करें, फिर विवरण की पुष्टि के लिए प्रदाता से संपर्क करें।",
             )}
           </p>
         </section>
@@ -115,9 +113,9 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
             <MapPin size={28} aria-hidden="true" />
             <span>
               <strong>
-                {t("Chomu, Jaipur, Rajasthan", "चौमूं, जयपुर, राजस्थान")}
+                {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")}
               </strong>
-              <small>{t("Change Location", "स्थान बदलें")}</small>
+              <small>{t("Demo location", "डेमो स्थान")}</small>
             </span>
           </div>
           <label>
@@ -199,14 +197,14 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
 
       <div className={styles.verificationStrip}>
         <span>
-          <ShieldCheck size={20} aria-hidden="true" />
+          <Info size={20} aria-hidden="true" />
           {t(nearbyText(service.verifiedMessage))}
         </span>
         <span>
-          <BadgeCheck size={18} aria-hidden="true" />
+          <Info size={18} aria-hidden="true" />
           {t(
-            "Last Updated: 21 May 2024, 09:30 AM",
-            "अंतिम अपडेट: 21 मई 2024, सुबह 09:30",
+            "Contact providers for current details",
+            "वर्तमान जानकारी के लिए प्रदाताओं से संपर्क करें",
           )}
         </span>
       </div>
@@ -216,10 +214,10 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
           <h2>
             {t(
               `${visibleSellers.length} ${
-                serviceId === "warehouses" ? "facilities" : "verified sellers"
+                serviceId === "warehouses" ? "facilities" : "sellers"
               } found`,
               `${visibleSellers.length} ${
-                serviceId === "warehouses" ? "सुविधाएं" : "सत्यापित विक्रेता"
+                serviceId === "warehouses" ? "सुविधाएं" : "विक्रेता"
               } मिले`,
             )}
           </h2>
@@ -294,7 +292,7 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
                     </p>
                   ) : (
                     <p>
-                      <BadgeCheck size={16} aria-hidden="true" />
+                      <Info size={16} aria-hidden="true" />
                       {t(nearbyText(seller.feature))}
                     </p>
                   )}
@@ -392,29 +390,29 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
 
       <section className={styles.trustGrid}>
         <article>
-          <ShieldCheck size={27} aria-hidden="true" />
+          <Info size={27} aria-hidden="true" />
           <div>
             <strong>
               {serviceId === "warehouses"
-                ? t("Verified Facilities", "सत्यापित सुविधाएं")
-                : t("Verified Sellers", "सत्यापित विक्रेता")}
+                ? t("Sample Facilities", "नमूना सुविधाएं")
+                : t("Sample Sellers", "नमूना विक्रेता")}
             </strong>
             <span>
               {t(
-                "Checked by the Agriculture Department",
-                "कृषि विभाग द्वारा जांचा गया",
+                "Confirm availability directly before visiting",
+                "जाने से पहले उपलब्धता की सीधे पुष्टि करें",
               )}
             </span>
           </div>
         </article>
         <article>
-          <BadgeCheck size={27} aria-hidden="true" />
+          <Info size={27} aria-hidden="true" />
           <div>
-            <strong>{t("Quality Assured", "गुणवत्ता सुनिश्चित")}</strong>
+            <strong>{t("Compare details", "विवरण की तुलना करें")}</strong>
             <span>
               {t(
-                "Trusted products and service information",
-                "विश्वसनीय उत्पाद और सेवा जानकारी",
+                "Product and service information is illustrative",
+                "उत्पाद और सेवा जानकारी उदाहरण के लिए है",
               )}
             </span>
           </div>
@@ -424,7 +422,10 @@ export function NearbyListing({ serviceId }: { serviceId: NearbyServiceId }) {
           <div>
             <strong>{t("Need Help?", "मदद चाहिए?")}</strong>
             <span>
-              {t("Agriculture Helpline", "कृषि हेल्पलाइन")} 1800-180-6127
+              {t(
+                "Contact the listed provider",
+                "सूचीबद्ध प्रदाता से संपर्क करें",
+              )}
             </span>
           </div>
         </article>

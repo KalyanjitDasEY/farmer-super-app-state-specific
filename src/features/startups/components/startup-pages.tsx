@@ -247,7 +247,7 @@ export function StartupDirectory({
               <div className={styles.startupCardAction}>
                 <span className={styles.verified}>
                   <ShieldCheck size={17} />{" "}
-                  {t("Verified Startup", "सत्यापित स्टार्टअप")}
+                  {t("Featured Startup", "चुनिंदा स्टार्टअप")}
                 </span>
                 <div>
                   <span>
@@ -552,8 +552,8 @@ function Overview({
           </div>
           <p>
             {t(
-              "Uttar Pradesh · Maharashtra · Karnataka · Punjab · Rajasthan · Madhya Pradesh · Gujarat · Telangana",
-              "उत्तर प्रदेश · महाराष्ट्र · कर्नाटक · पंजाब · राजस्थान · मध्य प्रदेश · गुजरात · तेलंगाना",
+              "Bihar · Uttar Pradesh · Maharashtra · Karnataka · Punjab · Madhya Pradesh · Gujarat · Telangana",
+              "बिहार · उत्तर प्रदेश · महाराष्ट्र · कर्नाटक · पंजाब · मध्य प्रदेश · गुजरात · तेलंगाना",
             )}
           </p>
           <Map size={72} aria-hidden="true" />

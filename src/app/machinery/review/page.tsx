@@ -160,8 +160,8 @@ export default async function MachineryReviewPage() {
       <aside className={styles.sourceNote}>
         <Check size={17} />{" "}
         {t(
-          "Raj Kisan Suvidha ensures safe, transparent and reliable farm mechanization services.",
-          "Raj Kisan Suvidha सुरक्षित, पारदर्शी और विश्वसनीय कृषि मशीनीकरण सेवाएँ सुनिश्चित करता है।",
+          "Bihar Kisan Suvidha demonstrates farm mechanization services; no real booking is made.",
+          "बिहार किसान सुविधा कृषि मशीनीकरण सेवाओं का डेमो है; वास्तविक बुकिंग नहीं होती।",
         )}
       </aside>
     </div>

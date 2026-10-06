@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
   return {
     title: t(
-      "MKSY Claim - Documents and e-KYC",
-      "MKSY दावा - दस्तावेज़ और ई-केवाईसी",
+      "Bihar Demo Claim - Documents and Identity",
+      "बिहार डेमो दावा - दस्तावेज़ और पहचान",
     ),
   };
 }
@@ -22,16 +22,16 @@ export default async function MksyDocumentsPage() {
     <ClaimLayout
       current={3}
       title={t(
-        "Documents and e-KYC Verification",
-        "दस्तावेज़ और ई-केवाईसी सत्यापन",
+        "Documents and Demo Identity Check",
+        "दस्तावेज़ और डेमो पहचान जांच",
       )}
       description={t(
-        "Upload supporting documents and complete e-KYC verification.",
-        "सहायक दस्तावेज़ अपलोड करें और ई-केवाईसी सत्यापन पूरा करें।",
+        "Review sample supporting documents and the simulated identity step.",
+        "नमूना सहायक दस्तावेज़ और सांकेतिक पहचान चरण देखें।",
       )}
       notice={t(
-        "Please upload clear and valid documents. All documents will be verified by the concerned department.",
-        "कृपया स्पष्ट और वैध दस्तावेज़ अपलोड करें। सभी दस्तावेज़ों का सत्यापन संबंधित विभाग द्वारा किया जाएगा।",
+        "Sample files only. No documents are uploaded or verified by a government department.",
+        "केवल नमूना फ़ाइलें। कोई दस्तावेज़ अपलोड नहीं होता या सरकारी विभाग द्वारा सत्यापित नहीं किया जाता।",
       )}
     >
       <DocumentsForm />

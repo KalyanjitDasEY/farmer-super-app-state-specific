@@ -69,7 +69,7 @@ export function SchemeDetailPage({
             <span className={styles.badge}>
               {scheme.jurisdiction === "central"
                 ? dictionary["schemes.central"]
-                : dictionary["schemes.rajasthan"]}
+                : dictionary["schemes.bihar"]}
             </span>
             <div className={styles.detailTitleRow}>
               <Image
@@ -109,8 +109,8 @@ export function SchemeDetailPage({
                     ? "भारत सरकार"
                     : "Government of India"
                   : locale === "hi"
-                    ? "राजस्थान सरकार"
-                    : "Government of Rajasthan"}
+                    ? "बिहार"
+                    : "Bihar"}
               </span>
             </div>
           </div>

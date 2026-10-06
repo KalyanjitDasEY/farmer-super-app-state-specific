@@ -7,7 +7,7 @@ import { getRequestLocale } from "@/i18n/server";
 
 export const metadata: Metadata = {
   title: "Feature Coming Soon",
-  description: "A new Raj Kisan Suvidha service is being developed.",
+  description: "A new Bihar Kisan Suvidha demo service is being developed.",
 };
 
 type SearchValue = string | string[] | undefined;

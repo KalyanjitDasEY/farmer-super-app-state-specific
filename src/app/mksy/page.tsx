@@ -27,10 +27,13 @@ import styles from "@/features/mksy/components/mksy.module.css";
 export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
   return {
-    title: "MKSY",
+    title: t(
+      "Bihar Farmer Accident Support Demo",
+      "बिहार किसान दुर्घटना सहायता डेमो",
+    ),
     description: t(
-      "Mukhyamantri Krishak Durghatna Kalyan Yojana information and claim application.",
-      "मुख्यमंत्री कृषक दुर्घटना कल्याण योजना की जानकारी और दावा आवेदन।",
+      "Illustrative Bihar farmer accident support claim journey. Not an official government scheme or application.",
+      "बिहार के किसानों के लिए दुर्घटना सहायता दावे का सांकेतिक डेमो। यह सरकारी योजना या आवेदन नहीं है।",
     ),
   };
 }
@@ -44,28 +47,31 @@ const coveredAccidents = [
   localized("Other accidental incidents", "अन्य आकस्मिक घटनाएं"),
 ] as const;
 
-const eligibility = [
-  localized("Be a resident of Rajasthan", "राजस्थान का निवासी होना चाहिए"),
+const sampleProfile = [
   localized(
-    "Be a farmer as per land records (Jamabandi)",
-    "भूमि अभिलेख (जमाबंदी) के अनुसार किसान होना चाहिए",
+    "Sample applicant resides in Bihar",
+    "नमूना आवेदक बिहार का निवासी है",
   ),
   localized(
-    "Be between 18 to 70 years of age",
-    "आयु 18 से 70 वर्ष के बीच होनी चाहिए",
+    "Sample farmer record: Bihar land record / khata-khesra",
+    "नमूना किसान रिकॉर्ड: बिहार भूमि अभिलेख / खाता-खेसरा",
   ),
   localized(
-    "Incident must be accidental and within Rajasthan",
-    "घटना आकस्मिक और राजस्थान के भीतर होनी चाहिए",
+    "Example incident: accidental injury or death",
+    "उदाहरण घटना: दुर्घटना में चोट या मृत्यु",
   ),
+  localized("Example incident location: Bihar", "उदाहरण घटना स्थल: बिहार"),
 ] as const;
 
 const documents = [
   localized(
-    "Jan Aadhaar Card of deceased / applicant",
-    "मृतक / आवेदक का जन आधार कार्ड",
+    "Demo farmer ID of affected person / applicant",
+    "प्रभावित व्यक्ति / आवेदक की डेमो किसान आईडी",
   ),
-  localized("Latest Jamabandi / Land Record", "नवीनतम जमाबंदी / भूमि अभिलेख"),
+  localized(
+    "Bihar land record / khata-khesra",
+    "बिहार भूमि अभिलेख / खाता-खेसरा",
+  ),
   localized(
     "Death Certificate / Disability Certificate",
     "मृत्यु प्रमाण पत्र / दिव्यांगता प्रमाण पत्र",
@@ -89,36 +95,36 @@ export default async function MksyOverviewPage() {
       <SchemeHeading
         backHref="/schemes"
         backLabel={t("Back to Schemes", "योजनाओं पर वापस जाएं")}
-        current="MKSY"
+        current={t("Bihar farmer demo", "बिहार किसान डेमो")}
       />
 
       <section className={styles.overviewHero}>
         <div className={styles.overviewCopy}>
           <span className={styles.schemeBadge}>
             {t(
-              "Rajasthan State Government Scheme",
-              "राजस्थान राज्य सरकार की योजना",
+              "Illustrative demo · Not a Bihar government scheme",
+              "सांकेतिक डेमो · बिहार सरकार की योजना नहीं",
             )}
           </span>
           <h1>
             {t(
-              "Mukhyamantri Krishak Durghatna Kalyan Yojana",
-              "मुख्यमंत्री कृषक दुर्घटना कल्याण योजना",
+              "Bihar Farmer Accident Support Demo",
+              "बिहार किसान दुर्घटना सहायता डेमो",
             )}
           </h1>
           <p>
             {t(
-              "Financial assistance to farmer families in case of accidental death or permanent disability due to specified incidents.",
-              "निर्दिष्ट घटनाओं के कारण दुर्घटना में मृत्यु या स्थायी दिव्यांगता की स्थिति में किसान परिवारों को वित्तीय सहायता।",
+              "Explore a sample accident-support claim journey for a Bihar farmer family. No real application or benefit is offered here.",
+              "बिहार के किसान परिवार के लिए दुर्घटना सहायता के नमूना दावा चरण देखें। यहां वास्तविक आवेदन या लाभ उपलब्ध नहीं है।",
             )}
           </p>
         </div>
         <div className={styles.heroImage}>
           <Image
-            src="/images/scheme-hero-reference.png"
+            src="/images/scheme-bihar-farmers.jpg"
             alt={t(
-              "Rajasthan farmer standing in an agricultural field",
-              "कृषि क्षेत्र में खड़ा राजस्थान का किसान",
+              "Farm worker threshing a harvest in Bihar",
+              "बिहार में फ़सल की मड़ाई करता खेत मज़दूर",
             )}
             fill
             loading="eager"
@@ -129,19 +135,19 @@ export default async function MksyOverviewPage() {
 
       <section
         className={styles.factGrid}
-        aria-label={t("MKSY scheme facts", "MKSY योजना के तथ्य")}
+        aria-label={t("Bihar demo information", "बिहार डेमो की जानकारी")}
       >
         <article>
           <span>
             <IndianRupee size={25} />
           </span>
           <div>
-            <small>{t("Funding Pattern", "वित्त पोषण का स्वरूप")}</small>
-            <strong>{t("State Funded", "राज्य वित्त पोषित")}</strong>
+            <small>{t("Funding", "वित्त पोषण")}</small>
+            <strong>{t("Not specified", "निर्दिष्ट नहीं")}</strong>
             <p>
               {t(
-                "100% by Government of Rajasthan",
-                "राजस्थान सरकार द्वारा 100%",
+                "No government funding claim is made",
+                "सरकारी वित्त पोषण का कोई दावा नहीं",
               )}
             </p>
           </div>
@@ -151,9 +157,11 @@ export default async function MksyOverviewPage() {
             <Umbrella size={25} />
           </span>
           <div>
-            <small>{t("Premium", "प्रीमियम")}</small>
-            <strong>{t("No Premium", "कोई प्रीमियम नहीं")}</strong>
-            <p>{t("Fully paid by Government", "सरकार द्वारा पूर्ण भुगतान")}</p>
+            <small>{t("Cost", "शुल्क")}</small>
+            <strong>{t("Demo only", "केवल डेमो")}</strong>
+            <p>
+              {t("No payment collected here", "यहां कोई भुगतान नहीं लिया जाता")}
+            </p>
           </div>
         </article>
         <article>
@@ -161,9 +169,9 @@ export default async function MksyOverviewPage() {
             <UsersRound size={25} />
           </span>
           <div>
-            <small>{t("Coverage", "कवरेज")}</small>
-            <strong>{t("All eligible farmers", "सभी पात्र किसान")}</strong>
-            <p>{t("Across Rajasthan", "पूरे राजस्थान में")}</p>
+            <small>{t("Example location", "उदाहरण स्थान")}</small>
+            <strong>{t("Bihar farmer", "बिहार का किसान")}</strong>
+            <p>{t("Patna district scenario", "पटना जिले का उदाहरण")}</p>
           </div>
         </article>
         <article>
@@ -171,12 +179,12 @@ export default async function MksyOverviewPage() {
             <CalendarDays size={25} />
           </span>
           <div>
-            <small>{t("Application Window", "आवेदन अवधि")}</small>
-            <strong>{t("Open All Year Round", "पूरे वर्ष खुला")}</strong>
+            <small>{t("Availability", "उपलब्धता")}</small>
+            <strong>{t("Demo journey", "डेमो प्रक्रिया")}</strong>
             <p>
               {t(
-                "Apply for eligible incidents",
-                "पात्र घटनाओं के लिए आवेदन करें",
+                "No official application window",
+                "कोई आधिकारिक आवेदन अवधि नहीं",
               )}
             </p>
           </div>
@@ -191,8 +199,8 @@ export default async function MksyOverviewPage() {
           <h2>{t("Purpose", "उद्देश्य")}</h2>
           <p>
             {t(
-              "To provide immediate financial assistance to farmer families in case of accidental death or permanent disability, ensuring social security and support during difficult times.",
-              "दुर्घटना में मृत्यु या स्थायी दिव्यांगता की स्थिति में किसान परिवारों को तत्काल वित्तीय सहायता देकर कठिन समय में सामाजिक सुरक्षा और सहयोग सुनिश्चित करना।",
+              "Demonstrate how a farmer family might enter incident details, add supporting documents and follow a sample claim.",
+              "दिखाना कि किसान परिवार घटना का विवरण, सहायक दस्तावेज़ और नमूना दावा कैसे दर्ज कर सकता है।",
             )}
           </p>
         </div>
@@ -202,7 +210,7 @@ export default async function MksyOverviewPage() {
         <article className={styles.overviewCard}>
           <h2>
             <ShieldCheck size={20} />{" "}
-            {t("Covered Accidents", "कवर की गई दुर्घटनाएं")}
+            {t("Example incident types", "उदाहरण घटना प्रकार")}
           </h2>
           <ul className={styles.checkList}>
             {coveredAccidents.map((item) => (
@@ -215,25 +223,26 @@ export default async function MksyOverviewPage() {
 
         <article className={styles.overviewCard}>
           <h2>
-            <IndianRupee size={20} /> {t("Assistance Slabs", "सहायता स्लैब")}
+            <IndianRupee size={20} />{" "}
+            {t("Demo incident categories", "डेमो घटना श्रेणियां")}
           </h2>
           <table className={styles.amountTable}>
             <thead>
               <tr>
                 <th>{t("Incident Type", "घटना का प्रकार")}</th>
-                <th>{t("Amount", "राशि")}</th>
+                <th>{t("Benefit amount", "लाभ राशि")}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{t("Accidental Death", "दुर्घटना में मृत्यु")}</td>
-                <td>₹5,00,000</td>
+                <td>{t("Not specified", "निर्दिष्ट नहीं")}</td>
               </tr>
               <tr>
                 <td>
                   {t("Permanent Total Disability", "स्थायी पूर्ण दिव्यांगता")}
                 </td>
-                <td>₹5,00,000</td>
+                <td>{t("Not specified", "निर्दिष्ट नहीं")}</td>
               </tr>
               <tr>
                 <td>
@@ -242,13 +251,13 @@ export default async function MksyOverviewPage() {
                     "दो अंगों / दोनों आंखों की हानि",
                   )}
                 </td>
-                <td>₹2,50,000</td>
+                <td>{t("Not specified", "निर्दिष्ट नहीं")}</td>
               </tr>
               <tr>
                 <td>
                   {t("Loss of One Limb or One Eye", "एक अंग या एक आंख की हानि")}
                 </td>
-                <td>₹1,25,000</td>
+                <td>{t("Not specified", "निर्दिष्ट नहीं")}</td>
               </tr>
             </tbody>
           </table>
@@ -257,10 +266,10 @@ export default async function MksyOverviewPage() {
         <article className={styles.overviewCard}>
           <h2>
             <UsersRound size={20} />{" "}
-            {t("Eligibility Criteria", "पात्रता मानदंड")}
+            {t("Sample applicant profile", "नमूना आवेदक का विवरण")}
           </h2>
           <ul className={styles.checkList}>
-            {eligibility.map((item) => (
+            {sampleProfile.map((item) => (
               <li key={item.en}>
                 <CheckCircle2 size={16} /> {t(item)}
               </li>
@@ -271,8 +280,8 @@ export default async function MksyOverviewPage() {
 
       <Notice tone="blue">
         {t(
-          "Assistance amount follows Government of Rajasthan rules and may be revised from time to time.",
-          "सहायता राशि राजस्थान सरकार के नियमों के अनुसार है और समय-समय पर संशोधित की जा सकती है।",
+          "These categories are for demonstration only. No Bihar government scheme, eligibility, amount or payment is implied.",
+          "ये श्रेणियां केवल डेमो के लिए हैं। इनसे बिहार सरकार की किसी योजना, पात्रता, राशि या भुगतान का दावा नहीं होता।",
         )}
       </Notice>
 
@@ -280,7 +289,7 @@ export default async function MksyOverviewPage() {
         <article className={styles.contentCard}>
           <h2>
             <FolderOpen size={20} />{" "}
-            {t("Documents Required", "आवश्यक दस्तावेज़")}
+            {t("Sample supporting documents", "नमूना सहायक दस्तावेज़")}
           </h2>
           <ul className={styles.documentList}>
             {documents.map((item) => (
@@ -300,20 +309,20 @@ export default async function MksyOverviewPage() {
             <ul className={styles.bulletList}>
               <li>
                 {t(
-                  "This scheme provides financial assistance only.",
-                  "यह योजना केवल वित्तीय सहायता प्रदान करती है।",
+                  "This is an illustrative journey, not an official claim portal.",
+                  "यह सांकेतिक प्रक्रिया है, आधिकारिक दावा पोर्टल नहीं।",
                 )}
               </li>
               <li>
                 {t(
-                  "It does not provide employment or any other benefit.",
-                  "यह रोजगार या कोई अन्य लाभ प्रदान नहीं करती है।",
+                  "No financial assistance or other benefit is provided through this demo.",
+                  "इस डेमो के माध्यम से वित्तीय सहायता या कोई अन्य लाभ नहीं दिया जाता।",
                 )}
               </li>
               <li>
                 {t(
-                  "False information may lead to rejection and legal action.",
-                  "गलत जानकारी के कारण दावा अस्वीकार और कानूनी कार्रवाई हो सकती है।",
+                  "Use sample information only; do not enter sensitive personal details.",
+                  "केवल नमूना जानकारी प्रयोग करें; संवेदनशील व्यक्तिगत विवरण दर्ज न करें।",
                 )}
               </li>
             </ul>
@@ -324,8 +333,8 @@ export default async function MksyOverviewPage() {
             </h2>
             <p>
               {t(
-                "Ask Krishi Mitra for help related to the MKSY scheme.",
-                "MKSY योजना से जुड़ी सहायता के लिए कृषि मित्र से पूछें।",
+                "Ask Krishi Mitra for help navigating this demo.",
+                "इस डेमो में नेविगेट करने के लिए कृषि मित्र से पूछें।",
               )}
             </p>
             <Link className={styles.outlineButton} href="/more#help">
@@ -341,7 +350,8 @@ export default async function MksyOverviewPage() {
           <ArrowLeft size={19} /> {t("Back to Schemes", "योजनाओं पर वापस जाएं")}
         </Link>
         <Link className={styles.primaryButton} href="/mksy/claim">
-          {t("Start Claim", "दावा शुरू करें")} <ArrowRight size={19} />
+          {t("Start Demo Claim", "डेमो दावा शुरू करें")}{" "}
+          <ArrowRight size={19} />
         </Link>
       </div>
     </div>

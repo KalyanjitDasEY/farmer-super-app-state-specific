@@ -13,15 +13,15 @@ import styles from "@/features/mksy/components/mksy.module.css";
 export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
   return {
-    title: t(
-      "MKSY Claim - Review and Submit",
-      "MKSY दावा - समीक्षा और जमा करें",
-    ),
+    title: t("Bihar Demo Claim - Review", "बिहार डेमो दावा - समीक्षा"),
   };
 }
 
 const summaryRows = [
-  [localized("Scheme", "योजना"), "MKSY"],
+  [
+    localized("Demo", "डेमो"),
+    localized("Bihar farmer accident support", "बिहार किसान दुर्घटना सहायता"),
+  ],
   [
     localized("Claim Type", "दावे का प्रकार"),
     localized("Accidental Death", "दुर्घटना में मृत्यु"),
@@ -30,37 +30,49 @@ const summaryRows = [
     localized("Applicant", "आवेदक"),
     localized("RAMESH KUMAR (Self)", "RAMESH KUMAR (स्वयं)"),
   ],
-  [localized("Jan Aadhaar No.", "जन आधार संख्या"), "XXXX XXXX 9012"],
+  [localized("Demo Farmer ID", "डेमो किसान आईडी"), "BR23F12345678"],
   [
     localized("Date of Incident", "घटना की तिथि"),
     localized("12 May 2024, 03:15 PM", "12 मई 2024, 03:15 अपराह्न"),
   ],
-  [localized("Total Assistance Amount", "कुल सहायता राशि"), "₹5,00,000"],
+  [
+    localized("Benefit Amount", "लाभ राशि"),
+    localized("Not specified (demo)", "निर्दिष्ट नहीं (डेमो)"),
+  ],
   [
     localized("Application Window", "आवेदन अवधि"),
-    localized("Open All Year Round", "पूरे वर्ष खुला"),
+    localized(
+      "No official application window (demo)",
+      "कोई आधिकारिक आवेदन अवधि नहीं (डेमो)",
+    ),
   ],
 ] as const;
 
-const verifiedDocuments = [
+const sampleDocuments = [
   [
     localized("FIR / Police Report", "FIR / पुलिस रिपोर्ट"),
-    localized("Police Department", "पुलिस विभाग"),
+    localized("Sample police report", "नमूना पुलिस रिपोर्ट"),
   ],
   [
     localized(
       "Medical Report / Disability Certificate",
       "चिकित्सा रिपोर्ट / दिव्यांगता प्रमाण पत्र",
     ),
-    localized("SMS Hospital, Jaipur", "SMS अस्पताल, जयपुर"),
+    localized(
+      "Patna Medical College and Hospital",
+      "पटना मेडिकल कॉलेज और अस्पताल",
+    ),
   ],
   [
-    localized("Jamabandi / Girdawari", "जमाबंदी / गिरदावरी"),
-    localized("Revenue Department", "राजस्व विभाग"),
+    localized(
+      "Bihar land record / khata-khesra",
+      "बिहार भूमि अभिलेख / खाता-खेसरा",
+    ),
+    localized("Sample land record", "नमूना भूमि अभिलेख"),
   ],
   [
-    localized("Source Verification", "स्रोत सत्यापन"),
-    localized("Field Verification Officer", "क्षेत्र सत्यापन अधिकारी"),
+    localized("Sample incident photo", "नमूना घटना चित्र"),
+    localized("Sample incident photo", "नमूना घटना चित्र"),
   ],
 ] as const;
 
@@ -70,14 +82,14 @@ export default async function MksyReviewPage() {
   return (
     <ClaimLayout
       current={4}
-      title={t("Review, Submit and Receipt", "समीक्षा, जमा करना और रसीद")}
+      title={t("Review Sample Claim", "नमूना दावे की समीक्षा")}
       description={t(
-        "Review your claim details. Submit to generate a claim reference.",
-        "अपने दावे के विवरण की समीक्षा करें। दावा संदर्भ बनाने के लिए जमा करें।",
+        "Review the sample details, then view a demo claim reference and status.",
+        "नमूना विवरण जांचें, फिर डेमो दावा संदर्भ और स्थिति देखें।",
       )}
       notice={t(
-        "Please review all details carefully before final submission. Once submitted, changes cannot be made.",
-        "अंतिम रूप से जमा करने से पहले सभी विवरण ध्यान से जांचें। जमा होने के बाद बदलाव नहीं किए जा सकते।",
+        "This is a static example; continuing does not submit or store an application.",
+        "यह स्थिर उदाहरण है; आगे बढ़ने से आवेदन जमा या संग्रहित नहीं होता।",
       )}
     >
       <FormSection title={t("A. Claim Summary", "A. दावा सारांश")}>
@@ -113,7 +125,7 @@ export default async function MksyReviewPage() {
             </span>
             <div>
               <small>{t("Location", "स्थान")}</small>
-              <strong>{t("Village Mor, Chomu", "गांव मोर, चोमू")}</strong>
+              <strong>{t("Village Amhara, Bihta", "गांव अमहरा, बिहटा")}</strong>
             </div>
           </article>
           <article>
@@ -122,7 +134,7 @@ export default async function MksyReviewPage() {
             </span>
             <div>
               <small>{t("Police Station", "पुलिस थाना")}</small>
-              <strong>{t("Chomu Police Station", "चोमू पुलिस थाना")}</strong>
+              <strong>{t("Bihta Police Station", "बिहटा पुलिस थाना")}</strong>
             </div>
           </article>
           <article>
@@ -131,7 +143,12 @@ export default async function MksyReviewPage() {
             </span>
             <div>
               <small>{t("Hospital", "अस्पताल")}</small>
-              <strong>{t("SMS Hospital, Jaipur", "SMS अस्पताल, जयपुर")}</strong>
+              <strong>
+                {t(
+                  "Patna Medical College and Hospital",
+                  "पटना मेडिकल कॉलेज और अस्पताल",
+                )}
+              </strong>
             </div>
           </article>
         </div>
@@ -142,15 +159,15 @@ export default async function MksyReviewPage() {
           <div className={styles.documentHead}>
             <span>{t("Document", "दस्तावेज़")}</span>
             <span>{t("Status", "स्थिति")}</span>
-            <span>{t("Verified By", "सत्यापनकर्ता")}</span>
+            <span>{t("Example source", "उदाहरण स्रोत")}</span>
             <span />
             <span />
           </div>
-          {verifiedDocuments.map(([document, office]) => (
+          {sampleDocuments.map(([document, office]) => (
             <div key={document.en}>
               <strong>{t(document)}</strong>
               <em>
-                <Check size={15} /> {t("Verified", "सत्यापित")}
+                <Check size={15} /> {t("Sample", "नमूना")}
               </em>
               <span>{t(office)}</span>
               <span />
@@ -162,35 +179,35 @@ export default async function MksyReviewPage() {
 
       <FormSection
         title={t(
-          "D. e-KYC Verification (Jan Aadhaar)",
-          "D. ई-केवाईसी सत्यापन (जन आधार)",
+          "D. Demo Identity Check (Farmer ID)",
+          "D. डेमो पहचान जांच (किसान आईडी)",
         )}
       >
         <div className={styles.factGrid}>
           <article>
             <div>
-              <small>{t("Jan Aadhaar No.", "जन आधार संख्या")}</small>
-              <strong>XXXX XXXX 9012</strong>
+              <small>{t("Demo Farmer ID", "डेमो किसान आईडी")}</small>
+              <strong>BR23F12345678</strong>
             </div>
           </article>
           <article>
             <div>
-              <small>{t("e-KYC Mode", "ई-केवाईसी माध्यम")}</small>
+              <small>{t("Demo check mode", "डेमो जांच माध्यम")}</small>
               <strong>OTP</strong>
             </div>
           </article>
           <article>
             <div>
-              <small>{t("e-KYC Status", "ई-केवाईसी स्थिति")}</small>
-              <strong>{t("Verified", "सत्यापित")}</strong>
+              <small>{t("Identity status", "पहचान स्थिति")}</small>
+              <strong>
+                {t("Not verified (demo)", "सत्यापित नहीं (डेमो)")}
+              </strong>
             </div>
           </article>
           <article>
             <div>
-              <small>{t("Verified On", "सत्यापन का समय")}</small>
-              <strong>
-                {t("12 May 2024, 04:25 PM", "12 मई 2024, 04:25 अपराह्न")}
-              </strong>
+              <small>{t("Verification date", "सत्यापन तिथि")}</small>
+              <strong>{t("Not applicable", "लागू नहीं")}</strong>
             </div>
           </article>
         </div>

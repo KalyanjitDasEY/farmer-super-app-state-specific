@@ -1,7 +1,15 @@
+import { routes } from "@/config/routes";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/types/locale";
 import styles from "@/styles/application.module.css";
 
-export function Footer({ dictionary }: { dictionary: Dictionary }) {
+export function Footer({
+  dictionary,
+  locale,
+}: {
+  dictionary: Dictionary;
+  locale: Locale;
+}) {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
@@ -16,6 +24,9 @@ export function Footer({ dictionary }: { dictionary: Dictionary }) {
           <a href="#privacy">{dictionary["footer.privacy"]}</a>
           <a href="#terms">{dictionary["footer.terms"]}</a>
           <a href="#help">{dictionary["footer.contact"]}</a>
+          <a href={routes.imageCredits(locale)}>
+            {locale === "hi" ? "चित्र श्रेय" : "Image credits"}
+          </a>
         </nav>
         <small>{dictionary["common.version"]} 0.1.0</small>
       </div>

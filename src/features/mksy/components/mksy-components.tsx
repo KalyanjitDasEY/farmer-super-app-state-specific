@@ -24,15 +24,17 @@ import styles from "./mksy.module.css";
 export const claimSteps = [
   localized("Accident & Victim", "दुर्घटना और पीड़ित"),
   localized("Location & Narrative", "स्थान और विवरण"),
-  localized("Documents & e-KYC", "दस्तावेज़ और ई-केवाईसी"),
+  localized("Documents & Demo ID", "दस्तावेज़ और डेमो आईडी"),
   localized("Review", "समीक्षा"),
   localized("Submit", "जमा करें"),
 ] as const;
 
 export function MksyLogo() {
+  const { t } = useLocale();
+
   return (
     <div className={styles.schemeLogo} aria-hidden="true">
-      <strong>MKSY</strong>
+      <strong>{t("BH DEMO", "बिहार डेमो")}</strong>
       <span>
         <HeartHandshake size={38} />
         <Leaf size={22} />
@@ -63,12 +65,12 @@ export function Breadcrumbs({
       <span>›</span>
       {claim ? (
         <>
-          <Link href="/mksy">MKSY</Link>
+          <Link href="/mksy">{t("Bihar demo", "बिहार डेमो")}</Link>
           <span>›</span>
         </>
       ) : (
         <>
-          <span>{t("Rajasthan State Schemes", "राजस्थान राज्य योजनाएं")}</span>
+          <span>{t("Bihar farmer demo", "बिहार किसान डेमो")}</span>
           <span>›</span>
         </>
       )}
@@ -104,14 +106,14 @@ export function SchemeHeading({
         <div>
           <h1>
             {t(
-              "Mukhyamantri Krishak Durghatna Kalyan Yojana (MKSY)",
-              "मुख्यमंत्री कृषक दुर्घटना कल्याण योजना (MKSY)",
+              "Bihar Farmer Accident Support Demo",
+              "बिहार किसान दुर्घटना सहायता डेमो",
             )}
           </h1>
           <p>
             {t(
-              "Financial assistance to farmer families in case of accidental death or permanent disability.",
-              "दुर्घटना में मृत्यु या स्थायी दिव्यांगता की स्थिति में किसान परिवारों को वित्तीय सहायता।",
+              "Illustrative journey only · Not a Bihar government scheme or real claim portal.",
+              "केवल सांकेतिक प्रक्रिया · बिहार सरकार की योजना या वास्तविक दावा पोर्टल नहीं।",
             )}
           </p>
         </div>
@@ -220,19 +222,24 @@ export function ClaimSidebar({ current }: { current: number }) {
         </h2>
         <dl className={styles.summaryList}>
           <div>
-            <dt>{t("Scheme", "योजना")}</dt>
-            <dd>MKSY</dd>
+            <dt>{t("Demo", "डेमो")}</dt>
+            <dd>
+              {t(
+                "Bihar farmer accident support",
+                "बिहार किसान दुर्घटना सहायता",
+              )}
+            </dd>
           </div>
           <div>
             <dt>{t("Applicant", "आवेदक")}</dt>
             <dd>RAMESH KUMAR</dd>
           </div>
           <div>
-            <dt>{t("Jan Aadhaar No.", "जन आधार संख्या")}</dt>
-            <dd>XXXX XXXX 9012</dd>
+            <dt>{t("Demo Farmer ID", "डेमो किसान आईडी")}</dt>
+            <dd>BR23F12345678</dd>
           </div>
           <div>
-            <dt>{t("Date of Incident", "घटना की तिथि")}</dt>
+            <dt>{t("Sample incident date", "नमूना घटना तिथि")}</dt>
             <dd>{t("12 May 2024, 03:15 PM", "12 मई 2024, 03:15 अपराह्न")}</dd>
           </div>
         </dl>
@@ -281,14 +288,14 @@ export function ClaimSidebar({ current }: { current: number }) {
           </li>
           <li>
             {t(
-              "False information may lead to rejection and legal action.",
-              "गलत जानकारी के कारण दावा अस्वीकार और कानूनी कार्रवाई हो सकती है।",
+              "Use sample data; do not enter real identity or bank details.",
+              "नमूना डेटा प्रयोग करें; वास्तविक पहचान या बैंक विवरण न भरें।",
             )}
           </li>
           <li>
             {t(
-              "Assistance follows Government of Rajasthan rules.",
-              "सहायता राजस्थान सरकार के नियमों के अनुसार दी जाएगी।",
+              "No official eligibility or benefit amount is represented here.",
+              "यहां आधिकारिक पात्रता या लाभ राशि नहीं दर्शाई गई है।",
             )}
           </li>
         </ul>
@@ -301,8 +308,8 @@ export function ClaimSidebar({ current }: { current: number }) {
         </h2>
         <p>
           {t(
-            "Ask Krishi Mitra for any help related to the MKSY claim.",
-            "MKSY दावे से जुड़ी किसी भी सहायता के लिए कृषि मित्र से पूछें।",
+            "Ask Krishi Mitra for help with this sample claim journey.",
+            "इस नमूना दावा प्रक्रिया में सहायता के लिए कृषि मित्र से पूछें।",
           )}
         </p>
         <Link className={styles.outlineButton} href="/more#help">
@@ -342,6 +349,12 @@ export function ClaimLayout({
         claim
       />
       <ClaimProgress current={current} />
+      <Notice tone="amber">
+        {t(
+          "Illustrative Bihar demo only. This is not an official government scheme or submission; no benefit or verification is provided.",
+          "केवल सांकेतिक बिहार डेमो। यह सरकारी योजना या वास्तविक आवेदन नहीं है; कोई लाभ या सत्यापन उपलब्ध नहीं है।",
+        )}
+      </Notice>
       <Notice>{notice}</Notice>
       <div className={styles.claimLayout}>
         <main className={styles.claimCard}>
@@ -380,7 +393,7 @@ export function ClaimActions({
       </Link>
       <button className={styles.secondaryButton} type="button">
         <FileCheck2 size={18} />
-        {t("Save as Draft", "ड्राफ्ट के रूप में सहेजें")}
+        {t("Sample Draft", "नमूना ड्राफ्ट")}
       </button>
       <Link className={styles.primaryButton} href={nextHref}>
         {nextLabel}

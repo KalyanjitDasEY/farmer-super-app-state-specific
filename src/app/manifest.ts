@@ -5,9 +5,9 @@ import { appBasePath, withBasePath } from "@/config/base-path";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: appBasePath || "/",
-    name: "Raj Kisan Suvidha - Rajasthan Farmer Super App",
-    short_name: "Raj Kisan",
-    description: "Bilingual Rajasthan farmer services progressive web app.",
+    name: "Bihar Kisan Suvidha - Bihar Farmer Demo",
+    short_name: "Bihar Kisan",
+    description: "Bilingual Bihar farmer services demo progressive web app.",
     start_url: `${appBasePath || ""}/`,
     scope: `${appBasePath || ""}/`,
     display: "standalone",
@@ -15,7 +15,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#16752d",
     orientation: "portrait-primary",
     lang: "hi",
-    categories: ["government", "agriculture", "utilities"],
+    categories: ["agriculture", "utilities"],
     icons: [
       {
         src: withBasePath("/icons/icon-192.png"),

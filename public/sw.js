@@ -1,4 +1,4 @@
-const CACHE_VERSION = "raj-kisan-v2";
+const CACHE_VERSION = "bihar-kisan-v1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PUBLIC_CACHE = `${CACHE_VERSION}-public`;
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
@@ -24,7 +24,12 @@ self.addEventListener("activate", (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => !key.startsWith(CACHE_VERSION))
+            .filter(
+              (key) =>
+                (key.startsWith("raj-kisan-") ||
+                  key.startsWith("bihar-kisan-")) &&
+                !key.startsWith(CACHE_VERSION),
+            )
             .map((key) => caches.delete(key)),
         ),
       )

@@ -1,4 +1,10 @@
-import { ArrowLeft, ArrowRight, Headphones, Lightbulb } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Headphones,
+  Lightbulb,
+  MapPinned,
+} from "lucide-react";
 import Image from "next/image";
 
 import { PageShell } from "@/components/layout/PageShell";
@@ -12,8 +18,8 @@ import styles from "@/styles/application.module.css";
 const popularSchemeIcons: Record<string, string> = {
   "pm-kisan": "/images/scheme-pm-kisan-icon-v2.png",
   "fasal-bima": "/images/scheme-fasal-bima-icon-v2.png",
-  "jal-swavalamban": "/images/scheme-water-icon-v2.png",
-  "rajasthan-kisan-bima": "/images/scheme-rupee-icon-v2.png",
+  "bihar-irrigation": "/images/scheme-water-icon-v2.png",
+  "bihar-crop-support": "/images/scheme-rupee-icon-v2.png",
 };
 
 export function ServiceHubPage({
@@ -49,7 +55,7 @@ export function ServiceHubPage({
           </div>
           <Image
             className={styles.pageHeroImage}
-            src={withBasePath("/images/scheme-hero-reference.png")}
+            src={withBasePath("/images/scheme-bihar-farmers.jpg")}
             alt=""
             width={409}
             height={280}
@@ -87,20 +93,18 @@ export function ServiceHubPage({
             </a>
           </article>
           <article className={`${styles.card} ${styles.catalogueChoice}`}>
-            <Image
-              className={styles.catalogueChoiceIcon}
-              src={withBasePath("/images/rajasthan-schemes-map-v2.png")}
-              alt=""
-              width={109}
-              height={109}
+            <MapPinned
+              className={`${styles.catalogueChoiceIcon} ${styles.biharChoiceIcon}`}
+              size={109}
+              aria-hidden="true"
             />
-            <h2>{dictionary["schemes.rajasthan"]}</h2>
-            <p>{dictionary["schemes.rajasthanDescription"]}</p>
+            <h2>{dictionary["schemes.bihar"]}</h2>
+            <p>{dictionary["schemes.biharDescription"]}</p>
             <a
               className={`${styles.button} ${styles.buttonBlue}`}
-              href={`${routes.schemeDepartments(locale)}?jurisdiction=rajasthan`}
+              href={`${routes.schemeDepartments(locale)}?jurisdiction=bihar`}
             >
-              {dictionary["schemes.viewRajasthan"]}
+              {dictionary["schemes.viewBihar"]}
               <ArrowRight size={20} />
             </a>
           </article>
@@ -136,7 +140,7 @@ export function ServiceHubPage({
               >
                 <span
                   className={`${styles.badge} ${
-                    scheme.jurisdiction === "rajasthan" ? styles.badgeBlue : ""
+                    scheme.jurisdiction === "bihar" ? styles.badgeBlue : ""
                   }`}
                 >
                   {scheme.jurisdiction === "central"
@@ -144,8 +148,8 @@ export function ServiceHubPage({
                       ? "केंद्रीय"
                       : "Central"
                     : locale === "hi"
-                      ? "राजस्थान"
-                      : "Rajasthan"}
+                      ? "बिहार"
+                      : "Bihar"}
                 </span>
                 <Image
                   className={styles.schemeIcon}

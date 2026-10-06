@@ -16,6 +16,6 @@ describe("localized text", () => {
   });
 
   it("preserves non-localized values such as names and identifiers", () => {
-    expect(createTranslator("hi")("RJ-123")).toBe("RJ-123");
+    expect(createTranslator("hi")("BR-123")).toBe("BR-123");
   });
 });

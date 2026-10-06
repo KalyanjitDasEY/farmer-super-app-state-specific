@@ -30,6 +30,23 @@ describe("mock repositories", () => {
     });
   });
 
+  it("lists only Bihar schemes for the state catalogue", async () => {
+    const result = await new MockSchemeRepository().list({
+      locale: "en",
+      jurisdiction: "bihar",
+      sort: "latest",
+      page: 1,
+      pageSize: 10,
+    });
+    expect(result.items).toHaveLength(3);
+    expect(
+      result.items.every((scheme) => scheme.jurisdiction === "bihar"),
+    ).toBe(true);
+    expect(result.items.map((scheme) => scheme.id)).toContain(
+      "bihar-crop-support",
+    );
+  });
+
   it("accepts only the documented demo OTP", async () => {
     const repository = new MockIdentityRepository();
     const challenge = await repository.requestOtp("123456789012");
@@ -41,15 +58,25 @@ describe("mock repositories", () => {
     ).resolves.toBe(false);
   });
 
-  it("rejects a Khasra outside the selected hierarchy", async () => {
+  it("rejects a Khesra outside the selected hierarchy", async () => {
     const repository = new MockLocationRepository();
     await expect(
       repository.resolve({
-        districtId: "jaipur",
-        tehsilId: "osian",
-        villageId: "khetasar",
+        districtId: "patna",
+        tehsilId: "kanti",
+        villageId: "panapur",
         anchorKhasra: "123/45",
       }),
     ).rejects.toBeInstanceOf(DomainError);
+  });
+
+  it("resolves a Bihar village through its district and block", async () => {
+    const location = await new MockLocationRepository().resolve({
+      districtId: "patna",
+      tehsilId: "bihta",
+      villageId: "amhara",
+      anchorKhasra: "123/45",
+    });
+    expect(location.resolutionId).toBe("demo-amhara-123/45");
   });
 });

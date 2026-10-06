@@ -114,7 +114,7 @@ const localizedRoutes = [
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
     {
-      name: "raj-kisan-locale",
+      name: "bihar-kisan-locale",
       value: "hi",
       domain: "127.0.0.1",
       path: basePath || "/",

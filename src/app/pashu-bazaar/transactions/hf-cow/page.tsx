@@ -43,8 +43,8 @@ const handoverSteps = [
   [
     localized("Final verification by buyer", "खरीदार द्वारा अंतिम सत्यापन"),
     localized(
-      "Animal verified as per agreement and in good condition.",
-      "समझौते के अनुसार पशु अच्छी स्थिति में सत्यापित किया गया।",
+      "Sample animal details shown for the demo agreement.",
+      "डेमो समझौते के लिए पशु के नमूना विवरण दिखाए गए हैं।",
     ),
   ],
   [
@@ -152,7 +152,7 @@ export default async function AnimalTransactionPage() {
                   "3 वर्ष 2 महीने · 22–25 लीटर/दिन",
                 )}
               </p>
-              <p>{t("Raipur, Deoria, UP", "रायपुर, देवरिया, उत्तर प्रदेश")}</p>
+              <p>{t("Amhara, Bihta, Bihar", "अमहरा, बिहटा, बिहार")}</p>
             </div>
           </article>
           <article className={styles.panel}>
@@ -167,7 +167,7 @@ export default async function AnimalTransactionPage() {
               <Participant
                 role={t("Buyer", "खरीदार")}
                 name="Arun Singh"
-                detail="Raipur, Deoria, UP"
+                detail="Amhara, Bihta, Bihar"
               />
             </div>
           </article>
@@ -262,7 +262,7 @@ export default async function AnimalTransactionPage() {
                 <li key={t(item)}>
                   <CheckCircle2 size={15} />
                   <span>{t(item)}</span>
-                  <b>{t("Verified", "सत्यापित")}</b>
+                  <b>{t("Demo", "डेमो")}</b>
                 </li>
               ))}
             </ul>
@@ -273,12 +273,9 @@ export default async function AnimalTransactionPage() {
               <MapPin size={16} />
               Ram Prasad Farm
               <br />
-              Pusa Basmati 1121, {t("Raipur", "रायपुर")},
+              {t("Amhara", "अमहरा")},
               <br />
-              {t(
-                "Deoria, Uttar Pradesh – 274001",
-                "देवरिया, उत्तर प्रदेश – 274001",
-              )}
+              {t("Bihta, Patna, Bihar – 801103", "बिहटा, पटना, बिहार – 801103")}
             </p>
             <p>{t("21 May 2024 · 11:30 AM", "21 मई 2024 · 11:30 पूर्वाह्न")}</p>
           </article>

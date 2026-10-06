@@ -88,8 +88,8 @@ export default async function SoilHealthPage() {
           </strong>
           <p>
             {t(
-              "This report is based on the latest soil test conducted as per records.",
-              "यह रिपोर्ट रिकॉर्ड के अनुसार नवीनतम मिट्टी जांच पर आधारित है।",
+              "Demo report with sample soil results; not an official test record.",
+              "नमूना मिट्टी परिणामों वाली डेमो रिपोर्ट; यह आधिकारिक जांच रिकॉर्ड नहीं है।",
             )}
           </p>
         </aside>
@@ -102,10 +102,10 @@ export default async function SoilHealthPage() {
         <article>
           <MapPin size={28} aria-hidden="true" />
           <div>
-            <small>{t("Khasra / Parcel", "खसरा / भूखंड")}</small>
+            <small>{t("Khesra / Parcel", "खेसरा / भूखंड")}</small>
             <strong>123/1</strong>
-            <span>{t("Village: Morija", "गांव: मोरिजा")}</span>
-            <span>{t("Tehsil: Chomu", "तहसील: चौमूं")}</span>
+            <span>{t("Village: Amhara", "गांव: अमहरा")}</span>
+            <span>{t("Block: Bihta", "प्रखंड: बिहटा")}</span>
           </div>
         </article>
         <article>
@@ -119,15 +119,15 @@ export default async function SoilHealthPage() {
           <FlaskConical size={28} aria-hidden="true" />
           <div>
             <small>{t("Soil Type", "मिट्टी का प्रकार")}</small>
-            <strong>{t("Loamy Sand", "दोमट रेतीली")}</strong>
+            <strong>{t("Loamy Soil", "दोमट मिट्टी")}</strong>
           </div>
         </article>
         <article>
           <FileText size={28} aria-hidden="true" />
           <div>
             <small>{t("Report Reference", "रिपोर्ट संदर्भ")}</small>
-            <strong>SHC-RJ-24-05-1231</strong>
-            <span>{t("Sample ID", "नमूना आईडी")}: RJ24/AMR/1231</span>
+            <strong>SHC-BR-24-05-1231</strong>
+            <span>{t("Sample ID", "नमूना आईडी")}: BR24/PTN/1231</span>
           </div>
         </article>
       </section>
@@ -215,8 +215,8 @@ export default async function SoilHealthPage() {
                 <strong>{t("Important Note", "महत्वपूर्ण सूचना")}</strong>
                 <p>
                   {t(
-                    "This Soil Health Card is generated based on the soil sample tested in the authorized laboratory. Keep testing your soil every 2–3 years for better results.",
-                    "यह मिट्टी स्वास्थ्य कार्ड अधिकृत प्रयोगशाला में जांचे गए मिट्टी नमूने पर आधारित है। बेहतर परिणामों के लिए हर 2–3 वर्ष में मिट्टी की जांच कराते रहें।",
+                    "This is a sample Soil Health Card, not a verified laboratory result. Test your soil locally every 2–3 years for better results.",
+                    "यह नमूना मिट्टी स्वास्थ्य कार्ड है, सत्यापित प्रयोगशाला परिणाम नहीं। बेहतर परिणामों के लिए हर 2–3 वर्ष में स्थानीय स्तर पर मिट्टी की जांच कराएं।",
                   )}
                 </p>
               </div>
@@ -285,8 +285,8 @@ export default async function SoilHealthPage() {
                 <dt>{t("Lab Name", "प्रयोगशाला नाम")}</dt>
                 <dd>
                   {t(
-                    "Raj. State Soil Testing Lab, Jaipur",
-                    "राज. राज्य मिट्टी जांच प्रयोगशाला, जयपुर",
+                    "Demo Soil Testing Lab, Patna",
+                    "डेमो मिट्टी जांच प्रयोगशाला, पटना",
                   )}
                 </dd>
               </div>

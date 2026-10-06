@@ -13,7 +13,7 @@ describe("TrackingForm", () => {
 
     await user.type(
       screen.getByLabelText("Application reference"),
-      "RJ-DEMO-2026-001",
+      "BR-DEMO-2026-001",
     );
     await user.type(
       screen.getByLabelText("Registered mobile number"),

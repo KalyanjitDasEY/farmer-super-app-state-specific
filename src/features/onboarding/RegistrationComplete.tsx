@@ -9,7 +9,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/types/locale";
 import styles from "@/styles/application.module.css";
 
-const demoFarmerId = "RJ-DEMO-260922";
+const demoFarmerId = "BR-DEMO-260922";
 
 export function RegistrationComplete({
   locale,

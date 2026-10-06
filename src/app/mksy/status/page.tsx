@@ -6,7 +6,6 @@ import {
   Check,
   CircleCheck,
   ClipboardCheck,
-  Download,
   Headphones,
   IndianRupee,
   RefreshCw,
@@ -26,7 +25,7 @@ import styles from "@/features/mksy/components/mksy.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = createTranslator(await getRequestLocale());
-  return { title: t("MKSY Claim Status", "MKSY दावे की स्थिति") };
+  return { title: t("Bihar Demo Claim Status", "बिहार डेमो दावे की स्थिति") };
 }
 
 const approvalSteps = [
@@ -41,22 +40,25 @@ const timeline = [
   [
     localized("20 May 2024, 10:05 AM", "20 मई 2024, 10:05 पूर्वाह्न"),
     localized("Field Verification", "क्षेत्र सत्यापन"),
-    localized("Field verification started.", "क्षेत्र सत्यापन शुरू हुआ।"),
+    localized(
+      "Sample field verification started.",
+      "नमूना क्षेत्र सत्यापन शुरू हुआ।",
+    ),
   ],
   [
     localized("20 May 2024, 04:35 PM", "20 मई 2024, 04:35 अपराह्न"),
     localized("Field Verification", "क्षेत्र सत्यापन"),
     localized(
-      "Incident location and documents verified.",
-      "घटना स्थल और दस्तावेज़ सत्यापित किए गए।",
+      "Sample incident location and files reviewed.",
+      "नमूना घटना स्थल और फ़ाइलों की समीक्षा की गई।",
     ),
   ],
   [
     localized("21 May 2024, 11:20 AM", "21 मई 2024, 11:20 पूर्वाह्न"),
     localized("Field Verification", "क्षेत्र सत्यापन"),
     localized(
-      "Witness statement collection in progress.",
-      "गवाह का बयान दर्ज किया जा रहा है।",
+      "Sample witness statement in progress.",
+      "नमूना गवाह का बयान प्रगति पर है।",
     ),
   ],
   [
@@ -84,20 +86,18 @@ export default async function MksyStatusPage() {
       <div className={styles.topRow}>
         <Breadcrumbs current={t("Claim Status", "दावे की स्थिति")} claim />
         <Link className={styles.backLink} href="/mksy">
-          <ArrowLeft size={18} /> {t("Back to Search", "खोज पर वापस जाएं")}
+          <ArrowLeft size={18} /> {t("Back to Demo", "डेमो पर वापस जाएं")}
         </Link>
       </div>
 
       <header className={styles.schemeHeading}>
         <MksyLogo />
         <div>
-          <h1>
-            {t("MKSY Claim Approval Pipeline", "MKSY दावा अनुमोदन प्रक्रिया")}
-          </h1>
+          <h1>{t("Bihar Demo Claim Timeline", "बिहार डेमो दावा समयरेखा")}</h1>
           <p>
             {t(
-              "Track your claim from field verification through departmental approval to final DBT.",
-              "क्षेत्र सत्यापन से विभागीय अनुमोदन और अंतिम DBT तक अपने दावे को ट्रैक करें।",
+              "Explore simulated review stages and payment status. No claim is processed or paid here.",
+              "सांकेतिक समीक्षा चरण और भुगतान स्थिति देखें। यहां कोई दावा संसाधित या भुगतान नहीं होता।",
             )}
           </p>
         </div>
@@ -106,35 +106,37 @@ export default async function MksyStatusPage() {
       <section className={styles.statusSummary}>
         <div>
           <small>{t("Claim Reference No.", "दावा संदर्भ संख्या")}</small>
-          <strong>MKSY/2024-25/00012345</strong>
+          <strong>BH-DEMO/2024-25/00012345</strong>
           <span>
             {t(
-              "Incident: 12 May 2024, 03:15 PM",
-              "घटना: 12 मई 2024, 03:15 अपराह्न",
+              "Sample incident: 12 May 2024, 03:15 PM",
+              "नमूना घटना: 12 मई 2024, 03:15 अपराह्न",
             )}
           </span>
         </div>
         <div>
           <small>{t("Applicant", "आवेदक")}</small>
           <strong>RAMESH KUMAR</strong>
-          <span>XXXX XXXX 9012</span>
+          <span>BR23F12345678</span>
         </div>
         <div>
-          <small>{t("Scheme", "योजना")}</small>
-          <strong>MKSY</strong>
+          <small>{t("Demo", "डेमो")}</small>
+          <strong>
+            {t("Bihar farmer accident support", "बिहार किसान दुर्घटना सहायता")}
+          </strong>
           <span>{t("Accidental Death", "दुर्घटना में मृत्यु")}</span>
         </div>
         <div>
-          <small>{t("Total Assistance Amount", "कुल सहायता राशि")}</small>
-          <strong>₹5,00,000</strong>
+          <small>{t("Benefit Amount", "लाभ राशि")}</small>
+          <strong>{t("Not specified", "निर्दिष्ट नहीं")}</strong>
           <span>{t("Accidental Death", "दुर्घटना में मृत्यु")}</span>
         </div>
       </section>
 
       <Notice tone="blue">
         {t(
-          "Administrative stages are separate from final DBT. Disbursement will be shown after approval and payment.",
-          "प्रशासनिक चरण अंतिम DBT से अलग हैं। अनुमोदन और भुगतान के बाद राशि वितरण दिखाया जाएगा।",
+          "Illustrative Bihar demo only; not an official scheme or live claim. Timeline and DBT stages do not represent a real payment.",
+          "केवल सांकेतिक बिहार डेमो; यह आधिकारिक योजना या वास्तविक दावा नहीं है। समयरेखा और DBT चरण वास्तविक भुगतान नहीं दर्शाते।",
         )}
       </Notice>
 
@@ -143,25 +145,25 @@ export default async function MksyStatusPage() {
           <small>{t("Current Status", "वर्तमान स्थिति")}</small>
           <h2>
             {t(
-              "Field Verification In Progress",
-              "क्षेत्र सत्यापन प्रगति पर है",
+              "Sample Field Verification In Progress",
+              "नमूना क्षेत्र सत्यापन प्रगति पर है",
             )}
           </h2>
           <p>
             {t(
-              "Field verification is being carried out by the concerned office.",
-              "संबंधित कार्यालय द्वारा क्षेत्र सत्यापन किया जा रहा है।",
+              "This example shows what a field verification stage could look like; no office is processing this claim.",
+              "यह उदाहरण दिखाता है कि क्षेत्र सत्यापन चरण कैसा हो सकता है; कोई कार्यालय इस दावे पर कार्रवाई नहीं कर रहा है।",
             )}
           </p>
         </div>
         <span>
           {t(
-            "Last Updated: 21 May 2024, 11:20 AM",
-            "अंतिम अपडेट: 21 मई 2024, 11:20 पूर्वाह्न",
+            "Sample update: 21 May 2024, 11:20 AM",
+            "नमूना अपडेट: 21 मई 2024, 11:20 पूर्वाह्न",
           )}
         </span>
         <button className={styles.outlineButton} type="button">
-          <RefreshCw size={17} /> {t("Refresh Status", "स्थिति रीफ्रेश करें")}
+          <RefreshCw size={17} /> {t("Sample Status", "नमूना स्थिति")}
         </button>
       </section>
 
@@ -190,8 +192,8 @@ export default async function MksyStatusPage() {
               <div>
                 <p>
                   {t(
-                    "Physical verification of the incident location, documents and facts by the field officer.",
-                    "क्षेत्र अधिकारी द्वारा घटना स्थल, दस्तावेज़ों और तथ्यों का भौतिक सत्यापन।",
+                    "Sample review of incident location, documents and facts (not performed).",
+                    "घटना स्थल, दस्तावेज़ों और तथ्यों की नमूना समीक्षा (वास्तव में नहीं हुई)।",
                   )}
                 </p>
                 <div className={styles.detailFacts}>
@@ -200,29 +202,19 @@ export default async function MksyStatusPage() {
                       {t("Responsible Office", "जिम्मेदार कार्यालय")}
                     </small>
                     <strong>
-                      {t(
-                        "Agriculture Supervisor, Chomu",
-                        "कृषि पर्यवेक्षक, चोमू",
-                      )}
+                      {t("Demo field team, Bihta", "डेमो क्षेत्र टीम, बिहटा")}
                     </strong>
                   </div>
                   <div>
                     <small>{t("Field Officer", "क्षेत्र अधिकारी")}</small>
-                    <strong>Suresh Chand</strong>
+                    <strong>{t("Sample officer", "नमूना अधिकारी")}</strong>
                   </div>
                   <div>
-                    <small>
-                      {t(
-                        "Verification Start Date",
-                        "सत्यापन शुरू होने की तिथि",
-                      )}
-                    </small>
+                    <small>{t("Sample Start Date", "नमूना आरंभ तिथि")}</small>
                     <strong>{t("20 May 2024", "20 मई 2024")}</strong>
                   </div>
                   <div>
-                    <small>
-                      {t("Expected Completion", "अपेक्षित पूर्णता")}
-                    </small>
+                    <small>{t("Sample Milestone", "नमूना चरण की तिथि")}</small>
                     <strong>{t("24 May 2024", "24 मई 2024")}</strong>
                   </div>
                 </div>
@@ -275,8 +267,8 @@ export default async function MksyStatusPage() {
                       {date === "—"
                         ? "—"
                         : t(
-                            "Agriculture Supervisor, Chomu",
-                            "कृषि पर्यवेक्षक, चोमू",
+                            "Demo field team, Bihta",
+                            "डेमो क्षेत्र टीम, बिहटा",
                           )}
                     </td>
                   </tr>
@@ -295,20 +287,20 @@ export default async function MksyStatusPage() {
             <ul className={styles.bulletList}>
               <li>
                 {t(
-                  "You will be notified at each processing stage.",
-                  "प्रत्येक प्रक्रिया चरण पर आपको सूचना दी जाएगी।",
+                  "No notifications are sent by this demo.",
+                  "यह डेमो कोई सूचना नहीं भेजता है।",
                 )}
               </li>
               <li>
                 {t(
-                  "Payment will be credited after DBT approval.",
-                  "DBT अनुमोदन के बाद भुगतान जमा किया जाएगा।",
+                  "No payment is approved or credited through this demo.",
+                  "इस डेमो से कोई भुगतान स्वीकृत या जमा नहीं होता।",
                 )}
               </li>
               <li>
                 {t(
-                  "Contact Krishi Mitra or your agriculture office for help.",
-                  "सहायता के लिए कृषि मित्र या अपने कृषि कार्यालय से संपर्क करें।",
+                  "Ask Krishi Mitra for help navigating this example.",
+                  "इस उदाहरण में सहायता के लिए कृषि मित्र से पूछें।",
                 )}
               </li>
             </ul>
@@ -317,11 +309,12 @@ export default async function MksyStatusPage() {
             <h2>{t("Quick Actions", "त्वरित कार्रवाइयां")}</h2>
             <div className={styles.quickActions}>
               <Link href="/mksy">
-                <Download size={17} /> {t("View Receipt", "रसीद देखें")}
+                <ClipboardCheck size={17} />{" "}
+                {t("View Demo Overview", "डेमो अवलोकन देखें")}
               </Link>
-              <Link href="/mksy">
-                <Download size={17} />{" "}
-                {t("Download Claim Details", "दावे का विवरण डाउनलोड करें")}
+              <Link href="/mksy/claim/review">
+                <ClipboardCheck size={17} />{" "}
+                {t("View Sample Details", "नमूना विवरण देखें")}
               </Link>
               <Link href="/track">
                 <ClipboardCheck size={17} />{" "}
@@ -335,8 +328,8 @@ export default async function MksyStatusPage() {
             </h2>
             <p>
               {t(
-                "Ask Krishi Mitra for help related to the MKSY claim.",
-                "MKSY दावे से जुड़ी सहायता के लिए कृषि मित्र से पूछें।",
+                "Ask Krishi Mitra for help with this demo.",
+                "इस डेमो में सहायता के लिए कृषि मित्र से पूछें।",
               )}
             </p>
             <Link className={styles.outlineButton} href="/more#help">
@@ -349,15 +342,15 @@ export default async function MksyStatusPage() {
 
       <Notice tone="amber">
         {t(
-          "Estimated timelines are indicative and may vary based on verification and departmental processes.",
-          "अनुमानित समय-सीमा सांकेतिक है और सत्यापन तथा विभागीय प्रक्रियाओं के आधार पर बदल सकती है।",
+          "Dates, offices and stages above are fictional examples, not Bihar government processing timelines.",
+          "ऊपर दी गई तारीखें, कार्यालय और चरण काल्पनिक उदाहरण हैं, बिहार सरकार की प्रक्रिया की समय-सीमा नहीं।",
         )}
       </Notice>
 
       <div className={styles.overviewActions}>
         <Link className={styles.secondaryButton} href="/mksy">
           <ArrowLeft size={18} />{" "}
-          {t("Back to Claim Details", "दावे के विवरण पर वापस जाएं")}
+          {t("Back to Demo Overview", "डेमो अवलोकन पर वापस जाएं")}
         </Link>
         <Link className={styles.primaryButton} href="/track">
           {t("View in Tracking", "ट्रैकिंग में देखें")} <ArrowRight size={18} />

@@ -185,8 +185,8 @@ export function RepresentativesPage({
               <p>{t("Mobile: 98XXXXXX21", "मोबाइल: 98XXXXXX21")}</p>
               <p>
                 {t(
-                  "Jan Aadhaar No.: XXXX XXXX 9012",
-                  "जन आधार संख्या: XXXX XXXX 9012",
+                  "Aadhaar (masked demo): XXXX XXXX 9012",
+                  "आधार (छिपाया गया डेमो): XXXX XXXX 9012",
                 )}
               </p>
             </div>
@@ -338,8 +338,8 @@ export function AddRepresentativePage({
             <ol className={styles.profileNumberList}>
               <li>
                 {t(
-                  "Enter Aadhaar / Jan Aadhaar and verify.",
-                  "आधार / जन आधार दर्ज करके सत्यापित करें।",
+                  "Enter a sample Aadhaar number for the demo.",
+                  "डेमो के लिए नमूना आधार नंबर दर्ज करें।",
                 )}
               </li>
               <li>
@@ -387,15 +387,13 @@ export function AddRepresentativePage({
       >
         <div className={styles.profileVerifyRow}>
           <label className={styles.profileField}>
-            <span>
-              {t("Aadhaar / Jan Aadhaar Number *", "आधार / जन आधार संख्या *")}
-            </span>
+            <span>{t("Aadhaar Number (demo) *", "आधार नंबर (डेमो) *")}</span>
             <input
               className={styles.input}
               inputMode="numeric"
               placeholder={t(
-                "Enter 12 digit Aadhaar or Jan Aadhaar number",
-                "12 अंकों का आधार या जन आधार नंबर दर्ज करें",
+                "Enter a 12 digit sample Aadhaar number",
+                "12 अंकों का नमूना आधार नंबर दर्ज करें",
               )}
             />
           </label>
@@ -406,10 +404,7 @@ export function AddRepresentativePage({
         <div className={styles.profileFormGrid}>
           <label className={styles.profileField}>
             <span>
-              {t(
-                "Representative Name (as per Aadhaar / Jan Aadhaar)",
-                "प्रतिनिधि का नाम (आधार / जन आधार के अनुसार)",
-              )}
+              {t("Representative Name (demo)", "प्रतिनिधि का नाम (डेमो)")}
             </span>
             <input
               className={styles.input}
@@ -467,7 +462,7 @@ export function AddRepresentativePage({
             t("Son / Daughter", "पुत्र / पुत्री"),
             t("Spouse", "पति / पत्नी"),
             t("Other Family Member", "परिवार का अन्य सदस्य"),
-            t("VLE / e-Mitra", "वीएलई / ई-मित्र"),
+            t("VLE / CSC", "वीएलई / सीएससी"),
             t("Other (Please Specify)", "अन्य (कृपया बताएं)"),
           ].map((item) => (
             <label key={item}>

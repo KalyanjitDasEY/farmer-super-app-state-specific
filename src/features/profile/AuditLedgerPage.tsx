@@ -25,7 +25,7 @@ import {
 
 const activities = [
   {
-    agency: ["Agriculture Department Rajasthan", "कृषि विभाग राजस्थान"],
+    agency: ["Bihar Agriculture (demo)", "बिहार कृषि (डेमो)"],
     purpose: [
       "Application for Subsidy under Drip Irrigation Scheme",
       "ड्रिप सिंचाई योजना के अंतर्गत सब्सिडी के लिए आवेदन",
@@ -56,10 +56,7 @@ const activities = [
     ],
   },
   {
-    agency: [
-      "Mukhyamantri Krishak Durghatna Kalyan Yojana (MKSY)",
-      "मुख्यमंत्री कृषक दुर्घटना कल्याण योजना (एमकेएसवाई)",
-    ],
+    agency: ["Bihar Farmer Assistance (demo)", "बिहार किसान सहायता (डेमो)"],
     purpose: ["Accident Claim Verification", "दुर्घटना दावा सत्यापन"],
     token: "CON-2024-03-18-9C1A2D4E",
     date: ["18 Mar 2024, 09:15 AM", "18 मार्च 2024, सुबह 09:15 बजे"],
@@ -70,7 +67,7 @@ const activities = [
     ],
   },
   {
-    agency: ["e-Mitra Service Provider", "ई-मित्र सेवा प्रदाता"],
+    agency: ["CSC Service Provider (demo)", "सीएससी सेवा प्रदाता (डेमो)"],
     purpose: [
       "Land Record View & Download",
       "भूमि अभिलेख देखें और डाउनलोड करें",
@@ -144,10 +141,7 @@ export function AuditLedgerPage({
               items={[
                 [
                   t("Agency", "एजेंसी"),
-                  t(
-                    "Agriculture Department, Rajasthan",
-                    "कृषि विभाग, राजस्थान",
-                  ),
+                  t("Bihar Agriculture (demo)", "बिहार कृषि (डेमो)"),
                 ],
                 [
                   t("Purpose", "उद्देश्य"),

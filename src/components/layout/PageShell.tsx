@@ -40,7 +40,7 @@ export function PageShell({
       <main className={styles.main} id="main-content">
         {children}
       </main>
-      {footer ? <Footer dictionary={dictionary} /> : null}
+      {footer ? <Footer dictionary={dictionary} locale={locale} /> : null}
       {activeNavigation ? (
         <ProfileNavigation
           locale={locale}

@@ -303,8 +303,8 @@ export default async function CreateAnimalListingPage() {
                 {t("Location", "स्थान")} *
                 <input
                   defaultValue={t(
-                    "Ram Prasad Farm, Raipur, Deoria, UP",
-                    "Ram Prasad Farm, रायपुर, देवरिया, उत्तर प्रदेश",
+                    "Ram Prasad Farm, Amhara, Bihta, Patna, Bihar",
+                    "राम प्रसाद फार्म, अमहरा, बिहटा, पटना, बिहार",
                   )}
                 />
               </label>
@@ -373,7 +373,7 @@ export default async function CreateAnimalListingPage() {
               <br />
               {t("Milk Yield: 22–25 Ltr/Day", "दूध उत्पादन: 22–25 लीटर/दिन")}
               <br />
-              {t("Location: Raipur, Deoria", "स्थान: रायपुर, देवरिया")}
+              {t("Location: Amhara, Bihta", "स्थान: अमहरा, बिहटा")}
             </p>
           </article>
           <article>
@@ -381,7 +381,7 @@ export default async function CreateAnimalListingPage() {
             <p>
               Ramesh Kumar
               <br />
-              {t("Verified Seller", "सत्यापित विक्रेता")}
+              {t("Demo Seller", "डेमो विक्रेता")}
               <br />
               {t(
                 "68 Listings · 98% Positive Feedback",
@@ -445,8 +445,8 @@ export default async function CreateAnimalListingPage() {
       <aside className={styles.safeBar}>
         <ShieldCheck size={21} />
         {t(
-          "Only verified listings go live. Raj Kisan Suvidha ensures safe and transparent livestock trading.",
-          "केवल सत्यापित लिस्टिंग लाइव होती हैं। Raj Kisan Suvidha सुरक्षित और पारदर्शी पशुधन व्यापार सुनिश्चित करता है।",
+          "Listings in this Bihar Kisan Suvidha demo are illustrative and are not published for trade.",
+          "बिहार किसान सुविधा डेमो की लिस्टिंग सांकेतिक हैं और व्यापार के लिए प्रकाशित नहीं होतीं।",
         )}
       </aside>
     </div>

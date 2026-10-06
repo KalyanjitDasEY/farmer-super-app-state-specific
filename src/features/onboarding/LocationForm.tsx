@@ -73,7 +73,10 @@ export function LocationForm({
       });
       return;
     }
-    sessionStorage.setItem("raj-kisan-registration-step", "location-complete");
+    sessionStorage.setItem(
+      "bihar-kisan-registration-step",
+      "location-complete",
+    );
     router.push("/register/complete");
   });
 

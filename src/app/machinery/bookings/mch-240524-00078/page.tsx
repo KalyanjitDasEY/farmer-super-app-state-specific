@@ -206,8 +206,8 @@ export default async function MachineryBookingPage() {
       <aside className={styles.sourceNote}>
         <MapPin size={17} />{" "}
         {t(
-          "Your booking is protected by Raj Kisan Suvidha service assurance.",
-          "आपकी बुकिंग Raj Kisan Suvidha सेवा आश्वासन से सुरक्षित है।",
+          "This is a Bihar Kisan Suvidha demo booking, not a real reservation.",
+          "यह बिहार किसान सुविधा की डेमो बुकिंग है, वास्तविक आरक्षण नहीं।",
         )}
       </aside>
     </div>

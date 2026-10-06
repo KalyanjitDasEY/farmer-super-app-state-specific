@@ -30,7 +30,7 @@ export function TrackingForm({ dictionary }: { dictionary: Dictionary }) {
   const submit = handleSubmit(async (values) => {
     await new Promise((resolve) => setTimeout(resolve, 350));
     setStatus(
-      values.reference.toUpperCase() === "RJ-DEMO-2026-001" &&
+      values.reference.toUpperCase() === "BR-DEMO-2026-001" &&
         values.mobile === "9876543210"
         ? "found"
         : "notFound",

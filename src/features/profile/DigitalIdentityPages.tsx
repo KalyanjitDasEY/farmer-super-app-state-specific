@@ -38,16 +38,16 @@ export function DigitalIdPage({
   const t = createTranslator(locale);
   const aboutItems = [
     t(
-      "This ID is verified using Jan Aadhaar and land records.",
-      "यह आईडी जन आधार और भूमि अभिलेखों के माध्यम से सत्यापित है।",
+      "This sample ID is for demonstration only; it is not government-verified.",
+      "यह नमूना आईडी केवल डेमो के लिए है; यह सरकारी सत्यापित नहीं है।",
     ),
     t(
       "Locking your ID restricts access to applications and sensitive services.",
       "आईडी लॉक करने से आवेदनों और संवेदनशील सेवाओं तक पहुंच सीमित हो जाती है।",
     ),
     t(
-      "Share the QR code for quick and secure verification.",
-      "त्वरित और सुरक्षित सत्यापन के लिए क्यूआर कोड साझा करें।",
+      "Scan the QR code to view the demo identifier; it cannot verify identity.",
+      "डेमो पहचानकर्ता देखने के लिए क्यूआर कोड स्कैन करें; इससे पहचान सत्यापित नहीं होती।",
     ),
     t(
       "Keep your profile and land records updated for accurate information.",
@@ -61,8 +61,8 @@ export function DigitalIdPage({
       dictionary={dictionary}
       title={t("Digital Farmer ID Card", "डिजिटल किसान आईडी कार्ड")}
       subtitle={t(
-        "Your verified digital identity as per Raj Kisan Suvidha.",
-        "राज किसान सुविधा के अनुसार आपकी सत्यापित डिजिटल पहचान।",
+        "A sample Bihar farmer ID for this demo, not a government-issued identity.",
+        "इस डेमो के लिए नमूना बिहार किसान आईडी, सरकारी जारी पहचान नहीं।",
       )}
       aside={
         <>
@@ -98,12 +98,12 @@ export function DigitalIdPage({
       <div className={styles.profileStatusLine}>
         <span className={styles.profileStatusSuccess}>
           <BadgeCheck size={17} aria-hidden="true" />
-          {t("Verified", "सत्यापित")}
+          {t("Demo ID", "डेमो आईडी")}
         </span>
         <span>
           {t(
-            "Last Verified: 21 May 2024, 11:20 AM",
-            "अंतिम सत्यापन: 21 मई 2024, सुबह 11:20 बजे",
+            "Sample record: 21 May 2024, 11:20 AM",
+            "नमूना रिकॉर्ड: 21 मई 2024, सुबह 11:20 बजे",
           )}
         </span>
       </div>
@@ -112,7 +112,7 @@ export function DigitalIdPage({
         <div className={styles.digitalIdBrand}>
           <IdCard size={28} aria-hidden="true" />
           <div>
-            <strong>{t("RAJ KISAN SUVIDHA", "राज किसान सुविधा")}</strong>
+            <strong>{t("BIHAR FARMER DEMO", "बिहार किसान डेमो")}</strong>
             <span>{t("DIGITAL FARMER ID", "डिजिटल किसान आईडी")}</span>
           </div>
           <ShieldCheck size={28} aria-hidden="true" />
@@ -120,54 +120,56 @@ export function DigitalIdPage({
 
         <div className={styles.digitalIdIdentity}>
           <Image
-            src={withBasePath("/images/farmer-avatar-reference-v2.png")}
-            alt={t("Ramesh Kumar", "Ramesh Kumar")}
+            src={withBasePath("/images/farmer-avatar-bihar.svg")}
+            alt={t("Illustrative farmer avatar", "किसान का सांकेतिक चित्र")}
             width={112}
             height={112}
           />
           <div>
             <h2>RAMESH KUMAR</h2>
             <span>{t("Farmer / Kisan ID", "किसान आईडी")}</span>
-            <strong>RKJAI2405123456</strong>
-            <span>{t("Jan Aadhaar No.", "जन आधार संख्या")}</span>
+            <strong>BR23F12345678</strong>
+            <span>{t("Aadhaar (masked demo)", "आधार (छिपाया गया डेमो)")}</span>
             <strong>XXXX XXXX 9012</strong>
           </div>
           <QrVisual
-            label={t("Scan to Verify", "सत्यापन के लिए स्कैन करें")}
-            value="https://rajkisan.rajasthan.gov.in/verify/farmer/RKJAI2405123456"
+            label={t("Scan demo ID", "डेमो आईडी स्कैन करें")}
+            value="https://bihar-farmer-demo.invalid/verify/farmer/BR23F12345678"
           />
         </div>
 
         <div className={styles.digitalIdAddress}>
           <strong>{t("Address", "पता")}</strong>
-          <span>{t("Village Mor, Tehsil Chomu", "गांव मोर, तहसील चोमू")}</span>
           <span>
-            {t(
-              "District Jaipur, Rajasthan - 303702",
-              "जिला जयपुर, राजस्थान - 303702",
-            )}
+            {t("Village Amhara, Block Bihta", "गांव अमहरा, प्रखंड बिहटा")}
+          </span>
+          <span>
+            {t("District Patna, Bihar - 801103", "जिला पटना, बिहार - 801103")}
           </span>
         </div>
 
         <DefinitionGrid
           items={[
             [
-              t("Total Land (Verified)", "कुल भूमि (सत्यापित)"),
-              t("3.62 Ha (8 Khasra)", "3.62 हे. (8 खसरा)"),
+              t("Total Land (Demo)", "कुल भूमि (डेमो)"),
+              t("3.62 Ha (8 Khesra)", "3.62 हे. (8 खेसरा)"),
             ],
-            [t("Linked Parcels", "लिंक किए गए भूखंड"), t("8 Khasra", "8 खसरा")],
+            [
+              t("Linked Parcels", "लिंक किए गए भूखंड"),
+              t("8 Khesra", "8 खेसरा"),
+            ],
             [
               t("Irrigation Source", "सिंचाई स्रोत"),
               t("Tube Well", "ट्यूबवेल"),
             ],
             [
               t("Main Crops", "मुख्य फसलें"),
-              t("Wheat, Mustard, Bajra", "गेहूं, सरसों, बाजरा"),
+              t("Rice, Wheat, Maize", "धान, गेहूं, मक्का"),
             ],
             [
               t("Identity Status", "पहचान की स्थिति"),
               <span className={styles.profileStatusSuccess} key="verified">
-                {t("Verified Full Access", "सत्यापित पूर्ण पहुंच")}
+                {t("Demo Profile", "डेमो प्रोफाइल")}
               </span>,
             ],
           ]}
@@ -175,10 +177,10 @@ export function DigitalIdPage({
         <p className={styles.digitalIdFooter}>
           <ShieldCheck size={17} aria-hidden="true" />
           {t(
-            "This digital ID is issued based on your verified identity and land records.",
-            "यह डिजिटल आईडी आपकी सत्यापित पहचान और भूमि अभिलेखों के आधार पर जारी की गई है।",
+            "This sample ID is not proof of identity or land ownership.",
+            "यह नमूना आईडी पहचान या भूमि स्वामित्व का प्रमाण नहीं है।",
           )}
-          <span>{t("Issued On: 12 May 2024", "जारी: 12 मई 2024")}</span>
+          <span>{t("Demo date: 12 May 2024", "डेमो तिथि: 12 मई 2024")}</span>
         </p>
       </section>
 
@@ -189,10 +191,10 @@ export function DigitalIdPage({
         <DefinitionGrid
           items={[
             [
-              t("Total Area (Verified)", "कुल क्षेत्र (सत्यापित)"),
+              t("Total Area (Demo)", "कुल क्षेत्र (डेमो)"),
               t("3.62 Ha", "3.62 हे."),
             ],
-            [t("Total Khasra", "कुल खसरा"), "8"],
+            [t("Total Khesra", "कुल खेसरा"), "8"],
             [t("Irrigated Area", "सिंचित क्षेत्र"), t("3.10 Ha", "3.10 हे.")],
             [
               t("Rainfed Area", "वर्षा सिंचित क्षेत्र"),
@@ -205,8 +207,8 @@ export function DigitalIdPage({
       <div className={styles.profileInfoStrip}>
         <Info size={20} aria-hidden="true" />
         {t(
-          "Your digital identity is digitally signed and can be verified by government departments. For any discrepancy, please contact the nearest agriculture office.",
-          "आपकी डिजिटल पहचान डिजिटल रूप से हस्ताक्षरित है और सरकारी विभागों द्वारा सत्यापित की जा सकती है। किसी भी विसंगति के लिए निकटतम कृषि कार्यालय से संपर्क करें।",
+          "This demo ID is not digitally signed or verified by a government department. The QR code contains only a sample identifier.",
+          "यह डेमो आईडी डिजिटल हस्ताक्षरित या किसी सरकारी विभाग द्वारा सत्यापित नहीं है। क्यूआर कोड में केवल एक नमूना पहचानकर्ता है।",
         )}
       </div>
       <div className={styles.profileWarningStrip}>
@@ -232,7 +234,7 @@ export function DigitalIdPage({
         </button>
         <button className={`${styles.button} ${styles.buttonSecondary}`}>
           <Share2 size={18} aria-hidden="true" />
-          {t("Share / Verify QR", "क्यूआर साझा / सत्यापित करें")}
+          {t("Share demo QR", "डेमो क्यूआर साझा करें")}
         </button>
       </div>
     </ProfileFeatureShell>
@@ -343,8 +345,8 @@ export function VirtualIdPage({
             )}
           </strong>
           {t(
-            "They do not expose your Jan Aadhaar number or another primary identifier.",
-            "वे आपका जन आधार नंबर या कोई अन्य प्राथमिक पहचानकर्ता उजागर नहीं करतीं।",
+            "This demo VID contains no real Aadhaar number or other primary identifier.",
+            "इस डेमो वीआईडी में कोई वास्तविक आधार नंबर या अन्य प्राथमिक पहचानकर्ता नहीं है।",
           )}
         </span>
       </div>
@@ -405,8 +407,8 @@ export function VirtualIdPage({
         </div>
         <p>
           {t(
-            "This is a temporary identity. Your real Jan Aadhaar number or other primary identifiers are not shared.",
-            "यह एक अस्थायी पहचान है। आपका वास्तविक जन आधार नंबर या अन्य प्राथमिक पहचानकर्ता साझा नहीं किए जाते।",
+            "This sample VID is for the demo only; it does not share a real Aadhaar number or other primary identifier.",
+            "यह नमूना वीआईडी केवल डेमो के लिए है; इसमें वास्तविक आधार नंबर या अन्य प्राथमिक पहचानकर्ता साझा नहीं होते।",
           )}
         </p>
         <DefinitionGrid

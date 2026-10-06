@@ -25,7 +25,7 @@ export function IdentityForm({
   dictionary: Dictionary;
 }) {
   const router = useRouter();
-  const [method, setMethod] = useState<"aadhaar" | "janAadhaar">("aadhaar");
+  const [method, setMethod] = useState<"aadhaar" | "mobile">("aadhaar");
   const [identifier, setIdentifier] = useState("");
   const [challengeId, setChallengeId] = useState<string | null>(null);
   const [otp, setOtp] = useState("");
@@ -53,7 +53,10 @@ export function IdentityForm({
       setError(dictionary["login.invalidOtp"]);
       return;
     }
-    sessionStorage.setItem("raj-kisan-registration-step", "identity-complete");
+    sessionStorage.setItem(
+      "bihar-kisan-registration-step",
+      "identity-complete",
+    );
     router.push("/register/location");
   };
 
@@ -74,7 +77,7 @@ export function IdentityForm({
             : "Select the type of ID and enter the number"}
         </p>
         <div className={`${styles.radioCards} ${styles.identityRadioCards}`}>
-          {(["aadhaar", "janAadhaar"] as const).map((option) => (
+          {(["aadhaar", "mobile"] as const).map((option) => (
             <label className={styles.radioCard} key={option}>
               <input
                 type="radio"
@@ -82,6 +85,7 @@ export function IdentityForm({
                 checked={method === option}
                 onChange={() => {
                   setMethod(option);
+                  setIdentifier("");
                   setChallengeId(null);
                 }}
               />
@@ -98,8 +102,8 @@ export function IdentityForm({
                       ? "आधार से सत्यापित करें"
                       : "Verify with Aadhaar"
                     : locale === "hi"
-                      ? "जन आधार से सत्यापित करें"
-                      : "Verify with Jan Aadhaar"}
+                      ? "मोबाइल से डेमो सत्यापन करें"
+                      : "Try demo verification with mobile"}
                 </small>
               </span>
             </label>
@@ -109,14 +113,16 @@ export function IdentityForm({
 
       <div className={styles.field}>
         <label htmlFor="identity-number">
-          {dictionary["register.identityNumber"]}
+          {method === "mobile"
+            ? dictionary["register.mobile"]
+            : dictionary["register.identityNumber"]}
         </label>
         <input
           className={styles.input}
           id="identity-number"
           inputMode="numeric"
           autoComplete="off"
-          maxLength={12}
+          maxLength={method === "mobile" ? 10 : 12}
           value={identifier}
           onChange={(event) =>
             setIdentifier(event.target.value.replace(/\D/g, ""))
@@ -159,7 +165,9 @@ export function IdentityForm({
             <button
               className={`${styles.button} ${styles.buttonSecondary}`}
               type="button"
-              disabled={pending || identifier.length !== 12}
+              disabled={
+                pending || identifier.length !== (method === "mobile" ? 10 : 12)
+              }
               onClick={send}
             >
               {pending

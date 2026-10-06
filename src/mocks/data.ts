@@ -44,7 +44,7 @@ export const mockSchemes: SchemeDetail[] = [
     ],
     documents: [
       text("Aadhaar card", "आधार कार्ड"),
-      text("Land record (Khasra/Khatauni)", "भूमि रिकॉर्ड (खसरा/खतौनी)"),
+      text("Land record (Khata/Khesra)", "भूमि रिकॉर्ड (खाता/खेसरा)"),
       text("Bank account details", "बैंक खाते का विवरण"),
       text("Recent photograph if requested", "मांगे जाने पर हाल का फोटो"),
     ],
@@ -56,19 +56,19 @@ export const mockSchemes: SchemeDetail[] = [
     updatedAt: "2026-09-18T09:15:00+05:30",
   },
   {
-    id: "jal-swavalamban",
-    code: "MJSY",
-    jurisdiction: "rajasthan",
+    id: "bihar-irrigation",
+    code: "BI-IRR-DEMO",
+    jurisdiction: "bihar",
     category: "irrigation",
     title: text(
-      "Mukhyamantri Jal Swavalamban Abhiyan",
-      "मुख्यमंत्री जल स्वावलंबन अभियान",
+      "Bihar Irrigation Support (Demo)",
+      "बिहार सिंचाई सहायता (डेमो)",
     ),
     summary: text(
       "Support for water harvesting and irrigation structures.",
       "जल संचयन और सिंचाई संरचनाओं के लिए सहायता।",
     ),
-    benefit: text("Up to 50% of project cost", "परियोजना लागत का 50% तक"),
+    benefit: text("Check official guidelines", "आधिकारिक दिशा-निर्देश देखें"),
     purpose: text(
       "Improve local water security.",
       "स्थानीय जल सुरक्षा बेहतर करना।",
@@ -77,7 +77,7 @@ export const mockSchemes: SchemeDetail[] = [
       "Illustrative support for approved water conservation works.",
       "स्वीकृत जल संरक्षण कार्यों के लिए सांकेतिक सहायता।",
     ),
-    eligibility: [text("Rajasthan resident farmer.", "राजस्थान निवासी किसान।")],
+    eligibility: [text("Bihar resident farmer.", "बिहार निवासी किसान।")],
     documents: [text("Land record", "भूमि रिकॉर्ड")],
     features: [text("Water conservation", "जल संरक्षण")],
     updatedAt: "2026-09-15T10:00:00+05:30",
@@ -110,22 +110,22 @@ export const mockSchemes: SchemeDetail[] = [
     updatedAt: "2026-09-10T10:00:00+05:30",
   },
   {
-    id: "rajasthan-kisan-bima",
-    code: "RKB",
-    jurisdiction: "rajasthan",
+    id: "bihar-crop-support",
+    code: "BI-CROP-DEMO",
+    jurisdiction: "bihar",
     category: "insurance",
-    title: text("Rajasthan Kisan Bima Yojana", "राजस्थान किसान बीमा योजना"),
+    title: text("Bihar Crop Support (Demo)", "बिहार फसल सहायता (डेमो)"),
     summary: text(
-      "Illustrative crop-risk protection for Rajasthan farmers.",
-      "राजस्थान किसानों के लिए सांकेतिक फसल जोखिम सुरक्षा।",
+      "Illustrative crop-risk support for Bihar farmers.",
+      "बिहार के किसानों के लिए सांकेतिक फसल जोखिम सहायता।",
     ),
-    benefit: text("Premium support up to 80%", "प्रीमियम में 80% तक सहायता"),
+    benefit: text("Check official guidelines", "आधिकारिक दिशा-निर्देश देखें"),
     purpose: text("Reduce crop-risk impact.", "फसल जोखिम का प्रभाव कम करना।"),
     description: text(
       "Illustrative insurance support.",
       "सांकेतिक बीमा सहायता।",
     ),
-    eligibility: [text("Rajasthan farmer.", "राजस्थान का किसान।")],
+    eligibility: [text("Bihar farmer.", "बिहार का किसान।")],
     documents: [text("Crop and land details", "फसल और भूमि विवरण")],
     features: [text("Risk protection", "जोखिम सुरक्षा")],
     updatedAt: "2026-09-08T10:00:00+05:30",
@@ -150,15 +150,15 @@ export const mockSchemes: SchemeDetail[] = [
   },
   {
     id: "pashudhan-vikas",
-    code: "PVY",
-    jurisdiction: "rajasthan",
+    code: "BI-LIVE-DEMO",
+    jurisdiction: "bihar",
     category: "livestock",
-    title: text("Pashudhan Vikas Yojana", "पशुधन विकास योजना"),
+    title: text("Bihar Livestock Support (Demo)", "बिहार पशुधन सहायता (डेमो)"),
     summary: text(
       "Illustrative support for dairy and livestock development.",
       "डेयरी और पशुधन विकास के लिए सांकेतिक सहायता।",
     ),
-    benefit: text("Up to 50% subsidy", "50% तक सब्सिडी"),
+    benefit: text("Check official guidelines", "आधिकारिक दिशा-निर्देश देखें"),
     purpose: text(
       "Support livestock livelihoods.",
       "पशुधन आजीविका में सहायता।",
@@ -177,7 +177,7 @@ export const mockSchemes: SchemeDetail[] = [
 export const mockDepartments: Department[] = [
   {
     id: "agriculture",
-    name: text("Agriculture Department", "कृषि विभाग"),
+    name: text("Agriculture Department, Bihar", "कृषि विभाग, बिहार"),
     description: text(
       "Crop production, extension, and farmer support.",
       "फसल उत्पादन, विस्तार और किसान सहायता।",
@@ -187,7 +187,7 @@ export const mockDepartments: Department[] = [
   },
   {
     id: "horticulture",
-    name: text("Horticulture Department", "उद्यानिकी विभाग"),
+    name: text("Directorate of Horticulture, Bihar", "उद्यान निदेशालय, बिहार"),
     description: text(
       "Fruits, vegetables, spices, and flowers.",
       "फल, सब्जियां, मसाले और फूल।",
@@ -197,17 +197,14 @@ export const mockDepartments: Department[] = [
   },
   {
     id: "marketing",
-    name: text("Agriculture Marketing Department", "कृषि विपणन विभाग"),
+    name: text("Agriculture Marketing (Demo)", "कृषि विपणन (डेमो)"),
     description: text("Markets, mandis, and trade.", "बाजार, मंडी और व्यापार।"),
     type: "department",
     available: true,
   },
   {
-    id: "rsamb",
-    name: text(
-      "Rajasthan State Agricultural Marketing Board",
-      "राजस्थान राज्य कृषि विपणन बोर्ड",
-    ),
+    id: "bihar-marketing",
+    name: text("Bihar Market Services (Demo)", "बिहार बाजार सेवाएं (डेमो)"),
     description: text(
       "Market infrastructure and farmer welfare.",
       "बाजार ढांचा और किसान कल्याण।",
@@ -216,11 +213,8 @@ export const mockDepartments: Department[] = [
     available: true,
   },
   {
-    id: "rssc",
-    name: text(
-      "Rajasthan Staff Selection Commission",
-      "राजस्थान कर्मचारी चयन आयोग",
-    ),
+    id: "bihar-recruitment",
+    name: text("Agriculture Recruitment (Demo)", "कृषि भर्ती (डेमो)"),
     description: text(
       "Recruitment information for relevant services.",
       "संबंधित सेवाओं की भर्ती जानकारी।",
@@ -229,11 +223,8 @@ export const mockDepartments: Department[] = [
     available: false,
   },
   {
-    id: "rssoca",
-    name: text(
-      "Rajasthan State Seeds & Organic Certification Agency",
-      "राजस्थान राज्य बीज एवं जैविक प्रमाणीकरण संस्था",
-    ),
+    id: "bihar-seeds",
+    name: text("Bihar Seed Services (Demo)", "बिहार बीज सेवाएं (डेमो)"),
     description: text(
       "Seed certification and quality control.",
       "बीज प्रमाणीकरण और गुणवत्ता नियंत्रण।",
@@ -245,8 +236,8 @@ export const mockDepartments: Department[] = [
 
 export const mockDashboard: DashboardSnapshot = {
   farmerName: text("Ramesh Kumar", "रमेश कुमार"),
-  farmerId: "RJ23F12345678",
-  janAadhaarMasked: "1234 5678 9012",
+  farmerId: "BR23F12345678",
+  aadhaarMasked: "XXXX XXXX 9012",
   landAreaHectares: 3.62,
   khasraCount: 8,
   applicationCount: 4,
@@ -254,8 +245,8 @@ export const mockDashboard: DashboardSnapshot = {
   temperatureCelsius: 32,
   mandiPrices: [
     { commodity: text("Wheat", "गेहूं"), price: 2_275, change: 25 },
-    { commodity: text("Mustard", "सरसों"), price: 5_620, change: 40 },
-    { commodity: text("Gram", "चना"), price: 5_140, change: -10 },
+    { commodity: text("Paddy", "धान"), price: 2_320, change: 40 },
+    { commodity: text("Maize", "मक्का"), price: 2_140, change: -10 },
   ],
   updatedAt: "2026-09-22T09:15:00+05:30",
 };
@@ -266,36 +257,36 @@ export const mockLocations: {
   villages: AdministrativeArea[];
 } = {
   districts: [
-    { id: "jaipur", name: text("Jaipur", "जयपुर") },
-    { id: "ajmer", name: text("Ajmer", "अजमेर") },
-    { id: "jodhpur", name: text("Jodhpur", "जोधपुर") },
+    { id: "patna", name: text("Patna", "पटना") },
+    { id: "nalanda", name: text("Nalanda", "नालंदा") },
+    { id: "muzaffarpur", name: text("Muzaffarpur", "मुजफ्फरपुर") },
   ],
   tehsils: [
-    { id: "sanganer", parentId: "jaipur", name: text("Sanganer", "सांगानेर") },
-    { id: "chomu", parentId: "jaipur", name: text("Chomu", "चौमूं") },
+    { id: "bihta", parentId: "patna", name: text("Bihta", "बिहटा") },
+    { id: "danapur", parentId: "patna", name: text("Danapur", "दानापुर") },
     {
-      id: "kishangarh",
-      parentId: "ajmer",
-      name: text("Kishangarh", "किशनगढ़"),
+      id: "silao",
+      parentId: "nalanda",
+      name: text("Silao", "सिलाव"),
     },
-    { id: "osian", parentId: "jodhpur", name: text("Osian", "ओसियां") },
+    { id: "kanti", parentId: "muzaffarpur", name: text("Kanti", "कांटी") },
   ],
   villages: [
-    { id: "vatika", parentId: "sanganer", name: text("Vatika", "वाटिका") },
-    { id: "kalwara", parentId: "sanganer", name: text("Kalwara", "कलवाड़ा") },
-    { id: "morija", parentId: "chomu", name: text("Morija", "मोरीजा") },
+    { id: "amhara", parentId: "bihta", name: text("Amhara", "अमहरा") },
+    { id: "kanhauli", parentId: "bihta", name: text("Kanhauli", "कन्हौली") },
+    { id: "shahpur", parentId: "danapur", name: text("Shahpur", "शाहपुर") },
     {
-      id: "tilonia",
-      parentId: "kishangarh",
-      name: text("Tilonia", "तिलोनिया"),
+      id: "nanand",
+      parentId: "silao",
+      name: text("Nanand", "नानंद"),
     },
-    { id: "khetasar", parentId: "osian", name: text("Khetasar", "खेतासर") },
+    { id: "panapur", parentId: "kanti", name: text("Panapur", "पनापुर") },
   ],
 };
 
 export const mockBeneficiaryStatus: BeneficiaryStatus = {
   schemeId: "pm-kisan",
-  registrationNumberMasked: "RJ20XXXXXXXXXX",
+  registrationNumberMasked: "BR20XXXXXXXXXX",
   farmerName: "Ramesh Kumar",
   aadhaarSeeded: true,
   ekycVerifiedAt: "2024-05-12T10:30:00+05:30",

@@ -52,10 +52,10 @@ export async function NutriCheckHeader({
         <Link
           className={styles.serviceBrand}
           href="/home"
-          aria-label={t("Raj Kisan Suvidha home", "राज किसान सुविधा होम")}
+          aria-label={t("Bihar Kisan Suvidha home", "बिहार किसान सुविधा होम")}
         >
           <Leaf size={27} />
-          <span>{t("Raj Kisan Suvidha", "राज किसान सुविधा")}</span>
+          <span>{t("Bihar Kisan Suvidha", "बिहार किसान सुविधा")}</span>
         </Link>
       </div>
       <div className={styles.moduleTitle}>

@@ -9,7 +9,6 @@ import {
   Headphones,
   Info,
   MapPin,
-  RefreshCw,
   ShieldCheck,
   TrendingUp,
 } from "lucide-react";
@@ -33,8 +32,8 @@ type MarketRow = {
 
 const marketRows: readonly MarketRow[] = [
   {
-    name: "Jaipur (Shahpura Mandi)",
-    nameHi: "जयपुर (शाहपुरा मंडी)",
+    name: "Patna Mandi",
+    nameHi: "पटना मंडी",
     price: 2275,
     range: "2,240 – 2,310",
     msp: 2275,
@@ -44,8 +43,8 @@ const marketRows: readonly MarketRow[] = [
     trend: "up",
   },
   {
-    name: "Kota Mandi",
-    nameHi: "कोटा मंडी",
+    name: "Muzaffarpur Mandi",
+    nameHi: "मुजफ्फरपुर मंडी",
     price: 2265,
     range: "2,230 – 2,300",
     msp: 2275,
@@ -55,8 +54,8 @@ const marketRows: readonly MarketRow[] = [
     trend: "up",
   },
   {
-    name: "Bikaner Mandi",
-    nameHi: "बीकानेर मंडी",
+    name: "Gaya Mandi",
+    nameHi: "गया मंडी",
     price: 2250,
     range: "2,210 – 2,290",
     msp: 2275,
@@ -66,8 +65,8 @@ const marketRows: readonly MarketRow[] = [
     trend: "up",
   },
   {
-    name: "Jhunjhunu Mandi",
-    nameHi: "झुंझुनूं मंडी",
+    name: "Bhagalpur Mandi",
+    nameHi: "भागलपुर मंडी",
     price: 2280,
     range: "2,250 – 2,320",
     msp: 2275,
@@ -77,8 +76,8 @@ const marketRows: readonly MarketRow[] = [
     trend: "up",
   },
   {
-    name: "Jodhpur Mandi",
-    nameHi: "जोधपुर मंडी",
+    name: "Darbhanga Mandi",
+    nameHi: "दरभंगा मंडी",
     price: 2260,
     range: "2,220 – 2,300",
     msp: 2275,
@@ -95,7 +94,7 @@ const cropFilters = [
   ["paddy", "Paddy", "धान", "🌾"],
   ["mustard", "Mustard", "सरसों", "🌼"],
   ["gram", "Gram", "चना", "🫛"],
-  ["cotton", "Cotton", "कपास", "☁️"],
+  ["maize", "Maize", "मक्का", "🌽"],
 ] as const;
 
 const cropLabels: Record<string, readonly [string, string]> = {
@@ -104,7 +103,7 @@ const cropLabels: Record<string, readonly [string, string]> = {
   paddy: ["Paddy", "धान"],
   mustard: ["Mustard", "सरसों"],
   gram: ["Gram", "चना"],
-  cotton: ["Cotton", "कपास"],
+  maize: ["Maize", "मक्का"],
 };
 
 function formatPrice(value: number) {
@@ -144,14 +143,11 @@ export function MandiBhavPage({
   title: string;
   subtitle: string;
 }) {
-  const { locale, t } = useLocale();
+  const { t } = useLocale();
   const [market, setMarket] = useState(marketRows[0]?.name ?? "");
   const [crop, setCrop] = useState("wheat");
   const [activeCropFilter, setActiveCropFilter] = useState("all");
   const [quality, setQuality] = useState("faq");
-  const [lastUpdated, setLastUpdated] = useState(
-    t("21 May 2024, 11:25 AM", "21 मई 2024, सुबह 11:25"),
-  );
 
   const selectedMarket = useMemo(
     () => marketRows.find((item) => item.name === market) ?? marketRows[0],
@@ -193,8 +189,8 @@ export function MandiBhavPage({
             <p>{subtitle}</p>
             <span>
               {t(
-                "Source verified • Updated in near real-time",
-                "स्रोत सत्यापित • लगभग रियल-टाइम में अपडेट",
+                "Illustrative Bihar market data • Not live rates",
+                "बिहार मंडियों के सांकेतिक आंकड़े • लाइव भाव नहीं",
               )}
             </span>
           </div>
@@ -202,17 +198,17 @@ export function MandiBhavPage({
         <aside className={styles.liveCard}>
           <strong>
             <i aria-hidden="true" />
-            {t("Live Updates", "लाइव अपडेट")}
+            {t("Demo Prices", "डेमो भाव")}
           </strong>
           <span>
             {t(
-              "Prices auto-refresh every 15 minutes",
-              "कीमतें हर 15 मिनट में अपने आप अपडेट होती हैं",
+              "Compare sample mandi prices; confirm current rates officially",
+              "नमूना मंडी भाव देखें; वर्तमान भाव आधिकारिक स्रोत से जांचें",
             )}
           </span>
           <p>
-            <b>{t("Last Updated:", "अंतिम अपडेट:")}</b> {lastUpdated}
-            <RefreshCw size={18} aria-hidden="true" />
+            <b>{t("Sample date:", "नमूना तिथि:")}</b>{" "}
+            {t("21 May 2024", "21 मई 2024")}
           </p>
         </aside>
       </section>
@@ -229,7 +225,7 @@ export function MandiBhavPage({
           >
             {marketRows.map((item) => (
               <option key={item.name} value={item.name}>
-                {t(item.name, item.nameHi)}, {t("Rajasthan", "राजस्थान")}
+                {t(item.name, item.nameHi)}, {t("Bihar", "बिहार")}
               </option>
             ))}
           </select>
@@ -267,23 +263,9 @@ export function MandiBhavPage({
             </option>
           </select>
         </label>
-        <button
-          type="button"
-          onClick={() =>
-            setLastUpdated(
-              new Intl.DateTimeFormat(locale === "hi" ? "hi-IN" : "en-IN", {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              }).format(new Date()),
-            )
-          }
-        >
-          <RefreshCw size={19} aria-hidden="true" />
-          {t("Refresh", "रीफ्रेश करें")}
-        </button>
+        <a href="https://agmarknet.gov.in/">
+          {t("Check Official Rates", "आधिकारिक भाव देखें")}
+        </a>
       </section>
 
       <section
@@ -318,8 +300,15 @@ export function MandiBhavPage({
         <article>
           <span className={`${styles.summaryIcon} ${styles.mspIcon}`}>₹</span>
           <div>
-            <small>{t("MSP (Govt.)", "एमएसपी (सरकार)")}</small>
-            <strong>₹ {formatPrice(selectedMarket.msp)}</strong>
+            <small>
+              {t(
+                "Example wheat MSP (2024-25)",
+                "गेहूं का उदाहरण एमएसपी (2024-25)",
+              )}
+            </small>
+            <strong>
+              {crop === "wheat" ? `₹ ${formatPrice(selectedMarket.msp)}` : "—"}
+            </strong>
             <span>{t("/ Quintal", "/ क्विंटल")}</span>
           </div>
         </article>
@@ -381,7 +370,7 @@ export function MandiBhavPage({
                   {t("(₹/Quintal)", "(₹/क्विंटल)")}
                 </th>
                 <th>
-                  {t("MSP", "एमएसपी")}
+                  {t("Example wheat MSP", "गेहूं का उदाहरण एमएसपी")}
                   <br />
                   {t("(₹/Quintal)", "(₹/क्विंटल)")}
                 </th>
@@ -390,7 +379,7 @@ export function MandiBhavPage({
                   <br />
                   {t("(vs Yesterday)", "(कल की तुलना में)")}
                 </th>
-                <th>{t("Updated At", "अपडेट का समय")}</th>
+                <th>{t("Sample Time", "नमूना समय")}</th>
                 <th>{t("Trend", "रुझान")}</th>
               </tr>
             </thead>
@@ -410,7 +399,7 @@ export function MandiBhavPage({
                     <strong>₹ {formatPrice(row.price)}</strong>
                   </td>
                   <td>{row.range}</td>
-                  <td>{formatPrice(row.msp)}</td>
+                  <td>{crop === "wheat" ? formatPrice(row.msp) : "—"}</td>
                   <td
                     className={
                       row.change >= 0 ? styles.positive : styles.negative
@@ -441,8 +430,8 @@ export function MandiBhavPage({
             <li>
               <span>₹</span>
               {t(
-                "Prices shown are indicative and collected from ",
-                "दिखाई गई कीमतें सांकेतिक हैं और इनसे प्राप्त की गई हैं: ",
+                "Prices shown are fictional examples, not collected from ",
+                "दिखाए गए भाव काल्पनिक उदाहरण हैं, इनसे प्राप्त नहीं किए गए हैं: ",
               )}
               <strong>
                 {t(
@@ -454,15 +443,15 @@ export function MandiBhavPage({
             <li>
               <Clock3 size={18} aria-hidden="true" />
               {t(
-                "Prices update automatically every 15 minutes.",
-                "कीमतें हर 15 मिनट में अपने आप अपडेट होती हैं।",
+                "Sample prices do not update automatically.",
+                "नमूना भाव अपने आप अपडेट नहीं होते।",
               )}
             </li>
             <li>
               <ShieldCheck size={18} aria-hidden="true" />
               {t(
-                "MSP is the Minimum Support Price announced by Government of India.",
-                "एमएसपी भारत सरकार द्वारा घोषित न्यूनतम समर्थन मूल्य है।",
+                "The example wheat MSP is historical; consult official sources for current crop-specific MSP.",
+                "उदाहरण के गेहूं एमएसपी का आंकड़ा पुराना है; वर्तमान फसल-विशिष्ट एमएसपी आधिकारिक स्रोत से जांचें।",
               )}
             </li>
             <li>

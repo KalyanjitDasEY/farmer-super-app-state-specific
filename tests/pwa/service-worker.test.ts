@@ -13,7 +13,7 @@ describe("service worker cache policy", () => {
 
   it("uses versioned caches and an offline fallback", async () => {
     const worker = await readFile(resolve("public/sw.js"), "utf8");
-    expect(worker).toContain('const CACHE_VERSION = "raj-kisan-v2"');
+    expect(worker).toContain('const CACHE_VERSION = "bihar-kisan-v1"');
     expect(worker).toContain("self.registration.scope");
     expect(worker).toContain('const OFFLINE_URL = withBasePath("/offline")');
   });

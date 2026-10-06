@@ -305,7 +305,7 @@ export function PurchasePanel() {
           )}
         </strong>
         <span>
-          {t("Raipur, Deoria, Uttar Pradesh", "रायपुर, देवरिया, उत्तर प्रदेश")}
+          {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")}
         </span>
         <p>
           {t("Delivery by 22 May", "22 मई तक डिलीवरी")} ·{" "}
@@ -456,9 +456,9 @@ export function CartManager() {
           <p>
             {t("Field 1, Pusa Basmati 1121", "खेत 1, पूसा बासमती 1121")}
             <br />
-            {t("Raipur, Deoria", "रायपुर, देवरिया")}
+            {t("Amhara, Bihta", "अमहरा, बिहटा")}
             <br />
-            {t("Uttar Pradesh", "उत्तर प्रदेश")} – 274001
+            {t("Patna, Bihar", "पटना, बिहार")} – 801103
           </p>
           <b>
             {t("Expected Delivery", "अनुमानित डिलीवरी")}
@@ -548,11 +548,8 @@ export function CheckoutForm() {
             "राम प्रसाद फार्म, खेत 1, पूसा बासमती 1121",
           )}
           <br />
-          {t(
-            "Raipur, Deoria, Uttar Pradesh",
-            "रायपुर, देवरिया, उत्तर प्रदेश",
-          )}{" "}
-          – 274001
+          {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")} –
+          801103
         </p>
         <div className={styles.availableNote}>
           {t(
@@ -863,7 +860,7 @@ export function OrdersManager({
                 <small>{t("Delivering to", "यहां डिलीवर होगा")}</small>
                 <b>{t("Ram Prasad Farm", "राम प्रसाद फार्म")}</b>
                 <small>
-                  {t("Raipur, Deoria, UP", "रायपुर, देवरिया, उ.प्र.")}
+                  {t("Amhara, Bihta, Bihar", "अमहरा, बिहटा, बिहार")}
                 </small>
               </div>
               <ol className={styles.orderTimeline}>

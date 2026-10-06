@@ -78,8 +78,8 @@ export class MockSchemeRepository implements SchemeRepository {
     return [
       "pm-kisan",
       "fasal-bima",
-      "jal-swavalamban",
-      "rajasthan-kisan-bima",
+      "bihar-irrigation",
+      "bihar-crop-support",
     ].map((id) => {
       const scheme = mockSchemes.find((item) => item.id === id);
       if (!scheme) {

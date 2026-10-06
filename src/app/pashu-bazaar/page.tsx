@@ -98,7 +98,7 @@ export default async function PashuBazaarPage() {
           <div className={styles.heroPromises}>
             <span>
               <ShieldCheck size={20} />
-              {t("Verified Animals", "सत्यापित पशु")}
+              {t("Demo Animal Listings", "डेमो पशु लिस्टिंग")}
             </span>
             <span>
               <BriefcaseBusiness size={20} />
@@ -116,11 +116,8 @@ export default async function PashuBazaarPage() {
         </div>
         <div className={styles.heroImage}>
           <Image
-            src="/images/authenticated/pashu-bazaar/marketplace-hero.jpg"
-            alt={t(
-              "Farmer with healthy cattle",
-              "स्वस्थ मवेशियों के साथ किसान",
-            )}
+            src="/images/authenticated/pashu-bazaar/cattle-hero.jpg"
+            alt={t("Cow and calf", "गाय और बछड़ा")}
             fill
             loading="eager"
             sizes="(max-width: 720px) 100vw, 60vw"
@@ -134,8 +131,8 @@ export default async function PashuBazaarPage() {
             <h2>{t("Buy Animal", "पशु खरीदें")}</h2>
             <p>
               {t(
-                "Find healthy animals from verified sellers",
-                "सत्यापित विक्रेताओं से स्वस्थ पशु खोजें",
+                "Explore illustrative animal listings; confirm details with sellers",
+                "सांकेतिक पशु लिस्टिंग देखें; विवरण विक्रेता से जांचें",
               )}
             </p>
             <Link href="/pashu-bazaar/animals">

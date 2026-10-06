@@ -44,10 +44,10 @@ export async function AdvisoryHeader({
         <Link
           className={styles.serviceBrand}
           href="/home"
-          aria-label={t("Raj Kisan Suvidha home", "राज किसान सुविधा होम")}
+          aria-label={t("Bihar Kisan Suvidha home", "बिहार किसान सुविधा होम")}
         >
           <Leaf size={27} />
-          <span>{t("Raj Kisan Suvidha", "राज किसान सुविधा")}</span>
+          <span>{t("Bihar Kisan Suvidha", "बिहार किसान सुविधा")}</span>
         </Link>
       </div>
       <div className={styles.moduleTitle}>
@@ -141,8 +141,11 @@ export async function AdvisoryContext({
       <ContextItem
         icon={MapPin}
         label={t("Location", "स्थान")}
-        value="Raipur, Deoria"
-        detail={t("Uttar Pradesh|274 km away", "उत्तर प्रदेश|274 किमी दूर")}
+        value={t("Amhara, Bihta", "अमहरा, बिहटा")}
+        detail={t(
+          "Patna, Bihar|Your saved farm",
+          "पटना, बिहार|आपका सहेजा हुआ खेत",
+        )}
       />
       <ContextItem
         icon={Sprout}

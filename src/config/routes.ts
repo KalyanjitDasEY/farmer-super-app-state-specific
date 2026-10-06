@@ -8,6 +8,7 @@ const routeFor = (locale: Locale, path: string) => {
 
 export const routes = {
   gateway: (locale: Locale) => routeFor(locale, "/"),
+  imageCredits: (locale: Locale) => routeFor(locale, "/image-credits"),
   login: (locale: Locale) => routeFor(locale, "/login"),
   registerIdentity: (locale: Locale) => routeFor(locale, "/register/identity"),
   registerLocation: (locale: Locale) => routeFor(locale, "/register/location"),

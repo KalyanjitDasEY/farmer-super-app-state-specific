@@ -48,7 +48,7 @@ export function PashuHeader({
             <Beef size={29} />
           </span>
           <span>
-            <strong>Raj Kisan</strong>
+            <strong>Bihar Kisan</strong>
             <strong>SUVIDHA</strong>
             <small>{t("Pashu Bazaar", "पशु बाज़ार")}</small>
           </span>
@@ -59,7 +59,7 @@ export function PashuHeader({
         <span>
           <strong>Ram Prasad Farm</strong>
           <small>
-            {t("Raipur, Deoria, UP", "रायपुर, देवरिया, उत्तर प्रदेश")}
+            {t("Amhara, Bihta, Patna, Bihar", "अमहरा, बिहटा, पटना, बिहार")}
           </small>
         </span>
         <ChevronDown size={18} />
@@ -216,7 +216,7 @@ export function SellerCard({ compact = false }: { compact?: boolean }) {
           <h2>Krishna Dairy Farm</h2>
           <small>
             <ShieldCheck size={14} />
-            {t("Verified Seller", "सत्यापित विक्रेता")}
+            {t("Demo Seller", "डेमो विक्रेता")}
           </small>
         </span>
       </div>
@@ -226,7 +226,7 @@ export function SellerCard({ compact = false }: { compact?: boolean }) {
       </p>
       <p>
         <MapPin size={17} />
-        {t("Deoria, Uttar Pradesh", "देवरिया, उत्तर प्रदेश")}
+        {t("Bihta, Patna, Bihar", "बिहटा, पटना, बिहार")}
         <br />
         {t("12 km from your location", "आपके स्थान से 12 किमी")}
       </p>
@@ -241,7 +241,7 @@ export function SellerCard({ compact = false }: { compact?: boolean }) {
         </span>
         <span>
           <b>{t("2.5 Years", "2.5 वर्ष")}</b>
-          {t("On Raj Kisan Suvidha", "Raj Kisan Suvidha पर")}
+          {t("On Bihar Kisan Suvidha", "बिहार किसान सुविधा पर")}
         </span>
       </div>
       <Link href="/pashu-bazaar/listings">
@@ -263,11 +263,11 @@ export function TrustStrip() {
       <div>
         <ShieldCheck size={25} />
         <span>
-          <strong>{t("Verified Animals", "सत्यापित पशु")}</strong>
+          <strong>{t("Sample Listings", "नमूना सूचियां")}</strong>
           <small>
             {t(
-              "Health checked and verified.",
-              "स्वास्थ्य की जाँच और सत्यापन किया गया।",
+              "Confirm health records with the seller.",
+              "स्वास्थ्य रिकॉर्ड की पुष्टि विक्रेता से करें।",
             )}
           </small>
         </span>
@@ -275,20 +275,23 @@ export function TrustStrip() {
       <div>
         <ShieldCheck size={25} />
         <span>
-          <strong>{t("Safe Payments", "सुरक्षित भुगतान")}</strong>
+          <strong>{t("Discuss Payment", "भुगतान पर चर्चा करें")}</strong>
           <small>
-            {t("Secure buyer protection.", "सुरक्षित खरीदार संरक्षण।")}
+            {t(
+              "Agree on terms directly with the seller.",
+              "शर्तें सीधे विक्रेता से तय करें।",
+            )}
           </small>
         </span>
       </div>
       <div>
         <ShieldCheck size={25} />
         <span>
-          <strong>{t("Easy Returns", "आसान वापसी")}</strong>
+          <strong>{t("Before You Buy", "खरीदने से पहले")}</strong>
           <small>
             {t(
-              "7-day return on eligible orders.",
-              "पात्र ऑर्डर पर 7 दिन में वापसी।",
+              "Inspect the animal and confirm the terms.",
+              "पशु देखें और शर्तों की पुष्टि करें।",
             )}
           </small>
         </span>
@@ -296,9 +299,12 @@ export function TrustStrip() {
       <div>
         <MessageCircleMore size={25} />
         <span>
-          <strong>{t("Expert Support", "विशेषज्ञ सहायता")}</strong>
+          <strong>{t("Animal Care", "पशु देखभाल")}</strong>
           <small>
-            {t("Livestock experts anytime.", "पशुधन विशेषज्ञ कभी भी उपलब्ध।")}
+            {t(
+              "Ask a local vet for health advice.",
+              "स्वास्थ्य सलाह के लिए स्थानीय पशु चिकित्सक से पूछें।",
+            )}
           </small>
         </span>
       </div>

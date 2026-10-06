@@ -7,12 +7,12 @@ import styles from "@/features/soil-health/soil-health.module.css";
 import { useLocale } from "@/i18n/LocaleProvider";
 
 const pdfLines = [
-  "RAJ KISAN SUVIDHA - SOIL HEALTH CARD",
-  "Report Reference: SHC-RJ-24-05-1231",
+  "BIHAR FARMER DEMO - SOIL HEALTH CARD",
+  "Report Reference: SHC-BR-24-05-1231",
   "Farmer: Ramesh Kumar",
-  "Khasra / Parcel: 123/1, Morija, Chomu, Jaipur",
+  "Khesra / Parcel: 123/1, Amhara, Bihta, Patna, Bihar",
   "Test Date: 15 May 2024",
-  "Soil Type: Loamy Sand",
+  "Soil Type: Loamy Soil",
   "",
   "pH: 7.6 (Normal)",
   "EC: 0.42 dS/m (Normal)",
@@ -25,6 +25,7 @@ const pdfLines = [
   "Organic Carbon: 0.62% (Low)",
   "",
   "Overall Soil Health: Good",
+  "Demo report only - not an official laboratory result.",
 ];
 
 const escapePdfText = (value: string) =>
@@ -81,7 +82,7 @@ export function SoilHealthActions() {
     const url = URL.createObjectURL(createReportPdf());
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "soil-health-card-SHC-RJ-24-05-1231.pdf";
+    anchor.download = "soil-health-card-SHC-BR-24-05-1231.pdf";
     anchor.click();
     URL.revokeObjectURL(url);
   };

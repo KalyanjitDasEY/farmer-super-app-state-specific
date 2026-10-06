@@ -258,7 +258,7 @@ export function DashboardPage({
             <div className={styles.weatherTop}>
               <span>
                 <MapPin size={17} aria-hidden="true" />
-                {dictionary["common.jaipur"]}, {dictionary["common.rajasthan"]}
+                {dictionary["common.patna"]}, {dictionary["common.bihar"]}
               </span>
               <strong>{dictionary["home.today"]}</strong>
             </div>

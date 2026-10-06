@@ -83,8 +83,8 @@ export default async function MachineryCompletionPage() {
           <h1>{t("Service Completed!", "सेवा पूर्ण हुई!")}</h1>
           <p>
             {t(
-              "Thank you for choosing Raj Kisan Suvidha Machinery Services.",
-              "Raj Kisan Suvidha मशीनरी सेवाएँ चुनने के लिए धन्यवाद।",
+              "Thank you for exploring Bihar Kisan Suvidha Machinery Services.",
+              "बिहार किसान सुविधा की मशीनरी सेवाओं का डेमो देखने के लिए धन्यवाद।",
             )}
           </p>
           <small>
@@ -163,8 +163,8 @@ export default async function MachineryCompletionPage() {
           </h2>
           <p>
             {t(
-              "Your payment is secured with Raj Kisan Suvidha. We ensure transparent and reliable services.",
-              "आपका भुगतान Raj Kisan Suvidha के साथ सुरक्षित है। हम पारदर्शी और विश्वसनीय सेवाएँ सुनिश्चित करते हैं।",
+              "This demo does not collect or process real payments.",
+              "यह डेमो वास्तविक भुगतान नहीं लेता या संसाधित करता है।",
             )}
           </p>
         </section>
@@ -213,8 +213,8 @@ export default async function MachineryCompletionPage() {
       <aside className={styles.sourceNote}>
         <ShieldCheck size={17} />{" "}
         {t(
-          "Thank you for using Raj Kisan Suvidha Machinery Services!",
-          "Raj Kisan Suvidha मशीनरी सेवाओं का उपयोग करने के लिए धन्यवाद!",
+          "Thank you for exploring Bihar Kisan Suvidha Machinery Services!",
+          "बिहार किसान सुविधा मशीनरी सेवाओं का डेमो देखने के लिए धन्यवाद!",
         )}
       </aside>
     </div>

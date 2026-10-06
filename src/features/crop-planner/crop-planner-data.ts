@@ -1,4 +1,4 @@
-export type CropId = "paddy" | "pearl-millet" | "maize" | "groundnut";
+export type CropId = "paddy" | "arhar" | "maize" | "moong";
 
 export type CropPlan = {
   id: CropId;
@@ -18,9 +18,10 @@ export type CropPlan = {
 };
 
 export const locations = [
-  "Morija, Chomu, Jaipur, Rajasthan",
-  "Govindgarh, Chomu, Jaipur, Rajasthan",
-  "Kaladera, Chomu, Jaipur, Rajasthan",
+  "Amhara, Bihta, Patna, Bihar",
+  "Danapur, Patna, Bihar",
+  "Nalanda, Bihar",
+  "Muzaffarpur, Bihar",
 ] as const;
 
 export const seasons = ["Kharif 2026", "Rabi 2026-27", "Zaid 2027"] as const;
@@ -29,13 +30,13 @@ export const cropPlans: Record<CropId, CropPlan> = {
   paddy: {
     id: "paddy",
     name: "Paddy (Dhan)",
-    variety: "PR-126",
+    variety: "Rajendra Mahsuri",
     image: "/images/authenticated/farms/paddy-field.jpg",
     stageName: "Transplanting",
     stageAdvice:
       "Timely transplanting ensures good tillering and better yield. Maintain a water level of 2-3 cm.",
     nextActivity: "Basal Fertilizer",
-    recommendation: "25 kg Urea / Acre",
+    recommendation: "Use soil test guidance for nutrients",
     stages: [
       {
         name: "Land Preparation",
@@ -82,66 +83,66 @@ export const cropPlans: Record<CropId, CropPlan> = {
       },
     ],
   },
-  "pearl-millet": {
-    id: "pearl-millet",
-    name: "Pearl Millet (Bajra)",
-    variety: "HHB 67 Improved",
-    image: "/images/authenticated/dashboard-wheat.jpg",
+  arhar: {
+    id: "arhar",
+    name: "Pigeon Pea (Arhar)",
+    variety: "Bahar",
+    image: "/images/authenticated/farms/chickpea-field.jpg",
     stageName: "Sowing",
     stageAdvice:
-      "Sow in rows after effective monsoon rainfall and keep a uniform plant population.",
-    nextActivity: "Gap Filling & Thinning",
-    recommendation: "Maintain 10-12 cm plant spacing",
+      "Sow in well-drained soil after the monsoon begins; leave space for branching.",
+    nextActivity: "First Weeding",
+    recommendation: "Weed early and avoid waterlogging",
     stages: [
       {
         name: "Land Preparation",
         dates: "01 Jun - 20 Jun",
         status: "completed",
-        advice: "Use one deep ploughing followed by two harrowings.",
+        advice: "Prepare a well-drained seedbed before the monsoon.",
       },
       {
         name: "Seed Treatment",
         dates: "20 Jun - 25 Jun",
         status: "completed",
-        advice: "Treat certified seed before sowing.",
+        advice: "Treat seed and use locally suitable varieties.",
       },
       {
         name: "Sowing",
         dates: "25 Jun - 10 Jul",
         status: "current",
         advice:
-          "Sow in rows after effective monsoon rainfall and keep a uniform plant population.",
+          "Sow in well-drained soil after the monsoon begins; leave space for branching.",
       },
       {
-        name: "Gap Filling & Thinning",
+        name: "First Weeding",
         dates: "10 Jul - 20 Jul",
         status: "upcoming",
-        advice: "Thin crowded seedlings and fill gaps within two weeks.",
+        advice: "Remove weeds while plants are young.",
       },
       {
-        name: "Top Dressing",
+        name: "Drainage Check",
         dates: "20 Jul - 05 Aug",
         status: "upcoming",
-        advice: "Apply nitrogen when adequate soil moisture is available.",
+        advice: "Keep drainage channels clear during heavy rain.",
       },
       {
-        name: "Earhead Formation",
-        dates: "25 Aug - 15 Sep",
+        name: "Flowering",
+        dates: "01 Nov - 30 Nov",
         status: "upcoming",
-        advice: "Monitor downy mildew and maintain field sanitation.",
+        advice: "Monitor pod borers and follow local advisory guidance.",
       },
       {
         name: "Harvesting",
-        dates: "20 Sep - 10 Oct",
+        dates: "15 Jan - 15 Feb",
         status: "upcoming",
-        advice: "Harvest mature earheads before grain shedding starts.",
+        advice: "Harvest when most pods are dry.",
       },
     ],
   },
   maize: {
     id: "maize",
     name: "Maize (Makka)",
-    variety: "HQPM-1",
+    variety: "Shaktiman-5",
     image: "/images/authenticated/pest-disease/crop-maize.jpg",
     stageName: "Sowing",
     stageAdvice:
@@ -159,7 +160,8 @@ export const cropPlans: Record<CropId, CropPlan> = {
         name: "Seed Treatment",
         dates: "15 Jun - 20 Jun",
         status: "completed",
-        advice: "Use treated hybrid seed suitable for Rajasthan.",
+        advice:
+          "Use treated seed suited to local rainfall and soil conditions.",
       },
       {
         name: "Sowing",
@@ -194,47 +196,47 @@ export const cropPlans: Record<CropId, CropPlan> = {
       },
     ],
   },
-  groundnut: {
-    id: "groundnut",
-    name: "Groundnut (Moongfali)",
-    variety: "RG 425",
+  moong: {
+    id: "moong",
+    name: "Green Gram (Moong)",
+    variety: "Samrat",
     image: "/images/authenticated/farms/chickpea-field.jpg",
     stageName: "Sowing",
     stageAdvice:
-      "Sow treated kernels in moist, well-drained soil at the recommended spacing.",
-    nextActivity: "Gypsum Application",
-    recommendation: "Apply at flowering as advised",
+      "Sow treated seed in well-drained soil after the monsoon begins.",
+    nextActivity: "First Weeding",
+    recommendation: "Remove weeds before flowering",
     stages: [
       {
         name: "Land Preparation",
         dates: "01 Jun - 15 Jun",
         status: "completed",
-        advice: "Prepare loose soil with good drainage.",
+        advice: "Prepare a well-drained seedbed.",
       },
       {
         name: "Seed Treatment",
         dates: "15 Jun - 20 Jun",
         status: "completed",
-        advice: "Treat kernels with recommended fungicide and culture.",
+        advice: "Treat seed with locally recommended Rhizobium culture.",
       },
       {
         name: "Sowing",
         dates: "20 Jun - 05 Jul",
         status: "current",
         advice:
-          "Sow treated kernels in moist, well-drained soil at the recommended spacing.",
+          "Sow treated seed in well-drained soil after the monsoon begins.",
       },
       {
-        name: "Gypsum Application",
+        name: "First Weeding",
         dates: "20 Jul - 05 Aug",
         status: "upcoming",
-        advice: "Apply gypsum near the plant row at flowering.",
+        advice: "Remove weeds while seedlings are young.",
       },
       {
-        name: "Interculture",
+        name: "Flowering",
         dates: "25 Jul - 10 Aug",
         status: "upcoming",
-        advice: "Control weeds before pegging starts.",
+        advice: "Watch for pests and avoid standing water.",
       },
       {
         name: "Pod Development",
@@ -246,7 +248,7 @@ export const cropPlans: Record<CropId, CropPlan> = {
         name: "Harvesting",
         dates: "25 Sep - 20 Oct",
         status: "upcoming",
-        advice: "Lift plants when inner shells show dark markings.",
+        advice: "Pick mature pods in several rounds to reduce losses.",
       },
     ],
   },
@@ -257,16 +259,17 @@ export function isCropId(value: string | undefined): value is CropId {
 }
 
 const cropPlannerTextHindi: Readonly<Record<string, string>> = {
-  "Morija, Chomu, Jaipur, Rajasthan": "मोरीजा, चौमूं, जयपुर, राजस्थान",
-  "Govindgarh, Chomu, Jaipur, Rajasthan": "गोविंदगढ़, चौमूं, जयपुर, राजस्थान",
-  "Kaladera, Chomu, Jaipur, Rajasthan": "कालाडेरा, चौमूं, जयपुर, राजस्थान",
+  "Amhara, Bihta, Patna, Bihar": "अमहरा, बिहटा, पटना, बिहार",
+  "Danapur, Patna, Bihar": "दानापुर, पटना, बिहार",
+  "Nalanda, Bihar": "नालंदा, बिहार",
+  "Muzaffarpur, Bihar": "मुजफ्फरपुर, बिहार",
   "Kharif 2026": "खरीफ 2026",
   "Rabi 2026-27": "रबी 2026-27",
   "Zaid 2027": "ज़ायद 2027",
   "Paddy (Dhan)": "धान",
-  "Pearl Millet (Bajra)": "बाजरा",
+  "Pigeon Pea (Arhar)": "अरहर",
   "Maize (Makka)": "मक्का",
-  "Groundnut (Moongfali)": "मूंगफली",
+  "Green Gram (Moong)": "मूंग",
   Transplanting: "रोपाई",
   Sowing: "बुवाई",
   "Land Preparation": "खेत की तैयारी",
@@ -276,13 +279,9 @@ const cropPlannerTextHindi: Readonly<Record<string, string>> = {
   Flowering: "फूल आना",
   Harvesting: "कटाई",
   "Seed Treatment": "बीज उपचार",
-  "Gap Filling & Thinning": "रिक्त स्थान भरना और छंटाई",
-  "Top Dressing": "ऊपरी उर्वरक",
-  "Earhead Formation": "बालियों का बनना",
+  "Drainage Check": "जल निकासी की जांच",
   "First Weeding": "पहली निराई",
   Tasseling: "मंजरी निकलना",
-  "Gypsum Application": "जिप्सम का प्रयोग",
-  Interculture: "अंतर-खेती",
   "Pod Development": "फली का विकास",
   "01 May - 20 May": "01 मई - 20 मई",
   "15 May - 10 Jun": "15 मई - 10 जून",
@@ -297,6 +296,8 @@ const cropPlannerTextHindi: Readonly<Record<string, string>> = {
   "10 Jul - 20 Jul": "10 जुलाई - 20 जुलाई",
   "20 Jul - 05 Aug": "20 जुलाई - 05 अगस्त",
   "25 Aug - 15 Sep": "25 अगस्त - 15 सितंबर",
+  "01 Nov - 30 Nov": "01 नवंबर - 30 नवंबर",
+  "15 Jan - 15 Feb": "15 जनवरी - 15 फ़रवरी",
   "20 Sep - 10 Oct": "20 सितंबर - 10 अक्टूबर",
   "01 Jun - 15 Jun": "01 जून - 15 जून",
   "15 Jun - 20 Jun": "15 जून - 20 जून",
@@ -309,7 +310,8 @@ const cropPlannerTextHindi: Readonly<Record<string, string>> = {
   "25 Sep - 20 Oct": "25 सितंबर - 20 अक्टूबर",
   "Timely transplanting ensures good tillering and better yield. Maintain a water level of 2-3 cm.":
     "समय पर रोपाई से अच्छी कल्ले निकलती हैं और उपज बेहतर होती है। पानी का स्तर 2-3 सेमी रखें।",
-  "25 kg Urea / Acre": "25 किग्रा यूरिया / एकड़",
+  "Use soil test guidance for nutrients":
+    "पोषक तत्वों के लिए मिट्टी जांच के अनुसार सलाह लें",
   "Level the field and prepare well-puddled soil.":
     "खेत को समतल करें और अच्छी तरह मचाई हुई मिट्टी तैयार करें।",
   "Use healthy, treated seed in a raised nursery bed.":
@@ -322,28 +324,26 @@ const cropPlannerTextHindi: Readonly<Record<string, string>> = {
     "नमी की कमी से बचाएं और पत्ती लपेटक की निगरानी करें।",
   "Harvest when 80-85% of grains turn golden yellow.":
     "80-85% दाने सुनहरे पीले होने पर कटाई करें।",
-  "Sow in rows after effective monsoon rainfall and keep a uniform plant population.":
-    "पर्याप्त मानसूनी वर्षा के बाद कतारों में बुवाई करें और पौधों की संख्या समान रखें।",
-  "Maintain 10-12 cm plant spacing": "पौधों के बीच 10-12 सेमी दूरी रखें",
-  "Use one deep ploughing followed by two harrowings.":
-    "एक गहरी जुताई के बाद दो बार हैरो चलाएं।",
-  "Treat certified seed before sowing.":
-    "बुवाई से पहले प्रमाणित बीज का उपचार करें।",
-  "Thin crowded seedlings and fill gaps within two weeks.":
-    "घने पौधों की छंटाई करें और दो सप्ताह में रिक्त स्थान भरें।",
-  "Apply nitrogen when adequate soil moisture is available.":
-    "मिट्टी में पर्याप्त नमी होने पर नाइट्रोजन डालें।",
-  "Monitor downy mildew and maintain field sanitation.":
-    "मृदुरोमिल आसिता की निगरानी करें और खेत साफ रखें।",
-  "Harvest mature earheads before grain shedding starts.":
-    "दाने झड़ने से पहले पकी बालियों की कटाई करें।",
+  "Sow in well-drained soil after the monsoon begins; leave space for branching.":
+    "मानसून शुरू होने पर अच्छी जल निकासी वाली मिट्टी में बुवाई करें और शाखाओं के लिए जगह रखें।",
+  "Weed early and avoid waterlogging": "जल्दी निराई करें और जलभराव से बचें",
+  "Prepare a well-drained seedbed before the monsoon.":
+    "मानसून से पहले अच्छी जल निकासी वाली बीज शैया तैयार करें।",
+  "Treat seed and use locally suitable varieties.":
+    "बीज उपचार करें और स्थानीय परिस्थितियों के अनुकूल किस्में लें।",
+  "Remove weeds while plants are young.": "पौधे छोटे हों तभी खरपतवार हटाएं।",
+  "Keep drainage channels clear during heavy rain.":
+    "तेज बारिश में जल निकासी की नालियां साफ रखें।",
+  "Monitor pod borers and follow local advisory guidance.":
+    "फली छेदक की निगरानी करें और स्थानीय सलाह का पालन करें।",
+  "Harvest when most pods are dry.": "अधिकांश फलियां सूख जाने पर कटाई करें।",
   "Place seed at uniform depth in moist soil and maintain proper row spacing.":
     "नम मिट्टी में बीज समान गहराई पर डालें और कतारों की उचित दूरी रखें।",
   "Complete 20-25 days after sowing": "बुवाई के 20-25 दिन बाद पूरा करें",
   "Prepare a fine seedbed with good drainage.":
     "अच्छी जल निकासी वाली महीन बीज शैया तैयार करें।",
-  "Use treated hybrid seed suitable for Rajasthan.":
-    "राजस्थान के लिए उपयुक्त उपचारित संकर बीज का उपयोग करें।",
+  "Use treated seed suited to local rainfall and soil conditions.":
+    "स्थानीय वर्षा और मिट्टी के अनुकूल उपचारित बीज का उपयोग करें।",
   "Remove weeds before they compete with the young crop.":
     "खरपतवारों को नई फसल से प्रतिस्पर्धा करने से पहले हटाएं।",
   "Side-dress nitrogen and irrigate lightly if required.":
@@ -352,21 +352,21 @@ const cropPlannerTextHindi: Readonly<Record<string, string>> = {
     "मंजरी और रेशे निकलने के समय नमी की कमी न होने दें।",
   "Harvest when husks dry and grains become firm.":
     "भुट्टे का आवरण सूखने और दाने सख्त होने पर कटाई करें।",
-  "Sow treated kernels in moist, well-drained soil at the recommended spacing.":
-    "उपचारित दानों को नम, अच्छी जल निकासी वाली मिट्टी में सुझाई गई दूरी पर बोएं।",
-  "Apply at flowering as advised": "सलाह के अनुसार फूल आने पर डालें",
-  "Prepare loose soil with good drainage.":
-    "अच्छी जल निकासी वाली भुरभुरी मिट्टी तैयार करें।",
-  "Treat kernels with recommended fungicide and culture.":
-    "दाने को सुझाए गए फफूंदनाशक और कल्चर से उपचारित करें।",
-  "Apply gypsum near the plant row at flowering.":
-    "फूल आने पर पौधों की कतार के पास जिप्सम डालें।",
-  "Control weeds before pegging starts.":
-    "पेगिंग शुरू होने से पहले खरपतवार नियंत्रित करें।",
+  "Sow treated seed in well-drained soil after the monsoon begins.":
+    "मानसून शुरू होने पर उपचारित बीज अच्छी जल निकासी वाली मिट्टी में बोएं।",
+  "Remove weeds before flowering": "फूल आने से पहले खरपतवार हटाएं",
+  "Prepare a well-drained seedbed.":
+    "अच्छी जल निकासी वाली बीज शैया तैयार करें।",
+  "Treat seed with locally recommended Rhizobium culture.":
+    "स्थानीय सलाह के अनुसार राइजोबियम कल्चर से बीज उपचार करें।",
+  "Remove weeds while seedlings are young.":
+    "अंकुर छोटे हों तभी खरपतवार हटाएं।",
+  "Watch for pests and avoid standing water.":
+    "कीटों पर नजर रखें और पानी जमा न होने दें।",
   "Maintain moisture while avoiding waterlogging.":
     "जलभराव से बचते हुए नमी बनाए रखें।",
-  "Lift plants when inner shells show dark markings.":
-    "फलियों के अंदर गहरे निशान दिखने पर पौधे उखाड़ें।",
+  "Pick mature pods in several rounds to reduce losses.":
+    "नुकसान कम करने के लिए पकी फलियां कई बार में तोड़ें।",
 };
 
 export function translateCropPlannerText(t: Translator, value: string): string {

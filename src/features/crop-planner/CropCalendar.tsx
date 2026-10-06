@@ -267,8 +267,8 @@ export function CropCalendar({
         <CalendarDays size={24} aria-hidden="true" />
         <span>
           {t(
-            "Calendar is based on Rajasthan Agriculture Department recommendations.",
-            "कैलेंडर राजस्थान कृषि विभाग की सिफारिशों पर आधारित है।",
+            "This sample calendar is illustrative; check local advisories before field work.",
+            "यह नमूना कैलेंडर उदाहरण के लिए है; खेत का काम करने से पहले स्थानीय सलाह देखें।",
           )}
         </span>
         <ChevronRight size={23} aria-hidden="true" />

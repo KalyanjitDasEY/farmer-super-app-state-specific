@@ -306,8 +306,8 @@ export default async function AnimalEnquiryPage() {
         <ShieldCheck size={22} />
         <strong>
           {t(
-            "Raj Kisan Suvidha ensures safe, transparent and trusted livestock trading",
-            "Raj Kisan Suvidha सुरक्षित, पारदर्शी और भरोसेमंद पशुधन व्यापार सुनिश्चित करता है",
+            "Bihar Kisan Suvidha shows a livestock enquiry demo, not real trading",
+            "बिहार किसान सुविधा पशुधन पूछताछ का डेमो है, वास्तविक व्यापार नहीं",
           )}
         </strong>
       </aside>

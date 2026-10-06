@@ -9,7 +9,7 @@ export type FarmerApplicationProfile = {
   personal: {
     fullName: LocalizedText;
     farmerId: string;
-    janAadhaar: string;
+    aadhaar: string;
     mobile: string;
     dateOfBirth: LocalizedText;
     gender: LocalizedText;
@@ -61,7 +61,7 @@ export function buildFarmerApplicationProfile(
     personal: {
       fullName: snapshot.farmerName,
       farmerId: snapshot.farmerId,
-      janAadhaar: snapshot.janAadhaarMasked,
+      aadhaar: snapshot.aadhaarMasked,
       mobile: "+91 98XXXXXX56",
       dateOfBirth: text("14 August 1984", "14 अगस्त 1984"),
       gender: text("Male", "पुरुष"),
@@ -72,11 +72,11 @@ export function buildFarmerApplicationProfile(
         "Ward 8, Near Gram Panchayat",
         "वार्ड 8, ग्राम पंचायत के पास",
       ),
-      village: text("Morija", "मोरीजा"),
-      tehsil: text("Chomu", "चौमूं"),
-      district: text("Jaipur", "जयपुर"),
-      state: text("Rajasthan", "राजस्थान"),
-      pinCode: "303702",
+      village: text("Amhara", "अमहरा"),
+      tehsil: text("Bihta", "बिहटा"),
+      district: text("Patna", "पटना"),
+      state: text("Bihar", "बिहार"),
+      pinCode: "801103",
     },
     land: {
       area: `${snapshot.landAreaHectares.toFixed(2)} ha`,
@@ -89,9 +89,9 @@ export function buildFarmerApplicationProfile(
     },
     bank: {
       bankName: text("Bank of Baroda", "बैंक ऑफ बड़ौदा"),
-      branch: text("Chomu, Jaipur", "चौमूं, जयपुर"),
+      branch: text("Bihta, Patna", "बिहटा, पटना"),
       accountNumber: "XXXX XXXX 9876",
-      ifsc: "BARB0CHOMUX",
+      ifsc: "DEMO0000000",
       aadhaarSeeded: text("Linked and verified", "लिंक एवं सत्यापित"),
       ekycStatus: text("Completed on 12 May 2026", "12 मई 2026 को पूर्ण"),
     },
@@ -101,10 +101,10 @@ export function buildFarmerApplicationProfile(
 const commonDocuments: ApplicationDocumentRequirement[] = [
   {
     id: "farmer-identity",
-    name: text("Farmer identity and Jan Aadhaar", "किसान पहचान एवं जन आधार"),
+    name: text("Farmer identity and Aadhaar", "किसान पहचान एवं आधार"),
     description: text(
-      "Verified identity from your Raj Kisan profile.",
-      "आपकी राज किसान प्रोफाइल से सत्यापित पहचान।",
+      "Illustrative identity from your Bihar Kisan demo profile.",
+      "बिहार किसान डेमो प्रोफाइल से सांकेतिक पहचान।",
     ),
     source: "profile",
     required: true,
@@ -117,8 +117,8 @@ const commonDocuments: ApplicationDocumentRequirement[] = [
       "डिजिटल भूमि रिकॉर्ड / जमाबंदी",
     ),
     description: text(
-      "Linked land record containing 8 Khasra entries.",
-      "8 खसरा प्रविष्टियों वाला लिंक किया गया भूमि रिकॉर्ड।",
+      "Demo land record containing 8 Khesra entries.",
+      "8 खेसरा प्रविष्टियों वाला डेमो भूमि रिकॉर्ड।",
     ),
     source: "profile",
     required: true,

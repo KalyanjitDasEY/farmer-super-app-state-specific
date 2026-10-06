@@ -101,8 +101,8 @@ export default async function MachineryDetailPage() {
             <span>
               <strong>{t("Main Office", "मुख्य कार्यालय")}</strong>
               {t(
-                "Krishna FPO Society, Pusa Basmati, Raipur, Deoria, UP – 274001",
-                "Krishna FPO Society, Pusa Basmati, रायपुर, देवरिया, उत्तर प्रदेश – 274001",
+                "Krishna FPO Society, Amhara, Bihta, Patna, Bihar – 801103",
+                "Krishna FPO Society, अमहरा, बिहटा, पटना, बिहार – 801103",
               )}
               <small>
                 {t(
